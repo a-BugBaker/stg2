@@ -1,0 +1,58 @@
+[
+    {
+        "路径":"",
+        "objects":
+        {
+            "boxes":[],
+            "labels":[],
+            "scores":[],
+            // 注意，上述三个字段的列表中的元素个数是相等的，也是一一对应的，同时
+            // 也要给他们从前到后编号idx，从0开始，这个idx后面就用到了，idx每帧重置
+            "record_dict" // 这个字段删除
+            "record_list" // 这个字段删除
+        },
+        "hierarchy":{
+            // 这是一个表示层次映射的字典，从layer1-3，层次依次降低，例如人->衣服->logo
+            // 元素命名规则：这里面出现的名字是输出json中的tag，就是label（+数字），
+            //因为同一种label可能有多个，若在该帧中只有一个则没有数字,数字的顺序和前面的顺序一致，例如：man1一定是前面boxes中第一个man
+            "layer1_nodes":[这里是第一层的元素]
+            "layer2_mapping":{
+                "layer1_nodes中的元素": [
+                对应的第二层的元素列表
+                ],
+                //依次类推
+            }
+            "layer3_mapping":{
+                "layer2_mapping中的元素": [
+                对应的第三层的元素列表
+                ],
+                //依次类推
+            }
+        }
+        "attributes": {
+      "idx前面提到的": "属性描述",
+      // 以此类推
+        }
+        "relations": [
+      {
+        // 下面是一个例子
+        "idx": [
+          节点1,
+          节点2
+        ],
+        "subject_label": "basketball court",
+        "object_label": "poster1",
+        "predicate": "poster1 is on basketball court",
+        "confidence": 1.0,
+        "all_candidates": [// 这个字段不要
+          "basketball court has poster1",
+          "poster1 is on basketball court",
+          "basketball court shows poster1",
+          "poster1 displayed on basketball court",
+          "basketball court features poster1"
+        ]
+        // 依次类推
+      },
+    },
+    {多帧，以此类推}
+]
