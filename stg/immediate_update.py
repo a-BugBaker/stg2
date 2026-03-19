@@ -12,8 +12,8 @@
        - 为每个新实体生成 entity_appeared 事件 + entity_state 记忆
     4. 对于已匹配的实体：
        - 位移超过阈值 → 生成 entity_moved 事件
-       - 关系发生变化 → 生成 relation_changed 事件
-       - 属性发生变化 → 生成 attribute_changed 事件
+       - 关系发生变化 → 生成 relation_changed 事件（带语义相似度判断 + 去抖动）
+       - 属性发生变化 → 生成 attribute_changed 事件（带语义相似度判断 + 去抖动）
        - 更新该实体的 entity_state 记忆
     5. 对于新出现的实体 → 生成 entity_appeared + entity_state
     6. 对于消失的实体 → 生成 entity_disappeared 事件
@@ -25,20 +25,175 @@ from __future__ import annotations
 
 import hashlib
 import json
-from typing import Any, Dict, List, Sequence
+from collections import defaultdict
+from typing import Any, Dict, List, Sequence, Set, Tuple
 
 from .config import STGConfig
 from .entity_tracker import EntityTracker
 from .event_generator import EventGenerator
 from .utils import (
     EmbeddingManager,
+    Relation,
     compute_displacement,
-    diff_relations,
+    diff_relations_semantic,
+    diff_attributes_semantic,
     entity_state_description,
     filter_objects_by_score,
     normalize_attributes,
+    normalize_relations,
 )
 from .vector_store import VectorStore
+
+
+class ChangeDebouncer:
+    """关系/属性变化去抖动管理器。
+
+    设计思路：
+        - 新增的关系/属性：立即确认（不去抖）
+        - 移除的关系/属性：连续 N 帧未出现才确认移除
+
+    这样可以避免因检测器抖动导致的关系/属性"闪烁"误报。
+    """
+
+    def __init__(
+        self,
+        relation_debounce_frames: int = 3,
+        attribute_debounce_frames: int = 3,
+    ):
+        """初始化去抖动器。
+
+        Args:
+            relation_debounce_frames: 关系移除需要连续多少帧未出现才确认
+            attribute_debounce_frames: 属性移除需要连续多少帧未出现才确认
+        """
+        self.relation_debounce_frames = relation_debounce_frames
+        self.attribute_debounce_frames = attribute_debounce_frames
+
+        # 记录每个实体"待移除"关系的连续未出现帧数
+        # {entity_id: {relation: 连续未出现帧数}}
+        self._pending_relation_removals: Dict[str, Dict[Relation, int]] = defaultdict(dict)
+
+        # 记录每个实体"待移除"属性的连续未出现帧数
+        # {entity_id: {attribute: 连续未出现帧数}}
+        self._pending_attribute_removals: Dict[str, Dict[str, int]] = defaultdict(dict)
+
+        # 记录每个实体当前已确认的关系和属性（用于计算真实变化）
+        self._confirmed_relations: Dict[str, Set[Relation]] = defaultdict(set)
+        self._confirmed_attributes: Dict[str, Set[str]] = defaultdict(set)
+
+    def reset(self) -> None:
+        """重置所有状态。"""
+        self._pending_relation_removals.clear()
+        self._pending_attribute_removals.clear()
+        self._confirmed_relations.clear()
+        self._confirmed_attributes.clear()
+
+    def process_relation_change(
+        self,
+        entity_id: str,
+        prev_rels: Set[Relation],
+        curr_rels: Set[Relation],
+        semantic_added: List[Relation],
+        semantic_removed: List[Relation],
+    ) -> Dict[str, List[Relation]]:
+        """处理关系变化，应用去抖动逻辑。
+
+        Args:
+            entity_id: 实体ID
+            prev_rels: 上一帧的关系集合（归一化后）
+            curr_rels: 当前帧的关系集合（归一化后）
+            semantic_added: 语义比较后判定为新增的关系
+            semantic_removed: 语义比较后判定为移除的关系
+
+        Returns:
+            {"added": 确认新增的关系, "removed": 确认移除的关系}
+        """
+        # 初始化该实体的确认关系集合（首次处理时）
+        if entity_id not in self._confirmed_relations:
+            self._confirmed_relations[entity_id] = prev_rels.copy()
+
+        confirmed = self._confirmed_relations[entity_id]
+        pending = self._pending_relation_removals[entity_id]
+
+        # 1) 处理新增：立即确认
+        final_added: List[Relation] = []
+        for rel in semantic_added:
+            if rel not in confirmed:
+                confirmed.add(rel)
+                final_added.append(rel)
+                # 如果之前在待移除列表中，取消待移除
+                pending.pop(rel, None)
+
+        # 2) 处理移除：需要去抖动
+        final_removed: List[Relation] = []
+        for rel in semantic_removed:
+            if rel in confirmed:
+                # 累计连续未出现帧数
+                pending[rel] = pending.get(rel, 0) + 1
+                if pending[rel] >= self.relation_debounce_frames:
+                    # 达到阈值，确认移除
+                    confirmed.discard(rel)
+                    final_removed.append(rel)
+                    pending.pop(rel, None)
+
+        # 3) 对于当前帧重新出现的关系，重置其待移除计数
+        for rel in curr_rels:
+            if rel in pending:
+                pending.pop(rel, None)
+
+        return {"added": sorted(final_added), "removed": sorted(final_removed)}
+
+    def process_attribute_change(
+        self,
+        entity_id: str,
+        prev_attrs: Set[str],
+        curr_attrs: Set[str],
+        semantic_added: List[str],
+        semantic_removed: List[str],
+    ) -> Dict[str, List[str]]:
+        """处理属性变化，应用去抖动逻辑。
+
+        Args:
+            entity_id: 实体ID
+            prev_attrs: 上一帧的属性集合
+            curr_attrs: 当前帧的属性集合
+            semantic_added: 语义比较后判定为新增的属性
+            semantic_removed: 语义比较后判定为移除的属性
+
+        Returns:
+            {"added": 确认新增的属性, "removed": 确认移除的属性}
+        """
+        # 初始化该实体的确认属性集合（首次处理时）
+        if entity_id not in self._confirmed_attributes:
+            self._confirmed_attributes[entity_id] = prev_attrs.copy()
+
+        confirmed = self._confirmed_attributes[entity_id]
+        pending = self._pending_attribute_removals[entity_id]
+
+        # 1) 处理新增：立即确认
+        final_added: List[str] = []
+        for attr in semantic_added:
+            if attr not in confirmed:
+                confirmed.add(attr)
+                final_added.append(attr)
+                pending.pop(attr, None)
+
+        # 2) 处理移除：需要去抖动
+        final_removed: List[str] = []
+        for attr in semantic_removed:
+            if attr in confirmed:
+                pending[attr] = pending.get(attr, 0) + 1
+                if pending[attr] >= self.attribute_debounce_frames:
+                    confirmed.discard(attr)
+                    final_removed.append(attr)
+                    pending.pop(attr, None)
+
+        # 3) 对于当前帧重新出现的属性，重置其待移除计数
+        for attr in curr_attrs:
+            if attr in pending:
+                pending.pop(attr, None)
+
+        return {"added": sorted(final_added), "removed": sorted(final_removed)}
 
 
 class ImmediateUpdater:
@@ -56,6 +211,15 @@ class ImmediateUpdater:
         self.event_generator = event_generator
         self.embedder = embedder
         self.store = store
+        # 初始化去抖动器
+        self.debouncer = ChangeDebouncer(
+            relation_debounce_frames=config.matching.relation_removal_debounce,
+            attribute_debounce_frames=config.matching.attribute_removal_debounce,
+        )
+
+    def reset(self) -> None:
+        """重置即时更新器状态（包括去抖动器）。"""
+        self.debouncer.reset()
 
     def _write_event(self, sample_id: str, event: Dict[str, Any]) -> None:
         """将事件摘要向量化并写入 events 分区。"""
@@ -151,20 +315,51 @@ class ImmediateUpdater:
                 )
                 self._write_event(sample_id, moved_event)
 
-            relation_delta = diff_relations(prev_obj, curr_obj)
-            if relation_delta["added"] or relation_delta["removed"]:
+            # 关系变化检测：使用语义相似度 + 去抖动
+            prev_rels = normalize_relations(prev_obj.get("relations", []))
+            curr_rels = normalize_relations(curr_obj.get("relations", []))
+            semantic_rel_delta = diff_relations_semantic(
+                prev_obj,
+                curr_obj,
+                self.embedder,
+                threshold=self.config.matching.relation_semantic_threshold,
+            )
+            # 应用去抖动：新增立即生效，移除需要连续 N 帧确认
+            final_rel_delta = self.debouncer.process_relation_change(
+                entity_id=match.entity_id,
+                prev_rels=prev_rels,
+                curr_rels=curr_rels,
+                semantic_added=semantic_rel_delta["added"],
+                semantic_removed=semantic_rel_delta["removed"],
+            )
+            if final_rel_delta["added"] or final_rel_delta["removed"]:
                 relation_event = self.event_generator.gen_relation_changed(
                     entity_id=match.entity_id,
                     tag=match.prev_snapshot["tag"],
                     label=match.prev_snapshot["label"],
-                    changes=relation_delta,
+                    changes=final_rel_delta,
                     frame_index=frame_index,
                 )
                 self._write_event(sample_id, relation_event)
 
+            # 属性变化检测：使用语义相似度 + 去抖动
             prev_attrs = normalize_attributes(prev_obj.get("attributes", []))
             curr_attrs = normalize_attributes(curr_obj.get("attributes", []))
-            if prev_attrs != curr_attrs:
+            semantic_attr_delta = diff_attributes_semantic(
+                prev_attrs,
+                curr_attrs,
+                self.embedder,
+                threshold=self.config.matching.attribute_semantic_threshold,
+            )
+            # 应用去抖动：新增立即生效，移除需要连续 N 帧确认
+            final_attr_delta = self.debouncer.process_attribute_change(
+                entity_id=match.entity_id,
+                prev_attrs=set(prev_attrs),
+                curr_attrs=set(curr_attrs),
+                semantic_added=semantic_attr_delta["added"],
+                semantic_removed=semantic_attr_delta["removed"],
+            )
+            if final_attr_delta["added"] or final_attr_delta["removed"]:
                 attr_event = self.event_generator.gen_attribute_changed(
                     entity_id=match.entity_id,
                     tag=match.prev_snapshot["tag"],

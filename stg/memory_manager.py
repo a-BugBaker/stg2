@@ -101,9 +101,10 @@ class STGraphMemory:
         return self._sample_output_dir(sample_id) / "stg_graph.json"
 
     def reset_build_state(self) -> None:
-        """重置构建状态（实体跟踪器与缓冲区）。"""
+        """重置构建状态（实体跟踪器、缓冲区与即时更新器）。"""
         self.tracker.reset()
         self.buffer_updater.reset()
+        self.immediate_updater.reset()
 
     def _load_frames(self, scene_graph_path: str | Path) -> List[Dict[str, Any]]:
         """加载并标准化场景图帧序列。"""

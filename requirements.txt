@@ -3,6 +3,7 @@ scipy>=1.10
 sentence-transformers>=2.6
 faiss-cpu>=1.7
 openai>=1.0
-
+# BGE-M3 需要的额外依赖
+FlagEmbedding>=1.2.0
 
  

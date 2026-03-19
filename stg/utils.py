@@ -320,13 +320,141 @@ def relations_to_serializable(relations: Iterable[Relation]) -> List[Dict[str, s
     return [{"name": name, "object": target} for name, target in sorted(set(relations))]
 
 
+def relation_to_text(rel: Relation) -> str:
+    """将关系二元组转换为用于嵌入的文本。"""
+    return f"{rel[0]} {rel[1]}"
+
+
+def find_semantic_match(
+    item: Relation,
+    candidates: Set[Relation],
+    embedder: "EmbeddingManager",
+    threshold: float,
+) -> Optional[Relation]:
+    """在候选集合中查找与 item 语义相似的关系。
+
+    Args:
+        item: 待匹配的关系
+        candidates: 候选关系集合
+        embedder: 嵌入管理器
+        threshold: 相似度阈值
+
+    Returns:
+        匹配到的关系，如果没有找到则返回 None
+    """
+    if not candidates:
+        return None
+    item_emb = embedder.embed(relation_to_text(item))
+    best_match: Optional[Relation] = None
+    best_score = threshold
+    for cand in candidates:
+        cand_emb = embedder.embed(relation_to_text(cand))
+        score = embedder.cosine_similarity(item_emb, cand_emb)
+        if score >= best_score:
+            best_score = score
+            best_match = cand
+    return best_match
+
+
+def diff_relations_semantic(
+    prev_obj: Dict[str, Any],
+    curr_obj: Dict[str, Any],
+    embedder: "EmbeddingManager",
+    threshold: float = 0.85,
+) -> Dict[str, List[Relation]]:
+    """基于语义相似度计算关系新增/移除。
+
+    与 diff_relations 的区别：
+        - 精确匹配：("near", "ball") vs ("close to", "ball") → 视为不同
+        - 语义匹配：("near", "ball") vs ("close to", "ball") → 视为相同（如果相似度 > 阈值）
+
+    Args:
+        prev_obj: 上一帧物体
+        curr_obj: 当前帧物体
+        embedder: 嵌入管理器
+        threshold: 语义相似度阈值
+
+    Returns:
+        {"added": [...], "removed": [...]}
+    """
+    prev_rels = normalize_relations(prev_obj.get("relations", []))
+    curr_rels = normalize_relations(curr_obj.get("relations", []))
+
+    # 1) 找出当前帧中真正新增的关系（在前一帧中没有语义匹配的）
+    added: List[Relation] = []
+    for rel in curr_rels:
+        if rel in prev_rels:
+            continue  # 精确匹配存在
+        if find_semantic_match(rel, prev_rels, embedder, threshold) is None:
+            added.append(rel)
+
+    # 2) 找出前一帧中真正移除的关系（在当前帧中没有语义匹配的）
+    removed: List[Relation] = []
+    for rel in prev_rels:
+        if rel in curr_rels:
+            continue  # 精确匹配存在
+        if find_semantic_match(rel, curr_rels, embedder, threshold) is None:
+            removed.append(rel)
+
+    return {"added": sorted(added), "removed": sorted(removed)}
+
+
 def diff_relations(prev_obj: Dict[str, Any], curr_obj: Dict[str, Any]) -> Dict[str, List[Relation]]:
-    # 基于集合差运算计算关系新增/移除。
+    # 基于集合差运算计算关系新增/移除（精确匹配版本，保留向后兼容）。
     prev_rels = normalize_relations(prev_obj.get("relations", []))
     curr_rels = normalize_relations(curr_obj.get("relations", []))
     added = sorted(curr_rels - prev_rels)
     removed = sorted(prev_rels - curr_rels)
     return {"added": added, "removed": removed}
+
+
+def diff_attributes_semantic(
+    prev_attrs: List[str],
+    curr_attrs: List[str],
+    embedder: "EmbeddingManager",
+    threshold: float = 0.85,
+) -> Dict[str, List[str]]:
+    """基于语义相似度计算属性新增/移除。
+
+    Args:
+        prev_attrs: 上一帧属性列表
+        curr_attrs: 当前帧属性列表
+        embedder: 嵌入管理器
+        threshold: 语义相似度阈值
+
+    Returns:
+        {"added": [...], "removed": [...]}
+    """
+    prev_set = set(prev_attrs)
+    curr_set = set(curr_attrs)
+
+    def find_attr_match(item: str, candidates: Set[str]) -> Optional[str]:
+        if not candidates:
+            return None
+        item_emb = embedder.embed(item)
+        for cand in candidates:
+            cand_emb = embedder.embed(cand)
+            if embedder.cosine_similarity(item_emb, cand_emb) >= threshold:
+                return cand
+        return None
+
+    # 新增：在当前帧中存在，但在前一帧中无语义匹配
+    added: List[str] = []
+    for attr in curr_set:
+        if attr in prev_set:
+            continue
+        if find_attr_match(attr, prev_set) is None:
+            added.append(attr)
+
+    # 移除：在前一帧中存在，但在当前帧中无语义匹配
+    removed: List[str] = []
+    for attr in prev_set:
+        if attr in curr_set:
+            continue
+        if find_attr_match(attr, curr_set) is None:
+            removed.append(attr)
+
+    return {"added": sorted(added), "removed": sorted(removed)}
 
 
 def normalize_attributes(attributes: Any) -> List[str]:

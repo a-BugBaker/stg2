@@ -33,7 +33,7 @@ class EmbeddingConfig:
 
     主要字段：
         model_name:   sentence-transformers 模型名称（仅 backend != "hashing" 时生效）
-        dim:          向量维度，默认 384（需与所选模型一致）
+        dim:          向量维度，默认 1024（BGE-M3 维度）
         normalize:    是否对输出向量做 L2 归一化（归一化后内积 = 余弦相似度）
         batch_size:   批量编码时的 batch 大小
         device:       推理设备，"cpu" 或 "cuda"
@@ -41,10 +41,10 @@ class EmbeddingConfig:
     """
 
     backend: str = "auto"
-    model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
-    dim: int = 384
+    model_name: str = "BAAI/bge-m3"
+    dim: int = 1024
     normalize: bool = True
-    batch_size: int = 32
+    batch_size: int = 8
     device: str = "cpu"
     random_seed: int = 42
 
@@ -63,6 +63,10 @@ class EntityMatchingConfig:
         min_iou_threshold:         IoU 低于此值且 tag 也不完全相同时直接拒绝匹配
         movement_event_threshold:  位移超过此像素值时生成 entity_moved 事件
         miss_tolerance:            实体最多允许连续丢失多少帧仍保持 inactive 状态
+        relation_semantic_threshold: 关系语义相似度阈值，超过此值视为相同关系
+        attribute_semantic_threshold: 属性语义相似度阈值，超过此值视为相同属性
+        relation_removal_debounce: 关系移除去抖动帧数，连续 N 帧未出现才确认移除
+        attribute_removal_debounce: 属性移除去抖动帧数，连续 N 帧未出现才确认移除
     """
 
     detection_score_threshold: float = 0.35
@@ -72,6 +76,10 @@ class EntityMatchingConfig:
     min_iou_threshold: float = 0.01
     movement_event_threshold: float = 10.0
     miss_tolerance: int = 0
+    relation_semantic_threshold: float = 0.85
+    attribute_semantic_threshold: float = 0.85
+    relation_removal_debounce: int = 3
+    attribute_removal_debounce: int = 3
 
 
 @dataclass
