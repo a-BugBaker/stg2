@@ -229,7 +229,15 @@ class EmbeddingManager:
                 )
             if self._model is None:
                 # 惰性加载，避免未使用时占用启动时间与显存。
+                import sys
+                import time
+                print(f"[EmbeddingManager] Loading model: {self.config.model_name}", flush=True)
+                print(f"[EmbeddingManager] Device: {self.config.device}", flush=True)
+                print(f"[EmbeddingManager] This may take 2-5 minutes on CPU...", flush=True)
+                start_time = time.time()
                 self._model = SentenceTransformer(self.config.model_name, device=self.config.device)
+                elapsed = time.time() - start_time
+                print(f"[EmbeddingManager] Model loaded in {elapsed:.1f}s", flush=True)
             return self._model
         raise RuntimeError("Hashing backend does not use an external model.")
 
