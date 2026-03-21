@@ -153,6 +153,65 @@ class SearchConfig:
 
 
 @dataclass
+class DAGConfig:
+    """DAG（有向无环图）相关配置。
+    
+    事件开关用于消融实验，可以选择性关闭某些事件类型的记录。
+    
+    主要字段：
+        enabled:                      是否启用DAG存储结构
+        neo4j_uri:                    Neo4j数据库连接URI
+        neo4j_user:                   Neo4j用户名
+        neo4j_password:               Neo4j密码
+        node_meta_dir:                节点元数据JSON存储目录
+        enable_entity_appeared:       是否记录实体出现事件
+        enable_entity_moved:          是否记录实体移动事件
+        enable_relation:              是否记录关系事件
+        enable_attribute_changed:     是否记录属性变化事件
+        enable_interaction:           是否记录交互事件（缓冲区级）
+        enable_occlusion:             是否记录遮挡事件（缓冲区级）
+        enable_entity_disappeared:    是否记录实体消失事件
+        enable_periodic_description:  是否记录阶段性描述（缓冲区级）
+        movement_threshold:           位移阈值，与上次记录位置相比超过此值才产生移动事件
+        closure_max_depth:            闭包检索最大深度
+        transitive_reduction:         是否执行传递规约（每次插入时）
+    """
+    enabled: bool = True
+    
+    # Neo4j配置
+    neo4j_uri: str = "bolt://localhost:7687"
+    neo4j_user: str = "neo4j"
+    neo4j_password: str = "password"
+    
+    # 节点元数据存储目录（相对于output_dir）
+    node_meta_dir: str = "dag_nodes"
+    
+    # 事件开关（用于消融实验）
+    enable_entity_state: bool = True       # 实体状态节点
+    enable_entity_appeared: bool = True
+    enable_entity_moved: bool = True
+    enable_relation: bool = True
+    enable_attribute_changed: bool = True
+    enable_interaction: bool = True        # 缓冲区级
+    enable_occlusion: bool = True          # 缓冲区级
+    enable_entity_disappeared: bool = True
+    enable_periodic_description: bool = True  # 缓冲区级
+    
+    # 位移检测阈值（与上次记录位置比较）
+    movement_threshold: float = 50.0
+    
+    # 关系去抖动帧数（关系消失后等待N帧确认）
+    relation_debounce_frames: int = 3
+    
+    # 闭包检索配置
+    closure_max_depth: int = 10
+    closure_top_k_seeds: int = 5
+    
+    # 传递规约
+    transitive_reduction: bool = True
+
+
+@dataclass
 class STGConfig:
     """顶层配置——聚合所有子配置。
 
@@ -160,6 +219,7 @@ class STGConfig:
         output_dir:             输出根目录（entity_registry.json、stg_graph.json 等存放于此）
         store_dir:              向量存储目录（FAISS 索引 + 元数据），默认为 output_dir/store
         clear_existing_sample:  build 时是否清除同名 sample 的旧数据
+        dag:                    DAG相关配置（事件开关、Neo4j等）
     """
     output_dir: str = "./outputs"
     store_dir: Optional[str] = None
@@ -170,6 +230,7 @@ class STGConfig:
     buffer: BufferConfig = field(default_factory=BufferConfig)
     motion: MotionConfig = field(default_factory=MotionConfig)
     search: SearchConfig = field(default_factory=SearchConfig)
+    dag: DAGConfig = field(default_factory=DAGConfig)
 
     def __post_init__(self) -> None:
         # 未显式指定 store_dir 时，默认放到 output_dir/store。
@@ -185,3 +246,8 @@ class STGConfig:
     def store_path(self) -> Path:
         # 提供 Path 形式向量存储目录。
         return Path(self.store_dir)
+    
+    @property
+    def dag_node_meta_path(self) -> Path:
+        # 提供DAG节点元数据存储目录。
+        return Path(self.output_dir) / self.dag.node_meta_dir

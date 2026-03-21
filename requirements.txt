@@ -5,5 +5,6 @@ faiss-cpu>=1.7
 openai>=1.0
 # BGE-M3 需要的额外依赖
 FlagEmbedding>=1.2.0
-
+# DAG存储 - Neo4j（可选，不安装时使用内存回退）
+neo4j>=5.0
  

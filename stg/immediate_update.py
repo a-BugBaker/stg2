@@ -12,21 +12,22 @@
        - 为每个新实体生成 entity_appeared 事件 + entity_state 记忆
     4. 对于已匹配的实体：
        - 位移超过阈值 → 生成 entity_moved 事件
-       - 关系发生变化 → 生成 relation_changed 事件（带语义相似度判断 + 去抖动）
-       - 属性发生变化 → 生成 attribute_changed 事件（带语义相似度判断 + 去抖动）
+       - 关系发生变化 → 生成 relation 事件（DAG模式）
+       - 属性发生变化 → 生成 attribute_changed 事件
        - 更新该实体的 entity_state 记忆
     5. 对于新出现的实体 → 生成 entity_appeared + entity_state
     6. 对于消失的实体 → 生成 entity_disappeared 事件
 
-所有事件的 summary 文本会被向量化后写入 VectorStore。
+当启用DAG时，同时生成DAG节点并建立因果边。
 """
 
 from __future__ import annotations
 
 import hashlib
 import json
+import logging
 from collections import defaultdict
-from typing import Any, Dict, List, Sequence, Set, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, TYPE_CHECKING
 
 from .config import STGConfig
 from .entity_tracker import EntityTracker
@@ -43,6 +44,12 @@ from .utils import (
     normalize_relations,
 )
 from .vector_store import VectorStore
+
+if TYPE_CHECKING:
+    from .dag_manager import DAGManager
+    from .dag_event_generator import DAGEventGenerator
+
+logger = logging.getLogger(__name__)
 
 
 class ChangeDebouncer:
@@ -216,6 +223,18 @@ class ImmediateUpdater:
             relation_debounce_frames=config.matching.relation_removal_debounce,
             attribute_debounce_frames=config.matching.attribute_removal_debounce,
         )
+        # DAG组件（可选）
+        self.dag_manager: Optional["DAGManager"] = None
+        self.dag_event_generator: Optional["DAGEventGenerator"] = None
+    
+    def set_dag_components(
+        self,
+        dag_manager: "DAGManager",
+        dag_event_generator: "DAGEventGenerator"
+    ) -> None:
+        """设置DAG组件。"""
+        self.dag_manager = dag_manager
+        self.dag_event_generator = dag_event_generator
 
     def reset(self) -> None:
         """重置即时更新器状态（包括去抖动器）。"""
@@ -296,12 +315,17 @@ class ImmediateUpdater:
             for record in associations.new_entities:
                 self._write_event(sample_id, self.event_generator.gen_entity_appeared(record, frame_index))
                 self._write_entity_state(sample_id, record, frame_index)
+                # DAG: 创建实体状态节点和出现事件
+                self._dag_process_new_entity(record, frame_index, filtered_objects)
             return self.tracker.current_frame_observations(frame_index)
 
         # 4) 对已匹配实体，根据位移/关系/属性变化生成即时事件。
         for match in associations.matched:
             prev_obj = match.prev_snapshot["last_object"]
             curr_obj = match.curr_object
+            record = self.tracker.registry[match.entity_id]
+            
+            # 位移检测
             displacement = compute_displacement(prev_obj["bbox"], curr_obj["bbox"])
             if displacement >= self.config.matching.movement_event_threshold:
                 moved_event = self.event_generator.gen_entity_moved(
@@ -314,6 +338,8 @@ class ImmediateUpdater:
                     frame_index=frame_index,
                 )
                 self._write_event(sample_id, moved_event)
+                # DAG: 创建移动事件节点
+                self._dag_process_movement(match.prev_snapshot["tag"], frame_index, curr_obj["bbox"])
 
             # 关系变化检测：使用语义相似度 + 去抖动
             prev_rels = normalize_relations(prev_obj.get("relations", []))
@@ -341,6 +367,9 @@ class ImmediateUpdater:
                     frame_index=frame_index,
                 )
                 self._write_event(sample_id, relation_event)
+            
+            # DAG: 处理关系事件（使用当前帧的所有关系）
+            self._dag_process_relations(frame_index, curr_obj.get("relations", []))
 
             # 属性变化检测：使用语义相似度 + 去抖动
             prev_attrs = normalize_attributes(prev_obj.get("attributes", []))
@@ -369,14 +398,24 @@ class ImmediateUpdater:
                     frame_index=frame_index,
                 )
                 self._write_event(sample_id, attr_event)
+                # DAG: 创建属性变化事件
+                self._dag_process_attribute_change(
+                    match.prev_snapshot["tag"], frame_index,
+                    dict(zip(prev_attrs, prev_attrs)),
+                    dict(zip(curr_attrs, curr_attrs))
+                )
 
-            record = self.tracker.registry[match.entity_id]
             self._write_entity_state(sample_id, record, frame_index)
+            # DAG: 更新实体状态节点
+            self._dag_update_entity_state(record, frame_index, curr_obj)
 
         # 5) 新增实体写 appeared + entity_state。
         for record in associations.new_entities:
             self._write_event(sample_id, self.event_generator.gen_entity_appeared(record, frame_index))
             self._write_entity_state(sample_id, record, frame_index)
+            # DAG: 创建实体状态节点和出现事件
+            curr_obj = record.last_object
+            self._dag_process_new_entity(record, frame_index, [curr_obj])
 
         # 6) 消失实体写 disappeared 事件。
         for snapshot in associations.disappeared_entities:
@@ -384,6 +423,130 @@ class ImmediateUpdater:
                 sample_id,
                 self.event_generator.gen_entity_disappeared(snapshot, frame_index),
             )
+            # DAG: 创建消失事件
+            self._dag_process_disappeared(snapshot, frame_index)
 
         # 7) 返回当前帧活跃观测，供 BufferUpdater 聚合跨帧信息。
         return self.tracker.current_frame_observations(frame_index)
+    
+    # ==================== DAG辅助方法 ====================
+    
+    def _dag_process_new_entity(
+        self,
+        record: Any,
+        frame_index: int,
+        objects: Sequence[Dict[str, Any]]
+    ) -> None:
+        """DAG: 处理新实体出现。"""
+        if not self.dag_event_generator:
+            return
+        
+        obj = record.last_object
+        bbox = tuple(obj["bbox"])
+        attributes = {attr: attr for attr in normalize_attributes(obj.get("attributes", []))}
+        
+        # 创建实体状态节点
+        self.dag_event_generator.create_or_update_entity_state(
+            entity_tag=record.tag,
+            frame_idx=frame_index,
+            label=record.label,
+            attributes=attributes,
+            bbox=bbox,
+            layer_id=obj.get("layer_id"),
+            layer_mapping=obj.get("layer_mapping")
+        )
+        
+        # 创建出现事件
+        self.dag_event_generator.create_appeared_event(
+            entity_tag=record.tag,
+            frame_idx=frame_index,
+            label=record.label,
+            bbox=bbox
+        )
+        
+        # 处理layer_mapping
+        layer_mapping = obj.get("layer_mapping")
+        if layer_mapping:
+            self.dag_event_generator.process_layer_mapping(layer_mapping, frame_index)
+    
+    def _dag_update_entity_state(
+        self,
+        record: Any,
+        frame_index: int,
+        curr_obj: Dict[str, Any]
+    ) -> None:
+        """DAG: 更新实体状态节点。"""
+        if not self.dag_event_generator:
+            return
+        
+        bbox = tuple(curr_obj["bbox"])
+        attributes = {attr: attr for attr in normalize_attributes(curr_obj.get("attributes", []))}
+        
+        self.dag_event_generator.create_or_update_entity_state(
+            entity_tag=record.tag,
+            frame_idx=frame_index,
+            label=record.label,
+            attributes=attributes,
+            bbox=bbox,
+            layer_id=curr_obj.get("layer_id"),
+            layer_mapping=curr_obj.get("layer_mapping")
+        )
+    
+    def _dag_process_movement(
+        self,
+        entity_tag: str,
+        frame_index: int,
+        curr_bbox: Sequence[float]
+    ) -> None:
+        """DAG: 处理位移事件。"""
+        if not self.dag_event_generator:
+            return
+        
+        self.dag_event_generator.check_and_create_movement_event(
+            entity_tag=entity_tag,
+            frame_idx=frame_index,
+            current_bbox=tuple(curr_bbox)
+        )
+    
+    def _dag_process_relations(
+        self,
+        frame_index: int,
+        relations: List[Dict[str, Any]]
+    ) -> None:
+        """DAG: 处理关系事件。"""
+        if not self.dag_event_generator:
+            return
+        
+        self.dag_event_generator.process_relations(frame_index, relations)
+    
+    def _dag_process_attribute_change(
+        self,
+        entity_tag: str,
+        frame_index: int,
+        prev_attrs: Dict[str, Any],
+        curr_attrs: Dict[str, Any]
+    ) -> None:
+        """DAG: 处理属性变化事件。"""
+        if not self.dag_event_generator:
+            return
+        
+        self.dag_event_generator.check_and_create_attribute_changed_events(
+            entity_tag=entity_tag,
+            frame_idx=frame_index,
+            current_attributes=curr_attrs
+        )
+    
+    def _dag_process_disappeared(
+        self,
+        snapshot: Dict[str, Any],
+        frame_index: int
+    ) -> None:
+        """DAG: 处理实体消失事件。"""
+        if not self.dag_event_generator:
+            return
+        
+        self.dag_event_generator.create_disappeared_event(
+            entity_tag=snapshot.get("tag", ""),
+            frame_idx=frame_index,
+            last_known_bbox=tuple(snapshot.get("last_bbox", [0, 0, 0, 0]))
+        )

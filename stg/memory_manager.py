@@ -7,38 +7,28 @@
     1. 加载并归一化场景图 JSON
     2. 逐帧调用 ImmediateUpdater 生成即时事件和实体状态
     3. 帧观测送入 BufferUpdater 缓冲区，满时 flush 生成轨迹和交互事件
-    4. 持久化向量存储到磁盘
-    5. 导出 entity_registry.json 和 stg_graph.json
+    4. 如果启用DAG，同时生成DAG节点和边
+    5. 持久化向量存储到磁盘
+    6. 导出 entity_registry.json 和 stg_graph.json
 
 ■ 检索流程 (retrieve_evidence)
     1. 调用 QueryParser 将自然语言问题解析为结构化查询信息
-    2. 如果启用子查询分解，对每个子查询分别编码并在 events/entities 分区做 dense 检索
-    3. 合并去重后，调用 _rerank_hits() 进行启发式重排序：
-       - 实体命中加分、关系关键词命中加分、时序线索加分、事件类型-意图匹配加分
+    2. 如果启用DAG闭包检索，使用 ClosureRetriever
+    3. 否则使用传统 Top-K 检索 + 重排序
     4. 通过 EvidenceFormatter 组装成完整的 evidence bundle
 
-■ LLM 问答 (format_evidence_for_llm + build_grounded_prompt)
-    1. 从 evidence bundle 提取精简 JSON 证据
-    2. 构建 system_prompt + user_prompt，送入 LLM
-
-■ 图导出 (export_stg_graph)
-    - 将实体和事件组织为图节点
-    - 生成三类边：event_to_entity_association、temporal_entity_chain、temporal_adjacency
-
-公开接口：
-    - build(scene_graph_path, sample_id) → 构建统计信息
-    - retrieve_evidence(query, sample_id, ...) → evidence bundle
-    - search(query, sample_id, ...) → 同 retrieve_evidence（别名）
-    - get_context_for_qa(query, sample_id, ...) → evidence_text 字符串
-    - format_evidence_for_llm(bundle, ...) → LLM 精简证据 JSON
-    - build_grounded_prompt(query, llm_evidence) → {system_prompt, user_prompt}
+■ DAG特性 (当 config.dag.enabled = True)
+    - 使用 DAGManager 管理节点和边
+    - 使用 DAGEventGenerator 生成带因果关系的事件节点
+    - 使用 ClosureRetriever 进行闭包检索
 """
 
 from __future__ import annotations
 
+import logging
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Sequence, Set
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Set
 
 from .buffer_update import BufferUpdater
 from .config import STGConfig
@@ -58,6 +48,13 @@ from .utils import (
     load_json,
 )
 from .vector_store import VectorStore
+
+# DAG模块导入
+from .dag_manager import DAGManager
+from .dag_event_generator import DAGEventGenerator
+from .closure_retrieval import ClosureRetriever
+
+logger = logging.getLogger(__name__)
 
 
 class STGraphMemory:
@@ -85,6 +82,38 @@ class STGraphMemory:
             embedder=self.embedder,
             store=self.store,
         )
+        
+        # DAG组件初始化（当启用时）
+        self.dag_manager: Optional[DAGManager] = None
+        self.dag_event_generator: Optional[DAGEventGenerator] = None
+        self.closure_retriever: Optional[ClosureRetriever] = None
+        
+        if config.dag.enabled:
+            self._init_dag_components()
+    
+    def _init_dag_components(self) -> None:
+        """初始化DAG相关组件。"""
+        logger.info("Initializing DAG components...")
+        
+        # 创建DAG管理器
+        self.dag_manager = DAGManager(self.config)
+        self.dag_manager.set_embed_func(self.embedder.embed)
+        
+        # 创建DAG事件生成器
+        self.dag_event_generator = DAGEventGenerator(self.config, self.dag_manager)
+        
+        # 创建闭包检索器
+        self.closure_retriever = ClosureRetriever(
+            self.config,
+            self.dag_manager,
+            self.embedder.embed
+        )
+        
+        # 将DAG组件注入到ImmediateUpdater和BufferUpdater
+        self.immediate_updater.set_dag_components(self.dag_manager, self.dag_event_generator)
+        self.buffer_updater.set_dag_components(self.dag_manager, self.dag_event_generator)
+        
+        logger.info("DAG components initialized successfully")
 
     def _sample_output_dir(self, sample_id: str) -> Path:
         """返回样本输出目录，不存在则自动创建。"""
@@ -105,6 +134,9 @@ class STGraphMemory:
         self.tracker.reset()
         self.buffer_updater.reset()
         self.immediate_updater.reset()
+        # 重置DAG组件状态
+        if self.dag_event_generator:
+            self.dag_event_generator.reset()
 
     def _load_frames(self, scene_graph_path: str | Path) -> List[Dict[str, Any]]:
         """加载并标准化场景图帧序列。"""
@@ -135,10 +167,20 @@ class STGraphMemory:
         # 5) 处理最后不足一个 buffer 的残留观测，并持久化向量存储。
         self.buffer_updater.flush(sample_id)
         self.store.save_sample(sample_id)
+        
+        # 5.5) 如果启用DAG，保存DAG状态并构建闭包检索索引
+        if self.dag_manager:
+            dag_state_path = self._sample_output_dir(sample_id) / "dag_state.json"
+            self.dag_manager.save_state(dag_state_path)
+            if self.closure_retriever:
+                self.closure_retriever.build_index()
+                logger.info(f"DAG saved with {len(self.dag_manager.get_all_nodes())} nodes")
+        
         # 6) 导出实体注册表与 STG 图，最后返回统计结果。
         registry = self.export_entity_registry(sample_id)
         graph = self.export_stg_graph(sample_id)
-        return {
+        
+        stats = {
             "sample_id": sample_id,
             "num_frames": len(frames),
             "num_entities": len(registry),
@@ -147,6 +189,12 @@ class STGraphMemory:
             "num_graph_nodes": len(graph.get("nodes", [])),
             "num_graph_edges": len(graph.get("edges", [])),
         }
+        
+        # 添加DAG统计
+        if self.dag_manager:
+            stats["num_dag_nodes"] = len(self.dag_manager.get_all_nodes())
+        
+        return stats
 
     def _search_partition(
         self,
