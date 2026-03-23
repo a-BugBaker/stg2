@@ -1,0 +1,36 @@
+{
+  "node_id": "a240d212-725f-4a0a-88a6-4228092fdfb4",
+  "node_type": "entity_state",
+  "content": "pants1 is a pants with attributes [yellow basketball shorts: yellow basketball shorts] at position (316.2, 401.6) layer mapping: pants1->socks1, pants1->socks2",
+  "tau": [
+    5,
+    40
+  ],
+  "metadata": {
+    "entity_tag": "pants1",
+    "label": "pants",
+    "attributes": {
+      "yellow basketball shorts": "yellow basketball shorts"
+    },
+    "layer_id": 2,
+    "layer_mapping": [
+      {
+        "idx": 23,
+        "tag": "socks1"
+      },
+      {
+        "idx": 24,
+        "tag": "socks2"
+      }
+    ],
+    "frame_start": 5,
+    "latest_bbox": [
+      300.201,
+      389.154,
+      332.125,
+      414.045
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

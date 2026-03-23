@@ -1,0 +1,21 @@
+{
+  "node_id": "b5138901-b612-4e63-b7c8-d80c06942a95",
+  "node_type": "entity_appeared",
+  "content": "man4 (man) appeared at frame 15, position (13.9, 383.8)",
+  "tau": [
+    15,
+    44
+  ],
+  "metadata": {
+    "entity_tag": "man4",
+    "label": "man",
+    "frame_start": 15,
+    "frame_end": 15,
+    "position": [
+      13.9405,
+      383.808
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

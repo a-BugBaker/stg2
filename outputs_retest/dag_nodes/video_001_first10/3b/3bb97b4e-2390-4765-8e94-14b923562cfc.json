@@ -1,0 +1,21 @@
+{
+  "node_id": "3bb97b4e-2390-4765-8e94-14b923562cfc",
+  "node_type": "entity_appeared",
+  "content": "poster (poster) appeared at frame 0, position (102.6, 89.5)",
+  "tau": [
+    0,
+    103
+  ],
+  "metadata": {
+    "entity_tag": "poster",
+    "label": "poster",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      102.6425,
+      89.46549999999999
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,21 @@
+{
+  "node_id": "55d80873-33fa-48df-939e-389625e5ceb6",
+  "node_type": "relation",
+  "content": "man2 man2 approaches door door",
+  "tau": [
+    40,
+    34
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "door",
+    "predicate": "man2 man2 approaches door door",
+    "frame_start": 40,
+    "frame_end": 40,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "45ef11bb-2f69-4790-8618-5c5907f6994f"
+  ]
+}

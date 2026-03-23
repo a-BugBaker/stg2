@@ -1,0 +1,21 @@
+{
+  "node_id": "6f543164-0f52-4a16-bafe-5d24ad98c137",
+  "node_type": "entity_appeared",
+  "content": "sock2 (sock) appeared at frame 0, position (301.2, 419.5)",
+  "tau": [
+    0,
+    35
+  ],
+  "metadata": {
+    "entity_tag": "sock2",
+    "label": "sock",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      301.1545,
+      419.531
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

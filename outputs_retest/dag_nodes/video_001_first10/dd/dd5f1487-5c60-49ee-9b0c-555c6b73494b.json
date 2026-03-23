@@ -1,0 +1,21 @@
+{
+  "node_id": "dd5f1487-5c60-49ee-9b0c-555c6b73494b",
+  "node_type": "relation",
+  "content": "bottle2 bottle2 is featured on poster2 poster2",
+  "tau": [
+    15,
+    36
+  ],
+  "metadata": {
+    "subject_tag": "bottle2",
+    "object_tag": "poster2",
+    "predicate": "bottle2 bottle2 is featured on poster2 poster2",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "8d8caaa0-11e3-4ceb-8d9e-8386fe2aad54"
+  ]
+}

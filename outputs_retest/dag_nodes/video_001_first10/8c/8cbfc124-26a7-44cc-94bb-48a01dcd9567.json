@@ -1,0 +1,22 @@
+{
+  "node_id": "8cbfc124-26a7-44cc-94bb-48a01dcd9567",
+  "node_type": "relation",
+  "content": "banner logo below banner logo",
+  "tau": [
+    10,
+    26
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "logo",
+    "predicate": "banner logo below banner logo",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "02aa9d1d-5973-4cc9-9eca-5fc43981f5d6",
+    "924f4b8a-c617-4814-9131-134e7c09be46"
+  ]
+}

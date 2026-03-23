@@ -1,0 +1,21 @@
+{
+  "node_id": "63601e9f-d0a9-4d6a-af4e-4efaa1b775b9",
+  "node_type": "entity_appeared",
+  "content": "basketball hoop (basketball hoop) appeared at frame 0, position (439.5, 206.5)",
+  "tau": [
+    0,
+    19
+  ],
+  "metadata": {
+    "entity_tag": "basketball hoop",
+    "label": "basketball hoop",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      439.533,
+      206.4675
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

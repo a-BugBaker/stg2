@@ -215,9 +215,14 @@ class EmbeddingManager:
 
     def _get_backend(self) -> str:
         # auto 模式按依赖可用性自动选择后端。
-        if self.config.backend == "auto":
+        backend = str(self.config.backend).strip().lower().replace("-", "_")
+        if backend == "auto":
             return "sentence_transformers" if SentenceTransformer is not None else "hashing"
-        return self.config.backend
+        if backend in {"sentence_transformers", "sentencetransformers", "st"}:
+            return "sentence_transformers"
+        if backend in {"hashing", "hash"}:
+            return "hashing"
+        return backend
 
     def _load_model(self) -> Any:
         # 仅 sentence_transformers 后端需要加载外部模型。

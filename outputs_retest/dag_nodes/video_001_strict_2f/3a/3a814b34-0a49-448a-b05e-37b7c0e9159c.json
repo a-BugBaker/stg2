@@ -1,0 +1,27 @@
+{
+  "node_id": "3a814b34-0a49-448a-b05e-37b7c0e9159c",
+  "node_type": "entity_state",
+  "content": "banner is a banner with attributes [black banner with white and red writing: black banner with white and red writing] at position (433.7, 262.5)",
+  "tau": [
+    0,
+    28
+  ],
+  "metadata": {
+    "entity_tag": "banner",
+    "label": "banner",
+    "attributes": {
+      "black banner with white and red writing": "black banner with white and red writing"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      310.866,
+      160.252,
+      556.561,
+      364.672
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

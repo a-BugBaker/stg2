@@ -1,0 +1,21 @@
+{
+  "node_id": "4b36272d-6bb1-4f22-a8f4-16af5f01b1c3",
+  "node_type": "relation",
+  "content": "shorts2 contains socks2",
+  "tau": [
+    5,
+    39
+  ],
+  "metadata": {
+    "subject_tag": "shorts2",
+    "object_tag": "socks2",
+    "predicate": "shorts2 contains socks2",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "4551b829-06e0-4d6f-8547-e79f6b215d3a"
+  ]
+}

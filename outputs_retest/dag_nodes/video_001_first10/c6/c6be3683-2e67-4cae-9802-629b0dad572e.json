@@ -1,0 +1,27 @@
+{
+  "node_id": "c6be3683-2e67-4cae-9802-629b0dad572e",
+  "node_type": "entity_state",
+  "content": "shorts2 is a shorts with attributes [orange basketball shorts: orange basketball shorts] at position (8.7, 392.0)",
+  "tau": [
+    0,
+    58
+  ],
+  "metadata": {
+    "entity_tag": "shorts2",
+    "label": "shorts",
+    "attributes": {
+      "orange basketball shorts": "orange basketball shorts"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      0.102,
+      382.085,
+      17.313,
+      401.863
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

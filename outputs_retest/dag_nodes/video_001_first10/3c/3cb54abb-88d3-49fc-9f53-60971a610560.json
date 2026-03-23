@@ -1,0 +1,22 @@
+{
+  "node_id": "3cb54abb-88d3-49fc-9f53-60971a610560",
+  "node_type": "entity_disappeared",
+  "content": "ventilation system disappeared at frame 15, last position (260.1, 282.9)",
+  "tau": [
+    15,
+    85
+  ],
+  "metadata": {
+    "entity_tag": "ventilation system",
+    "frame_start": 15,
+    "frame_end": 15,
+    "last_position": [
+      260.108,
+      282.8655
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "b69c4057-eb30-4674-9186-7247a69931b1"
+  ]
+}

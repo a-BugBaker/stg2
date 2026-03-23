@@ -1,0 +1,21 @@
+{
+  "node_id": "a33f0b88-b8ad-436e-8e6c-8f8d10cb3caa",
+  "node_type": "entity_appeared",
+  "content": "pole1 (pole) appeared at frame 15, position (608.5, 182.4)",
+  "tau": [
+    15,
+    53
+  ],
+  "metadata": {
+    "entity_tag": "pole1",
+    "label": "pole",
+    "frame_start": 15,
+    "frame_end": 15,
+    "position": [
+      608.482,
+      182.408
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

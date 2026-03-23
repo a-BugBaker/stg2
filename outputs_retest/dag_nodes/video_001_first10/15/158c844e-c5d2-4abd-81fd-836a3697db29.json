@@ -1,0 +1,21 @@
+{
+  "node_id": "158c844e-c5d2-4abd-81fd-836a3697db29",
+  "node_type": "relation",
+  "content": "man2 contains pants2",
+  "tau": [
+    25,
+    48
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "pants2",
+    "predicate": "man2 contains pants2",
+    "frame_start": 25,
+    "frame_end": 25,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "68de85a8-74aa-4f15-8c72-1dcdf3c30166"
+  ]
+}

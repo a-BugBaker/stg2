@@ -1,0 +1,27 @@
+{
+  "node_id": "c6122008-3567-4599-8b52-7ac205805c59",
+  "node_type": "entity_state",
+  "content": "floor is a floor with attributes [wooden basketball court with orange and black markings: wooden basketball court with orange and black markings] at position (457.6, 445.1)",
+  "tau": [
+    0,
+    48
+  ],
+  "metadata": {
+    "entity_tag": "floor",
+    "label": "floor",
+    "attributes": {
+      "wooden basketball court with orange and black markings": "wooden basketball court with orange and black markings"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      1.374,
+      347.398,
+      913.817,
+      542.798
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

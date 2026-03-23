@@ -1,0 +1,21 @@
+{
+  "node_id": "4ba772a2-60a9-4cf1-9719-7aa477c6c7e7",
+  "node_type": "relation",
+  "content": "poster1 floor below poster2 floor",
+  "tau": [
+    30,
+    41
+  ],
+  "metadata": {
+    "subject_tag": "poster1",
+    "object_tag": "floor",
+    "predicate": "poster1 floor below poster2 floor",
+    "frame_start": 30,
+    "frame_end": 30,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "f4993efd-662e-4430-bb29-019e5aae76c6"
+  ]
+}

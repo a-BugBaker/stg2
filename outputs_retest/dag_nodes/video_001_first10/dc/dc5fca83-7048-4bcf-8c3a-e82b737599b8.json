@@ -1,0 +1,21 @@
+{
+  "node_id": "dc5fca83-7048-4bcf-8c3a-e82b737599b8",
+  "node_type": "relation",
+  "content": "basketball hoop basketball hoop near poster2 poster2",
+  "tau": [
+    45,
+    9
+  ],
+  "metadata": {
+    "subject_tag": "basketball hoop",
+    "object_tag": "poster2",
+    "predicate": "basketball hoop basketball hoop near poster2 poster2",
+    "frame_start": 45,
+    "frame_end": 45,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "8096db2b-07cc-4300-9f99-0dcfaa46c6f7"
+  ]
+}

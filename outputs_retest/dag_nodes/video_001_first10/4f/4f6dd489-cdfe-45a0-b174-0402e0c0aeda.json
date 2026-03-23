@@ -1,0 +1,21 @@
+{
+  "node_id": "4f6dd489-cdfe-45a0-b174-0402e0c0aeda",
+  "node_type": "relation",
+  "content": "window1 poster1 adjacent to window1 poster1",
+  "tau": [
+    40,
+    9
+  ],
+  "metadata": {
+    "subject_tag": "window1",
+    "object_tag": "poster1",
+    "predicate": "window1 poster1 adjacent to window1 poster1",
+    "frame_start": 40,
+    "frame_end": 40,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "e463cc49-8fb5-428b-ac06-1815fab10c80"
+  ]
+}

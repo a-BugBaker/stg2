@@ -1,0 +1,21 @@
+{
+  "node_id": "2ce71b35-e826-40c6-b05c-9fd886dc5072",
+  "node_type": "relation",
+  "content": "poster poster2 beside poster3 poster3",
+  "tau": [
+    15,
+    40
+  ],
+  "metadata": {
+    "subject_tag": "poster",
+    "object_tag": "poster3",
+    "predicate": "poster poster2 beside poster3 poster3",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "6e7c2be7-683b-451c-a3a5-47672d9c9171"
+  ]
+}

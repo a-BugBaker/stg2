@@ -1,0 +1,25 @@
+{
+  "node_id": "6e9400b3-6a2e-40af-bccd-22d62dab5cc8",
+  "node_type": "entity_state",
+  "content": "shirt1 is a shirt at position (17.0, 361.3)",
+  "tau": [
+    0,
+    72
+  ],
+  "metadata": {
+    "entity_tag": "shirt1",
+    "label": "shirt",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      0.762,
+      335.693,
+      33.232,
+      386.924
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

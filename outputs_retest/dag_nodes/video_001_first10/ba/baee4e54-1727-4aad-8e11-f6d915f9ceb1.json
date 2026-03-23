@@ -1,0 +1,21 @@
+{
+  "node_id": "baee4e54-1727-4aad-8e11-f6d915f9ceb1",
+  "node_type": "entity_appeared",
+  "content": "t - shirt1 (t - shirt) appeared at frame 10, position (9.0, 358.9)",
+  "tau": [
+    10,
+    95
+  ],
+  "metadata": {
+    "entity_tag": "t - shirt1",
+    "label": "t - shirt",
+    "frame_start": 10,
+    "frame_end": 10,
+    "position": [
+      9.032,
+      358.93899999999996
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

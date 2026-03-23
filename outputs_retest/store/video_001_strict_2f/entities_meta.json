@@ -1,0 +1,2524 @@
+[
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0001",
+    "tag": "sign1",
+    "label": "sign",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      401.859,
+      141.021,
+      506.932,
+      214.279
+    ],
+    "attributes": [
+      "red sign with white writing and logo"
+    ],
+    "relations": [
+      {
+        "name": "sign1 displaying score for floor",
+        "object": "floor"
+      },
+      {
+        "name": "sign1 over court lines",
+        "object": "court lines"
+      },
+      {
+        "name": "sign1 visible to player1",
+        "object": "player1"
+      },
+      {
+        "name": "man1 below sign1",
+        "object": "man1"
+      },
+      {
+        "name": "sign1 adjacent to banner",
+        "object": "banner"
+      },
+      {
+        "name": "logo associated with sign1",
+        "object": "logo"
+      },
+      {
+        "name": "sign1 near basketball hoop",
+        "object": "basketball hoop"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0001: sign1 (sign); frames 0-0; last_box=[402, 141, 507, 214]; total_displacement=0.0px; attributes=red sign with white writing and logo; relations=logo associated with sign1->logo, man1 below sign1->man1, sign1 adjacent to banner->banner, sign1 displaying score for floor->floor, sign1 near basketball hoop->basketball hoop; state=active",
+    "confidence": 0.795,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "7edb5200ac52cc0c1c6990fd159860962ca965f5",
+    "memory_id": "entities_000000"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0002",
+    "tag": "water bottle1",
+    "label": "water bottle",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      895.205,
+      27.241,
+      945.171,
+      135.262
+    ],
+    "attributes": [
+      "white plastic water bottle with black writing"
+    ],
+    "relations": [
+      {
+        "name": "water bottle1 close to sign2",
+        "object": "sign2"
+      },
+      {
+        "name": "water bottle1 displayed in advertisement",
+        "object": "advertisement"
+      },
+      {
+        "name": "water bottle1 reflected in window2",
+        "object": "window2"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0002: water bottle1 (water bottle); frames 0-0; last_box=[895, 27, 945, 135]; total_displacement=0.0px; attributes=white plastic water bottle with black writing; relations=water bottle1 close to sign2->sign2, water bottle1 displayed in advertisement->advertisement, water bottle1 reflected in window2->window2; state=active",
+    "confidence": 0.731,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "cf72028332ebac9791622777d3d43f96f6ef81ff",
+    "memory_id": "entities_000001"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0003",
+    "tag": "man1",
+    "label": "man",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      286.055,
+      310.629,
+      334.201,
+      453.132
+    ],
+    "attributes": [
+      "basketball player wearing yellow jersey and black sneakers"
+    ],
+    "relations": [
+      {
+        "name": "man1 wear shoes on floor",
+        "object": "floor"
+      },
+      {
+        "name": "banner behind man1",
+        "object": "banner"
+      },
+      {
+        "name": "court lines beneath man1",
+        "object": "court lines"
+      },
+      {
+        "name": "logo behind man1",
+        "object": "logo"
+      },
+      {
+        "name": "basketball hoop behind man1",
+        "object": "basketball hoop"
+      },
+      {
+        "name": "player1 face towards man1",
+        "object": "player1"
+      },
+      {
+        "name": "man1 below sign1",
+        "object": "sign1"
+      },
+      {
+        "name": "contains",
+        "object": "shirt2"
+      },
+      {
+        "name": "contains",
+        "object": "shoes4"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0003: man1 (man); frames 0-0; last_box=[286, 311, 334, 453]; total_displacement=0.0px; attributes=basketball player wearing yellow jersey and black sneakers; relations=banner behind man1->banner, basketball hoop behind man1->basketball hoop, contains->shirt2, contains->shoes4, court lines beneath man1->court lines; state=active",
+    "confidence": 0.727,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "df73b5ee11dc62aacdbe94f8d3379c2385add127",
+    "memory_id": "entities_000002"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0004",
+    "tag": "window1",
+    "label": "window",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      240.889,
+      252.922,
+      279.494,
+      312.218
+    ],
+    "attributes": [
+      "metal barred window"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0004: window1 (window); frames 0-0; last_box=[241, 253, 279, 312]; total_displacement=0.0px; attributes=metal barred window; relations=none; state=active",
+    "confidence": 0.725,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "4719323e0fd50073fc7f87ac9b2f72aba7fc9fd9",
+    "memory_id": "entities_000003"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0005",
+    "tag": "sign2",
+    "label": "sign",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      0.198,
+      39.444,
+      205.297,
+      140.599
+    ],
+    "attributes": [
+      "sign with white letters on blue background"
+    ],
+    "relations": [
+      {
+        "name": "advertisement beside sign2",
+        "object": "advertisement"
+      },
+      {
+        "name": "sign2 over door2",
+        "object": "door2"
+      },
+      {
+        "name": "sign2 near staircase",
+        "object": "staircase"
+      },
+      {
+        "name": "sign2 near door1",
+        "object": "door1"
+      },
+      {
+        "name": "man2 stands before sign2",
+        "object": "man2"
+      },
+      {
+        "name": "sign2 adjacent to window2",
+        "object": "window2"
+      },
+      {
+        "name": "water bottle2 below sign2",
+        "object": "water bottle2"
+      },
+      {
+        "name": "water bottle1 close to sign2",
+        "object": "water bottle1"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0005: sign2 (sign); frames 0-0; last_box=[0, 39, 205, 141]; total_displacement=0.0px; attributes=sign with white letters on blue background; relations=advertisement beside sign2->advertisement, man2 stands before sign2->man2, sign2 adjacent to window2->window2, sign2 near door1->door1, sign2 near staircase->staircase; state=active",
+    "confidence": 0.703,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "d387b7fdecd3994440eabda9b5cca91cde1fa949",
+    "memory_id": "entities_000004"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0006",
+    "tag": "player1",
+    "label": "player",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      0.168,
+      326.305,
+      45.36,
+      441.145
+    ],
+    "attributes": [
+      "basketball player in yellow jersey and white shorts"
+    ],
+    "relations": [
+      {
+        "name": "floor beneath player1",
+        "object": "floor"
+      },
+      {
+        "name": "player1 stand near banner",
+        "object": "banner"
+      },
+      {
+        "name": "logo on player1 jersey",
+        "object": "logo"
+      },
+      {
+        "name": "player1 facing basketball hoop",
+        "object": "basketball hoop"
+      },
+      {
+        "name": "player1 within court lines",
+        "object": "court lines"
+      },
+      {
+        "name": "player1 approaching staircase",
+        "object": "staircase"
+      },
+      {
+        "name": "sign1 visible to player1",
+        "object": "sign1"
+      },
+      {
+        "name": "player1 face towards man1",
+        "object": "man1"
+      },
+      {
+        "name": "contains",
+        "object": "shorts1"
+      },
+      {
+        "name": "contains",
+        "object": "socks2"
+      },
+      {
+        "name": "contains",
+        "object": "shoes1"
+      },
+      {
+        "name": "contains",
+        "object": "shoes2"
+      },
+      {
+        "name": "contains",
+        "object": "shoes10"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0006: player1 (player); frames 0-0; last_box=[0, 326, 45, 441]; total_displacement=0.0px; attributes=basketball player in yellow jersey and white shorts; relations=contains->shoes1, contains->shoes10, contains->shoes2, contains->shorts1, contains->socks2; state=active",
+    "confidence": 0.698,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "f09aace766494ed5f90b9901e2363f8e34f6c04b",
+    "memory_id": "entities_000005"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0007",
+    "tag": "number1",
+    "label": "number",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      297.575,
+      345.856,
+      312.272,
+      364.008
+    ],
+    "attributes": [
+      "number 1 on back of basketball player"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0007: number1 (number); frames 0-0; last_box=[298, 346, 312, 364]; total_displacement=0.0px; attributes=number 1 on back of basketball player; relations=none; state=active",
+    "confidence": 0.654,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "21656c6fbf1d02511fe9f18b7cfffae9428be94a",
+    "memory_id": "entities_000006"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0008",
+    "tag": "player2",
+    "label": "player",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      92.782,
+      299.807,
+      133.937,
+      362.833
+    ],
+    "attributes": [
+      "basketball player in mid-action, wearing white and yellow uniform"
+    ],
+    "relations": [
+      {
+        "name": "contains",
+        "object": "shorts4"
+      },
+      {
+        "name": "contains",
+        "object": "shoes6"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0008: player2 (player); frames 0-0; last_box=[93, 300, 134, 363]; total_displacement=0.0px; attributes=basketball player in mid-action, wearing white and yellow uniform; relations=contains->shoes6, contains->shorts4; state=active",
+    "confidence": 0.631,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "923e663ecd279c82e284e32d4727ed15c55ef78c",
+    "memory_id": "entities_000007"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0009",
+    "tag": "jersey1",
+    "label": "jersey",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      288.491,
+      330.89,
+      327.25,
+      393.523
+    ],
+    "attributes": [
+      "yellow basketball jersey with number 62"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0009: jersey1 (jersey); frames 0-0; last_box=[288, 331, 327, 394]; total_displacement=0.0px; attributes=yellow basketball jersey with number 62; relations=none; state=active",
+    "confidence": 0.605,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "b3a9684f5374c0f069fdb20c7ff1d335cc7d8f18",
+    "memory_id": "entities_000008"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0010",
+    "tag": "basketball hoop",
+    "label": "basketball hoop",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      409.692,
+      184.455,
+      469.374,
+      228.48
+    ],
+    "attributes": [
+      "basketball hoop in a video game"
+    ],
+    "relations": [
+      {
+        "name": "floor below basketball hoop",
+        "object": "floor"
+      },
+      {
+        "name": "basketball hoop within boundaries of court lines",
+        "object": "court lines"
+      },
+      {
+        "name": "banner below basketball hoop",
+        "object": "banner"
+      },
+      {
+        "name": "logo over basketball hoop",
+        "object": "logo"
+      },
+      {
+        "name": "player1 facing basketball hoop",
+        "object": "player1"
+      },
+      {
+        "name": "basketball hoop behind man1",
+        "object": "man1"
+      },
+      {
+        "name": "sign1 near basketball hoop",
+        "object": "sign1"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0010: basketball hoop (basketball hoop); frames 0-0; last_box=[410, 184, 469, 228]; total_displacement=0.0px; attributes=basketball hoop in a video game; relations=banner below basketball hoop->banner, basketball hoop behind man1->man1, basketball hoop within boundaries of court lines->court lines, floor below basketball hoop->floor, logo over basketball hoop->logo; state=active",
+    "confidence": 0.568,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "276087d3e1e3faf4e1cdf4a0512be315b0c92796",
+    "memory_id": "entities_000009"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0011",
+    "tag": "door1",
+    "label": "door",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      177.122,
+      257.949,
+      210.71,
+      349.348
+    ],
+    "attributes": [
+      "black metal door with window and handle"
+    ],
+    "relations": [
+      {
+        "name": "advertisement is adjacent to door1",
+        "object": "advertisement"
+      },
+      {
+        "name": "door1 and window2 adjacent",
+        "object": "window2"
+      },
+      {
+        "name": "door1 adjacent to door2",
+        "object": "door2"
+      },
+      {
+        "name": "man2 approach door1",
+        "object": "man2"
+      },
+      {
+        "name": "sign2 near door1",
+        "object": "sign2"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0011: door1 (door); frames 0-0; last_box=[177, 258, 211, 349]; total_displacement=0.0px; attributes=black metal door with window and handle; relations=advertisement is adjacent to door1->advertisement, door1 adjacent to door2->door2, door1 and window2 adjacent->window2, man2 approach door1->man2, sign2 near door1->sign2; state=active",
+    "confidence": 0.564,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "e5d9e20cb8c43ff2515d4df95deb4aa88b522952",
+    "memory_id": "entities_000010"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0012",
+    "tag": "man2",
+    "label": "man",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      54.551,
+      217.324,
+      125.364,
+      325.462
+    ],
+    "attributes": [
+      "basketball player wearing red jersey with white number 7"
+    ],
+    "relations": [
+      {
+        "name": "advertisement show man2",
+        "object": "advertisement"
+      },
+      {
+        "name": "door2 beside man2",
+        "object": "door2"
+      },
+      {
+        "name": "man2 stands before sign2",
+        "object": "sign2"
+      },
+      {
+        "name": "man2 approach door1",
+        "object": "door1"
+      },
+      {
+        "name": "contains",
+        "object": "shirt3"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0012: man2 (man); frames 0-0; last_box=[55, 217, 125, 325]; total_displacement=0.0px; attributes=basketball player wearing red jersey with white number 7; relations=advertisement show man2->advertisement, contains->shirt3, door2 beside man2->door2, man2 approach door1->door1, man2 stands before sign2->sign2; state=active",
+    "confidence": 0.564,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "7525947f5065ac743835721fc99a21c64264404c",
+    "memory_id": "entities_000011"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0013",
+    "tag": "sock1",
+    "label": "sock",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      315.179,
+      413.894,
+      325.561,
+      435.631
+    ],
+    "attributes": [
+      "black sock on foot of person in yellow outfit"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0013: sock1 (sock); frames 0-0; last_box=[315, 414, 326, 436]; total_displacement=0.0px; attributes=black sock on foot of person in yellow outfit; relations=none; state=active",
+    "confidence": 0.54,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "bb5e17ffeb7058514335c5f1a28e2bde260ad3fa",
+    "memory_id": "entities_000012"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0014",
+    "tag": "door2",
+    "label": "door",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      34.835,
+      153.387,
+      143.634,
+      372.272
+    ],
+    "attributes": [
+      "door in a wall"
+    ],
+    "relations": [
+      {
+        "name": "door2 adjacent to advertisement",
+        "object": "advertisement"
+      },
+      {
+        "name": "window2 beside door2",
+        "object": "window2"
+      },
+      {
+        "name": "door2 and water bottle2 are adjacent",
+        "object": "water bottle2"
+      },
+      {
+        "name": "door2 opens into staircase",
+        "object": "staircase"
+      },
+      {
+        "name": "sign2 over door2",
+        "object": "sign2"
+      },
+      {
+        "name": "door1 adjacent to door2",
+        "object": "door1"
+      },
+      {
+        "name": "door2 beside man2",
+        "object": "man2"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0014: door2 (door); frames 0-0; last_box=[35, 153, 144, 372]; total_displacement=0.0px; attributes=door in a wall; relations=door1 adjacent to door2->door1, door2 adjacent to advertisement->advertisement, door2 and water bottle2 are adjacent->water bottle2, door2 beside man2->man2, door2 opens into staircase->staircase; state=active",
+    "confidence": 0.516,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "ce81b63d95a13b00742e97783a6ff67381cd4b6b",
+    "memory_id": "entities_000013"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0015",
+    "tag": "banner",
+    "label": "banner",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      311.003,
+      160.387,
+      556.187,
+      364.63
+    ],
+    "attributes": [
+      "black banner with white and red writing and graphics"
+    ],
+    "relations": [
+      {
+        "name": "floor below banner",
+        "object": "floor"
+      },
+      {
+        "name": "banner behind court lines",
+        "object": "court lines"
+      },
+      {
+        "name": "banner above logo",
+        "object": "logo"
+      },
+      {
+        "name": "player1 stand near banner",
+        "object": "player1"
+      },
+      {
+        "name": "banner behind man1",
+        "object": "man1"
+      },
+      {
+        "name": "sign1 adjacent to banner",
+        "object": "sign1"
+      },
+      {
+        "name": "banner below basketball hoop",
+        "object": "basketball hoop"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0015: banner (banner); frames 0-0; last_box=[311, 160, 556, 365]; total_displacement=0.0px; attributes=black banner with white and red writing and graphics; relations=banner above logo->logo, banner behind court lines->court lines, banner behind man1->man1, banner below basketball hoop->basketball hoop, floor below banner->floor; state=active",
+    "confidence": 0.507,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "6dddd45ae26bf45684f364c6e4035775620fcd8e",
+    "memory_id": "entities_000014"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0016",
+    "tag": "number2",
+    "label": "number",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      83.98,
+      256.09,
+      96.935,
+      286.079
+    ],
+    "attributes": [
+      "number 7 on jersey"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0016: number2 (number); frames 0-0; last_box=[84, 256, 97, 286]; total_displacement=0.0px; attributes=number 7 on jersey; relations=none; state=active",
+    "confidence": 0.504,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "87d2087d6d8a5db5ce55b7fa4e1092c044835d4d",
+    "memory_id": "entities_000015"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0017",
+    "tag": "water bottle2",
+    "label": "water bottle",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      157.846,
+      63.637,
+      194.096,
+      152.233
+    ],
+    "attributes": [
+      "water bottle with white shirt design"
+    ],
+    "relations": [
+      {
+        "name": "water bottle2 close to advertisement",
+        "object": "advertisement"
+      },
+      {
+        "name": "window2 reflects water bottle2",
+        "object": "window2"
+      },
+      {
+        "name": "label2 on water bottle2",
+        "object": "label2"
+      },
+      {
+        "name": "door2 and water bottle2 are adjacent",
+        "object": "door2"
+      },
+      {
+        "name": "water bottle2 below sign2",
+        "object": "sign2"
+      },
+      {
+        "name": "contains",
+        "object": "label2"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0017: water bottle2 (water bottle); frames 0-0; last_box=[158, 64, 194, 152]; total_displacement=0.0px; attributes=water bottle with white shirt design; relations=contains->label2, door2 and water bottle2 are adjacent->door2, label2 on water bottle2->label2, water bottle2 below sign2->sign2, water bottle2 close to advertisement->advertisement; state=active",
+    "confidence": 0.497,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "21bbce10969bec9d33dfc99a8580ab341afe8964",
+    "memory_id": "entities_000016"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0018",
+    "tag": "sock2",
+    "label": "sock",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      296.116,
+      411.592,
+      306.193,
+      427.47
+    ],
+    "attributes": [
+      "white sock on foot"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0018: sock2 (sock); frames 0-0; last_box=[296, 412, 306, 427]; total_displacement=0.0px; attributes=white sock on foot; relations=none; state=active",
+    "confidence": 0.466,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "7047c884a468b0278aae6d0c545edda33ae0f36b",
+    "memory_id": "entities_000017"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0019",
+    "tag": "window2",
+    "label": "window",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      356.161,
+      49.604,
+      548.913,
+      127.082
+    ],
+    "attributes": [
+      "window on side of bus"
+    ],
+    "relations": [
+      {
+        "name": "window2 adjacent to advertisement",
+        "object": "advertisement"
+      },
+      {
+        "name": "window2 beside door2",
+        "object": "door2"
+      },
+      {
+        "name": "door1 and window2 adjacent",
+        "object": "door1"
+      },
+      {
+        "name": "water bottle1 reflected in window2",
+        "object": "water bottle1"
+      },
+      {
+        "name": "sign2 adjacent to window2",
+        "object": "sign2"
+      },
+      {
+        "name": "window2 reflects water bottle2",
+        "object": "water bottle2"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0019: window2 (window); frames 0-0; last_box=[356, 50, 549, 127]; total_displacement=0.0px; attributes=window on side of bus; relations=door1 and window2 adjacent->door1, sign2 adjacent to window2->sign2, water bottle1 reflected in window2->water bottle1, window2 adjacent to advertisement->advertisement, window2 beside door2->door2; state=active",
+    "confidence": 0.443,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "1c67e72c94cbf3c219292f7dc71929fe36b20af3",
+    "memory_id": "entities_000018"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0020",
+    "tag": "jersey2",
+    "label": "jersey",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      93.489,
+      307.623,
+      113.486,
+      342.294
+    ],
+    "attributes": [
+      "jersey with white writing on back"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0020: jersey2 (jersey); frames 0-0; last_box=[93, 308, 113, 342]; total_displacement=0.0px; attributes=jersey with white writing on back; relations=none; state=active",
+    "confidence": 0.417,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "e0dd183608a83f617956cc39a62e59179c27d453",
+    "memory_id": "entities_000019"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0021",
+    "tag": "logo",
+    "label": "logo",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      350.845,
+      195.262,
+      498.466,
+      339.169
+    ],
+    "attributes": [
+      "logo with white letters inside red box"
+    ],
+    "relations": [
+      {
+        "name": "floor has logo",
+        "object": "floor"
+      },
+      {
+        "name": "logo over court lines",
+        "object": "court lines"
+      },
+      {
+        "name": "logo associated with text",
+        "object": "text"
+      },
+      {
+        "name": "logo on player1 jersey",
+        "object": "player1"
+      },
+      {
+        "name": "logo behind man1",
+        "object": "man1"
+      },
+      {
+        "name": "banner above logo",
+        "object": "banner"
+      },
+      {
+        "name": "logo associated with sign1",
+        "object": "sign1"
+      },
+      {
+        "name": "logo over basketball hoop",
+        "object": "basketball hoop"
+      },
+      {
+        "name": "contains",
+        "object": "text"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0021: logo (logo); frames 0-0; last_box=[351, 195, 498, 339]; total_displacement=0.0px; attributes=logo with white letters inside red box; relations=banner above logo->banner, contains->text, floor has logo->floor, logo associated with sign1->sign1, logo associated with text->text; state=active",
+    "confidence": 0.416,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "f0252fe3aa6636443fc91822b8d5d304a9c5a8e9",
+    "memory_id": "entities_000020"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0022",
+    "tag": "jersey3",
+    "label": "jersey",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      0.979,
+      335.578,
+      33.462,
+      386.905
+    ],
+    "attributes": [
+      "yellow basketball jersey with number 00"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0022: jersey3 (jersey); frames 0-0; last_box=[1, 336, 33, 387]; total_displacement=0.0px; attributes=yellow basketball jersey with number 00; relations=none; state=active",
+    "confidence": 0.41,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "9f0ab80619e7f7ddea3dcfae7e0eb69134256eef",
+    "memory_id": "entities_000021"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0023",
+    "tag": "shoe1",
+    "label": "shoe",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      8.115,
+      425.448,
+      20.743,
+      439.49
+    ],
+    "attributes": [
+      "white sneaker with black sole"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0023: shoe1 (shoe); frames 0-0; last_box=[8, 425, 21, 439]; total_displacement=0.0px; attributes=white sneaker with black sole; relations=none; state=active",
+    "confidence": 0.406,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "1ed2d5924a78ed1a9efd20e57f5d97056d83ec1a",
+    "memory_id": "entities_000022"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0024",
+    "tag": "backboard",
+    "label": "backboard",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      426.13,
+      198.558,
+      467.012,
+      226.912
+    ],
+    "attributes": [
+      "black backboard with white writing"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0024: backboard (backboard); frames 0-0; last_box=[426, 199, 467, 227]; total_displacement=0.0px; attributes=black backboard with white writing; relations=none; state=active",
+    "confidence": 0.401,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "53cd0fadce962569164d1346f87951f560f2360c",
+    "memory_id": "entities_000023"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0025",
+    "tag": "floor",
+    "label": "floor",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      1.374,
+      347.398,
+      913.817,
+      542.798
+    ],
+    "attributes": [
+      "wooden basketball court with orange and black markings"
+    ],
+    "relations": [
+      {
+        "name": "floor has court lines",
+        "object": "court lines"
+      },
+      {
+        "name": "sign1 displaying score for floor",
+        "object": "sign1"
+      },
+      {
+        "name": "floor below banner",
+        "object": "banner"
+      },
+      {
+        "name": "floor below basketball hoop",
+        "object": "basketball hoop"
+      },
+      {
+        "name": "floor has logo",
+        "object": "logo"
+      },
+      {
+        "name": "man1 wear shoes on floor",
+        "object": "man1"
+      },
+      {
+        "name": "floor beneath player1",
+        "object": "player1"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0025: floor (floor); frames 0-0; last_box=[1, 347, 914, 543]; total_displacement=0.0px; attributes=wooden basketball court with orange and black markings; relations=floor below banner->banner, floor below basketball hoop->basketball hoop, floor beneath player1->player1, floor has court lines->court lines, floor has logo->logo; state=active",
+    "confidence": 0.376,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "c05a369262e9c6b74d6af2ad2e98a1360f26b971",
+    "memory_id": "entities_000024"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0026",
+    "tag": "shoe2",
+    "label": "shoe",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      33.917,
+      426.38,
+      45.38,
+      440.695
+    ],
+    "attributes": [
+      "red rubber shoe with white sole"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0026: shoe2 (shoe); frames 0-0; last_box=[34, 426, 45, 441]; total_displacement=0.0px; attributes=red rubber shoe with white sole; relations=none; state=active",
+    "confidence": 0.365,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "e212eee2e0700701b655ce0cf0df75ad796696c7",
+    "memory_id": "entities_000025"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0027",
+    "tag": "number3",
+    "label": "number",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      18.519,
+      349.488,
+      29.29,
+      370.621
+    ],
+    "attributes": [
+      "number 3 on back of basketball player"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0027: number3 (number); frames 0-0; last_box=[19, 349, 29, 371]; total_displacement=0.0px; attributes=number 3 on back of basketball player; relations=none; state=active",
+    "confidence": 0.365,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "2656c6f9858c1828538352f0a372cb6da7ccddb6",
+    "memory_id": "entities_000026"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0028",
+    "tag": "staircase",
+    "label": "staircase",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      48.92,
+      319.975,
+      131.272,
+      370.825
+    ],
+    "attributes": [
+      "staircase in gym"
+    ],
+    "relations": [
+      {
+        "name": "advertisement beside staircase",
+        "object": "advertisement"
+      },
+      {
+        "name": "sign2 near staircase",
+        "object": "sign2"
+      },
+      {
+        "name": "door2 opens into staircase",
+        "object": "door2"
+      },
+      {
+        "name": "player1 approaching staircase",
+        "object": "player1"
+      },
+      {
+        "name": "contains",
+        "object": "steps"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0028: staircase (staircase); frames 0-0; last_box=[49, 320, 131, 371]; total_displacement=0.0px; attributes=staircase in gym; relations=advertisement beside staircase->advertisement, contains->steps, door2 opens into staircase->door2, player1 approaching staircase->player1, sign2 near staircase->sign2; state=active",
+    "confidence": 0.352,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "25d7b9b3e3cfe15028278ddf3314edb820ef0284",
+    "memory_id": "entities_000027"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0029",
+    "tag": "shorts1",
+    "label": "shorts",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      8.519,
+      384.913,
+      33.904,
+      405.964
+    ],
+    "attributes": [
+      "white shorts"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0029: shorts1 (shorts); frames 0-0; last_box=[9, 385, 34, 406]; total_displacement=0.0px; attributes=white shorts; relations=none; state=active",
+    "confidence": 0.789,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "160c3443e984b366e48889d9e820ee5cd7a57509",
+    "memory_id": "entities_000028"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0030",
+    "tag": "shorts2",
+    "label": "shorts",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      295.151,
+      390.478,
+      328.197,
+      415.487
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0030: shorts2 (shorts); frames 0-0; last_box=[295, 390, 328, 415]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.782,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "72112f4b4b0163d70b04f95191b885e644a5a34f",
+    "memory_id": "entities_000029"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0031",
+    "tag": "socks1",
+    "label": "socks",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      315.423,
+      414.177,
+      325.54,
+      435.662
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0031: socks1 (socks); frames 0-0; last_box=[315, 414, 326, 436]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.692,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "ce1271f5871fda7fa17244adc350a35f7a0f0693",
+    "memory_id": "entities_000030"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0032",
+    "tag": "shoes1",
+    "label": "shoes",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      8.109,
+      425.211,
+      20.613,
+      439.503
+    ],
+    "attributes": [
+      "white sneakers with black laces and sole"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0032: shoes1 (shoes); frames 0-0; last_box=[8, 425, 21, 440]; total_displacement=0.0px; attributes=white sneakers with black laces and sole; relations=none; state=active",
+    "confidence": 0.644,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "b3253c673fd4641931c495200ecbc1638130c79d",
+    "memory_id": "entities_000031"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0033",
+    "tag": "shorts3",
+    "label": "shorts",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      632.407,
+      282.66,
+      649.103,
+      303.923
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0033: shorts3 (shorts); frames 0-0; last_box=[632, 283, 649, 304]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.61,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "d5a45e658bba7c044a2b39a046e7ccd266939081",
+    "memory_id": "entities_000032"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0034",
+    "tag": "shoes2",
+    "label": "shoes",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      33.914,
+      426.384,
+      45.338,
+      440.785
+    ],
+    "attributes": [
+      "white sneakers with black laces"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0034: shoes2 (shoes); frames 0-0; last_box=[34, 426, 45, 441]; total_displacement=0.0px; attributes=white sneakers with black laces; relations=none; state=active",
+    "confidence": 0.588,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "4c99b3f1ad172e51df5ee50a54301f6598494a8b",
+    "memory_id": "entities_000033"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0035",
+    "tag": "label1",
+    "label": "label",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      402.098,
+      141.223,
+      506.345,
+      213.678
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0035: label1 (label); frames 0-0; last_box=[402, 141, 506, 214]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.584,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "8e5f6c21ed59ccca7883435908ec3e39f6167a3d",
+    "memory_id": "entities_000034"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0036",
+    "tag": "shorts4",
+    "label": "shorts",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      95.034,
+      328.998,
+      113.005,
+      342.86
+    ],
+    "attributes": [
+      "white shorts with black stripes down sides"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0036: shorts4 (shorts); frames 0-0; last_box=[95, 329, 113, 343]; total_displacement=0.0px; attributes=white shorts with black stripes down sides; relations=none; state=active",
+    "confidence": 0.54,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "981cede91cae304e72266a66341329b548a0c111",
+    "memory_id": "entities_000035"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0037",
+    "tag": "shirt1",
+    "label": "shirt",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      0.762,
+      335.693,
+      33.232,
+      386.924
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0037: shirt1 (shirt); frames 0-0; last_box=[1, 336, 33, 387]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.493,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "080cefeec2e9232bfb33268083203c52598f0dfc",
+    "memory_id": "entities_000036"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0038",
+    "tag": "shirt2",
+    "label": "shirt",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      288.192,
+      330.815,
+      328.731,
+      393.545
+    ],
+    "attributes": [
+      "yellow basketball jersey with number 62"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0038: shirt2 (shirt); frames 0-0; last_box=[288, 331, 329, 394]; total_displacement=0.0px; attributes=yellow basketball jersey with number 62; relations=none; state=active",
+    "confidence": 0.489,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "6e955d31cc970880cf6104c40bab182205650d96",
+    "memory_id": "entities_000037"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0039",
+    "tag": "shirt3",
+    "label": "shirt",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      93.936,
+      307.332,
+      111.689,
+      330.311
+    ],
+    "attributes": [
+      "red basketball jersey with white number 7"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0039: shirt3 (shirt); frames 0-0; last_box=[94, 307, 112, 330]; total_displacement=0.0px; attributes=red basketball jersey with white number 7; relations=none; state=active",
+    "confidence": 0.467,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "f279cf81fdff4908acdac67643c2282602f21c16",
+    "memory_id": "entities_000038"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0040",
+    "tag": "socks shoes",
+    "label": "socks shoes",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      295.958,
+      412.177,
+      306.293,
+      427.853
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0040: socks shoes (socks shoes); frames 0-0; last_box=[296, 412, 306, 428]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.445,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "b86dabece4a1732206307e11b163042e59a4ebcf",
+    "memory_id": "entities_000039"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0041",
+    "tag": "shoes3",
+    "label": "shoes",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      895.699,
+      332.612,
+      905.189,
+      347.188
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0041: shoes3 (shoes); frames 0-0; last_box=[896, 333, 905, 347]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.435,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "03b6c5fc912412e49e29f2bc8c7ab224591bb07b",
+    "memory_id": "entities_000040"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0042",
+    "tag": "fabric1",
+    "label": "fabric",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      311.253,
+      161.032,
+      556.316,
+      364.001
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0042: fabric1 (fabric); frames 0-0; last_box=[311, 161, 556, 364]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.428,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "0a8425039c92cf0ebf1dc8d6a5d43674a2636351",
+    "memory_id": "entities_000041"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0043",
+    "tag": "shoes4",
+    "label": "shoes",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      315.922,
+      433.55,
+      332.391,
+      455.1
+    ],
+    "attributes": [
+      "black sneakers with white soles"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0043: shoes4 (shoes); frames 0-0; last_box=[316, 434, 332, 455]; total_displacement=0.0px; attributes=black sneakers with white soles; relations=none; state=active",
+    "confidence": 0.418,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "2170404a53eb4ab1973ee7a622b66181b0fc4418",
+    "memory_id": "entities_000042"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0044",
+    "tag": "shoes5",
+    "label": "shoes",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      688.567,
+      320.648,
+      700.204,
+      332.898
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0044: shoes5 (shoes); frames 0-0; last_box=[689, 321, 700, 333]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.404,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "e7197e15853b954dd553301dc59f1b01df425b40",
+    "memory_id": "entities_000043"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0045",
+    "tag": "shorts5",
+    "label": "shorts",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      592.147,
+      293.954,
+      610.292,
+      311.882
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0045: shorts5 (shorts); frames 0-0; last_box=[592, 294, 610, 312]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.399,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "2784c64207fe366da27ac72bcee765abc3402566",
+    "memory_id": "entities_000044"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0046",
+    "tag": "text",
+    "label": "text",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      368.9,
+      277.176,
+      493.752,
+      315.507
+    ],
+    "attributes": [
+      "white letters in red box"
+    ],
+    "relations": [
+      {
+        "name": "logo associated with text",
+        "object": "logo"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0046: text (text); frames 0-0; last_box=[369, 277, 494, 316]; total_displacement=0.0px; attributes=white letters in red box; relations=logo associated with text->logo; state=active",
+    "confidence": 0.383,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "e7511c693b0e48c777bebd20d9ab4ee8661781f7",
+    "memory_id": "entities_000045"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0047",
+    "tag": "steps",
+    "label": "steps",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      53.774,
+      321.715,
+      106.012,
+      369.299
+    ],
+    "attributes": [
+      "stairs in gym"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0047: steps (steps); frames 0-0; last_box=[54, 322, 106, 369]; total_displacement=0.0px; attributes=stairs in gym; relations=none; state=active",
+    "confidence": 0.381,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "4960f132871f7e71d10533c0e97811f7482c8e19",
+    "memory_id": "entities_000046"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0048",
+    "tag": "shoes6",
+    "label": "shoes",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      105.315,
+      352.041,
+      113.792,
+      362.676
+    ],
+    "attributes": [
+      "brown leather dress shoes"
+    ],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0048: shoes6 (shoes); frames 0-0; last_box=[105, 352, 114, 363]; total_displacement=0.0px; attributes=brown leather dress shoes; relations=none; state=active",
+    "confidence": 0.375,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "6718f404c4c5c024403d51ed9687e84229184832",
+    "memory_id": "entities_000047"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0049",
+    "tag": "shoes7",
+    "label": "shoes",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      904.319,
+      334.197,
+      912.59,
+      347.623
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0049: shoes7 (shoes); frames 0-0; last_box=[904, 334, 913, 348]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.356,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "77d2c5d4ebf400ca5034c2a4310bfcbab303bdd5",
+    "memory_id": "entities_000048"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0050",
+    "tag": "collar",
+    "label": "collar",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      82.534,
+      229.33,
+      101.34,
+      239.315
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0050: collar (collar); frames 0-0; last_box=[83, 229, 101, 239]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.353,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "4411e93815d682b99561c8d604cfb7e4955a9bea",
+    "memory_id": "entities_000049"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0051",
+    "tag": "shirt4",
+    "label": "shirt",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      854.568,
+      238.03,
+      883.107,
+      268.545
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0051: shirt4 (shirt); frames 0-0; last_box=[855, 238, 883, 269]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.353,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "0a54d610d0ff6f05aa57a79fe7ab3383d991ce25",
+    "memory_id": "entities_000050"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0052",
+    "tag": "poster",
+    "label": "poster",
+    "frame_index": 0,
+    "frame_start": 0,
+    "frame_end": 0,
+    "bbox": [
+      0.079,
+      39.753,
+      205.206,
+      139.178
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0052: poster (poster); frames 0-0; last_box=[0, 40, 205, 139]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.686,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "e1b240dafb277953d0c1ec56292bed50821a5a70",
+    "memory_id": "entities_000051"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0003",
+    "tag": "man1",
+    "label": "man",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      283.108,
+      311.52,
+      344.489,
+      454.145
+    ],
+    "attributes": [
+      "basketball player wearing yellow jersey and shorts"
+    ],
+    "relations": [
+      {
+        "name": "man1 aim at basketball hoop",
+        "object": "basketball hoop"
+      },
+      {
+        "name": "man1 face away from man3",
+        "object": "man3"
+      },
+      {
+        "name": "poster1 behind man1",
+        "object": "poster1"
+      },
+      {
+        "name": "banner behind man1",
+        "object": "banner"
+      },
+      {
+        "name": "man1 walk on floor",
+        "object": "floor"
+      },
+      {
+        "name": "contains",
+        "object": "pants1"
+      },
+      {
+        "name": "contains",
+        "object": "t - shirt1"
+      }
+    ],
+    "total_displacement": 3.791948608565207,
+    "description": "entity_0003: man1 (man); frames 0-5; last_box=[283, 312, 344, 454]; total_displacement=3.8px; attributes=basketball player wearing yellow jersey and shorts; relations=banner behind man1->banner, contains->pants1, contains->t - shirt1, man1 aim at basketball hoop->basketball hoop, man1 face away from man3->man3; state=active",
+    "confidence": 0.875,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "681a713c4c1aac96c6f940f5eeac24c3560f3a25",
+    "memory_id": "entities_000052"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0004",
+    "tag": "window1",
+    "label": "window",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      240.745,
+      252.661,
+      279.769,
+      312.318
+    ],
+    "attributes": [
+      "metal barred window"
+    ],
+    "relations": [
+      {
+        "name": "window1 showing man2",
+        "object": "man2"
+      },
+      {
+        "name": "window1 showing man4",
+        "object": "man4"
+      },
+      {
+        "name": "window1 beside poster2",
+        "object": "poster2"
+      }
+    ],
+    "total_displacement": 0.10378101945921368,
+    "description": "entity_0004: window1 (window); frames 0-5; last_box=[241, 253, 280, 312]; total_displacement=0.1px; attributes=metal barred window; relations=window1 beside poster2->poster2, window1 showing man2->man2, window1 showing man4->man4; state=active",
+    "confidence": 0.796,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "d8465173bfeb3f03afcf26e1c854305fe4623d14",
+    "memory_id": "entities_000053"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0010",
+    "tag": "basketball hoop",
+    "label": "basketball hoop",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      423.703,
+      184.515,
+      469.793,
+      227.732
+    ],
+    "attributes": [
+      "basketball hoop with black backboard and white writing"
+    ],
+    "relations": [
+      {
+        "name": "man3 stand near basketball hoop",
+        "object": "man3"
+      },
+      {
+        "name": "basketball hoop near poster1",
+        "object": "poster1"
+      },
+      {
+        "name": "basketball hoop above banner",
+        "object": "banner"
+      },
+      {
+        "name": "floor below basketball hoop",
+        "object": "floor"
+      },
+      {
+        "name": "basketball hoop attached to backboard",
+        "object": "backboard"
+      },
+      {
+        "name": "man1 aim at basketball hoop",
+        "object": "man1"
+      },
+      {
+        "name": "contains",
+        "object": "backboard"
+      }
+    ],
+    "total_displacement": 7.223196037766084,
+    "description": "entity_0010: basketball hoop (basketball hoop); frames 0-5; last_box=[424, 185, 470, 228]; total_displacement=7.2px; attributes=basketball hoop with black backboard and white writing; relations=basketball hoop above banner->banner, basketball hoop attached to backboard->backboard, basketball hoop near poster1->poster1, contains->backboard, floor below basketball hoop->floor; state=active",
+    "confidence": 0.718,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "da45f117f84a8acbaf04afd3c3eea7a3d75e05d2",
+    "memory_id": "entities_000054"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0011",
+    "tag": "door1",
+    "label": "door",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      178.179,
+      258.289,
+      210.901,
+      349.399
+    ],
+    "attributes": [
+      "black metal door with window"
+    ],
+    "relations": [
+      {
+        "name": "man4 stands before door",
+        "object": "man4"
+      },
+      {
+        "name": "poster2 beside door",
+        "object": "poster2"
+      }
+    ],
+    "total_displacement": 0.6539084416032739,
+    "description": "entity_0011: door1 (door); frames 0-5; last_box=[178, 258, 211, 349]; total_displacement=0.7px; attributes=black metal door with window; relations=man4 stands before door->man4, poster2 beside door->poster2; state=active",
+    "confidence": 0.688,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "4095c372ddea07c937f1e00ef4d1c816c6e17df6",
+    "memory_id": "entities_000055"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0012",
+    "tag": "man2",
+    "label": "man",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      54.174,
+      192.269,
+      126.204,
+      325.77
+    ],
+    "attributes": [
+      "man in red shirt holding yellow object"
+    ],
+    "relations": [
+      {
+        "name": "man4 standing before poster2",
+        "object": "poster2"
+      },
+      {
+        "name": "window1 showing man4",
+        "object": "window1"
+      },
+      {
+        "name": "man4 beside man2",
+        "object": "man2"
+      },
+      {
+        "name": "man4 stands before door",
+        "object": "door"
+      }
+    ],
+    "total_displacement": 12.375665416453407,
+    "description": "entity_0012: man2 (man); frames 0-5; last_box=[54, 192, 126, 326]; total_displacement=12.4px; attributes=man in red shirt holding yellow object; relations=man4 beside man2->man2, man4 standing before poster2->poster2, man4 stands before door->door, window1 showing man4->window1; state=active",
+    "confidence": 0.541,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "bf161164a396017b3137320bcba2a02521a4df0b",
+    "memory_id": "entities_000056"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0015",
+    "tag": "banner",
+    "label": "banner",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      310.866,
+      160.252,
+      556.561,
+      364.672
+    ],
+    "attributes": [
+      "black banner with white and red writing"
+    ],
+    "relations": [
+      {
+        "name": "floor below banner",
+        "object": "floor"
+      },
+      {
+        "name": "banner behind man1",
+        "object": "man1"
+      },
+      {
+        "name": "basketball hoop above banner",
+        "object": "basketball hoop"
+      },
+      {
+        "name": "man3 wear jersey with number from banner",
+        "object": "man3"
+      },
+      {
+        "name": "poster1 below banner",
+        "object": "poster1"
+      }
+    ],
+    "total_displacement": 0.12729689705566072,
+    "description": "entity_0015: banner (banner); frames 0-5; last_box=[311, 160, 557, 365]; total_displacement=0.1px; attributes=black banner with white and red writing; relations=banner behind man1->man1, basketball hoop above banner->basketball hoop, floor below banner->floor, man3 wear jersey with number from banner->man3, poster1 below banner->poster1; state=active",
+    "confidence": 0.385,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "26882d8062f5b3ac1d3794881b4c0f02c3f1cdf0",
+    "memory_id": "entities_000057"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0019",
+    "tag": "window2",
+    "label": "window",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      356.049,
+      49.332,
+      549.086,
+      127.386
+    ],
+    "attributes": [
+      "window with reflection of trees and sky"
+    ],
+    "relations": [],
+    "total_displacement": 0.0344419801985569,
+    "description": "entity_0019: window2 (window); frames 0-5; last_box=[356, 49, 549, 127]; total_displacement=0.0px; attributes=window with reflection of trees and sky; relations=none; state=active",
+    "confidence": 0.498,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "cc76e42e71a32e329746bcb05d8a4f0f4763ce4b",
+    "memory_id": "entities_000058"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0031",
+    "tag": "socks1",
+    "label": "socks",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      316.884,
+      412.603,
+      326.924,
+      435.382
+    ],
+    "attributes": [
+      "black athletic socks"
+    ],
+    "relations": [
+      {
+        "name": "socks1 worn by pants1",
+        "object": "pants1"
+      }
+    ],
+    "total_displacement": 1.6978914129001217,
+    "description": "entity_0031: socks1 (socks); frames 0-5; last_box=[317, 413, 327, 435]; total_displacement=1.7px; attributes=black athletic socks; relations=socks1 worn by pants1->pants1; state=active",
+    "confidence": 0.596,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "5be5f63c78deae640d6a51eaf90f8acfbf5a62f8",
+    "memory_id": "entities_000059"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0038",
+    "tag": "shirt2",
+    "label": "shirt",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      295.919,
+      329.948,
+      333.452,
+      392.32
+    ],
+    "attributes": [
+      "yellow basketball jersey with number 62"
+    ],
+    "relations": [],
+    "total_displacement": 6.311282912372084,
+    "description": "entity_0038: shirt2 (shirt); frames 0-5; last_box=[296, 330, 333, 392]; total_displacement=6.3px; attributes=yellow basketball jersey with number 62; relations=none; state=active",
+    "confidence": 0.559,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "cd0a80481423a7f2ee4f6a2cc257195cf06fbc4b",
+    "memory_id": "entities_000060"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0052",
+    "tag": "poster",
+    "label": "poster",
+    "frame_index": 5,
+    "frame_start": 0,
+    "frame_end": 5,
+    "bbox": [
+      0.332,
+      39.316,
+      205.288,
+      139.507
+    ],
+    "attributes": [
+      "poster of astronaut drinking water"
+    ],
+    "relations": [
+      {
+        "name": "window1 beside poster2",
+        "object": "window1"
+      },
+      {
+        "name": "man2 sit near poster2",
+        "object": "man2"
+      },
+      {
+        "name": "poster2 beside door",
+        "object": "door"
+      },
+      {
+        "name": "man4 standing before poster2",
+        "object": "man4"
+      }
+    ],
+    "total_displacement": 0.1759893462684603,
+    "description": "entity_0052: poster (poster); frames 0-5; last_box=[0, 39, 205, 140]; total_displacement=0.2px; attributes=poster of astronaut drinking water; relations=man2 sit near poster2->man2, man4 standing before poster2->man4, poster2 beside door->door, window1 beside poster2->window1; state=active",
+    "confidence": 0.383,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "4d5c93e37fbdcecb273cb9986970119fda33c485",
+    "memory_id": "entities_000061"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0053",
+    "tag": "man2",
+    "label": "man",
+    "frame_index": 5,
+    "frame_start": 5,
+    "frame_end": 5,
+    "bbox": [
+      92.462,
+      299.519,
+      133.612,
+      362.864
+    ],
+    "attributes": [
+      "man wearing yellow shirt and blue shoes"
+    ],
+    "relations": [
+      {
+        "name": "man4 beside man2",
+        "object": "man4"
+      },
+      {
+        "name": "man2 sit near poster2",
+        "object": "poster2"
+      },
+      {
+        "name": "pants2 worn by man2",
+        "object": "pants2"
+      },
+      {
+        "name": "t - shirt3 worn by man2",
+        "object": "t - shirt3"
+      },
+      {
+        "name": "window1 showing man2",
+        "object": "window1"
+      },
+      {
+        "name": "contains",
+        "object": "pants2"
+      },
+      {
+        "name": "contains",
+        "object": "t - shirt3"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0053: man2 (man); frames 5-5; last_box=[92, 300, 134, 363]; total_displacement=0.0px; attributes=man wearing yellow shirt and blue shoes; relations=contains->pants2, contains->t - shirt3, man2 sit near poster2->poster2, man4 beside man2->man4, pants2 worn by man2->pants2; state=active",
+    "confidence": 0.718,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "92503c61a9477c81b629736849c282c52b551220",
+    "memory_id": "entities_000062"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0054",
+    "tag": "man3",
+    "label": "man",
+    "frame_index": 5,
+    "frame_start": 5,
+    "frame_end": 5,
+    "bbox": [
+      0.125,
+      319.718,
+      34.911,
+      439.415
+    ],
+    "attributes": [
+      "man wearing yellow jersey and white shorts"
+    ],
+    "relations": [
+      {
+        "name": "poster1 being observed by man3",
+        "object": "poster1"
+      },
+      {
+        "name": "man3 wear jersey with number from banner",
+        "object": "banner"
+      },
+      {
+        "name": "floor beneath man3",
+        "object": "floor"
+      },
+      {
+        "name": "pants3 worn by man3",
+        "object": "pants3"
+      },
+      {
+        "name": "man1 face away from man3",
+        "object": "man1"
+      },
+      {
+        "name": "man3 stand near basketball hoop",
+        "object": "basketball hoop"
+      },
+      {
+        "name": "contains",
+        "object": "pants3"
+      },
+      {
+        "name": "contains",
+        "object": "t - shirt2"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0054: man3 (man); frames 5-5; last_box=[0, 320, 35, 439]; total_displacement=0.0px; attributes=man wearing yellow jersey and white shorts; relations=contains->pants3, contains->t - shirt2, floor beneath man3->floor, man1 face away from man3->man1, man3 stand near basketball hoop->basketball hoop; state=active",
+    "confidence": 0.582,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "d0b1715d40e8361923234bb4788c9f9aeab97638",
+    "memory_id": "entities_000063"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0055",
+    "tag": "poster1",
+    "label": "poster",
+    "frame_index": 5,
+    "frame_start": 5,
+    "frame_end": 5,
+    "bbox": [
+      401.828,
+      140.926,
+      506.891,
+      213.942
+    ],
+    "attributes": [
+      "red paper with white writing and logo"
+    ],
+    "relations": [
+      {
+        "name": "poster1 below banner",
+        "object": "banner"
+      },
+      {
+        "name": "floor below poster1",
+        "object": "floor"
+      },
+      {
+        "name": "poster1 above paper",
+        "object": "paper"
+      },
+      {
+        "name": "poster1 behind man1",
+        "object": "man1"
+      },
+      {
+        "name": "basketball hoop near poster1",
+        "object": "basketball hoop"
+      },
+      {
+        "name": "poster1 being observed by man3",
+        "object": "man3"
+      },
+      {
+        "name": "contains",
+        "object": "paper"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0055: poster1 (poster); frames 5-5; last_box=[402, 141, 507, 214]; total_displacement=0.0px; attributes=red paper with white writing and logo; relations=basketball hoop near poster1->basketball hoop, contains->paper, floor below poster1->floor, poster1 above paper->paper, poster1 behind man1->man1; state=active",
+    "confidence": 0.397,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "410c23524b9b68732477bc631962a901afd22932",
+    "memory_id": "entities_000064"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0056",
+    "tag": "pole1",
+    "label": "pole",
+    "frame_index": 5,
+    "frame_start": 5,
+    "frame_end": 5,
+    "bbox": [
+      595.571,
+      0.358,
+      619.901,
+      364.028
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0056: pole1 (pole); frames 5-5; last_box=[596, 0, 620, 364]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.476,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "59f66f1e8882b0e84dd3738ef6200ccbdbd3348a",
+    "memory_id": "entities_000065"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0057",
+    "tag": "pants1",
+    "label": "pants",
+    "frame_index": 5,
+    "frame_start": 5,
+    "frame_end": 5,
+    "bbox": [
+      300.201,
+      389.154,
+      332.125,
+      414.045
+    ],
+    "attributes": [
+      "yellow basketball shorts"
+    ],
+    "relations": [
+      {
+        "name": "socks1 worn by pants1",
+        "object": "socks1"
+      },
+      {
+        "name": "pants1 paired with socks2",
+        "object": "socks2"
+      },
+      {
+        "name": "contains",
+        "object": "socks1"
+      },
+      {
+        "name": "contains",
+        "object": "socks2"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0057: pants1 (pants); frames 5-5; last_box=[300, 389, 332, 414]; total_displacement=0.0px; attributes=yellow basketball shorts; relations=contains->socks1, contains->socks2, pants1 paired with socks2->socks2, socks1 worn by pants1->socks1; state=active",
+    "confidence": 0.469,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "bf4fee91c7f74840b343ddac3b9f9de264a9f61d",
+    "memory_id": "entities_000066"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0058",
+    "tag": "paper",
+    "label": "paper",
+    "frame_index": 5,
+    "frame_start": 5,
+    "frame_end": 5,
+    "bbox": [
+      402.032,
+      141.249,
+      506.456,
+      214.429
+    ],
+    "attributes": [
+      "red paper with white writing and logo"
+    ],
+    "relations": [
+      {
+        "name": "poster1 above paper",
+        "object": "poster1"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0058: paper (paper); frames 5-5; last_box=[402, 141, 506, 214]; total_displacement=0.0px; attributes=red paper with white writing and logo; relations=poster1 above paper->poster1; state=active",
+    "confidence": 0.459,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "ad996c856c1cc44ee90a87c3f517cb8b7c6563a5",
+    "memory_id": "entities_000067"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0059",
+    "tag": "pants2",
+    "label": "pants",
+    "frame_index": 5,
+    "frame_start": 5,
+    "frame_end": 5,
+    "bbox": [
+      95.352,
+      330.126,
+      125.024,
+      349.371
+    ],
+    "attributes": [
+      "red shorts with white stripes down sides"
+    ],
+    "relations": [
+      {
+        "name": "pants2 worn by man2",
+        "object": "man2"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0059: pants2 (pants); frames 5-5; last_box=[95, 330, 125, 349]; total_displacement=0.0px; attributes=red shorts with white stripes down sides; relations=pants2 worn by man2->man2; state=active",
+    "confidence": 0.415,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "0f5d9d4a44a7bcbda9d2bc8be62d73be027646f6",
+    "memory_id": "entities_000068"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0060",
+    "tag": "pole2",
+    "label": "pole",
+    "frame_index": 5,
+    "frame_start": 5,
+    "frame_end": 5,
+    "bbox": [
+      558.264,
+      158.319,
+      569.894,
+      363.554
+    ],
+    "attributes": [],
+    "relations": [],
+    "total_displacement": 0.0,
+    "description": "entity_0060: pole2 (pole); frames 5-5; last_box=[558, 158, 570, 364]; total_displacement=0.0px; attributes=none; relations=none; state=active",
+    "confidence": 0.363,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "4f8ced6ce5cd879da4ffc18e4aff5a4ff2df0d5a",
+    "memory_id": "entities_000069"
+  },
+  {
+    "memory_type": "entity_state",
+    "entity_id": "entity_0061",
+    "tag": "socks2",
+    "label": "socks",
+    "frame_index": 5,
+    "frame_start": 5,
+    "frame_end": 5,
+    "bbox": [
+      304.663,
+      407.178,
+      313.137,
+      428.674
+    ],
+    "attributes": [
+      "black athletic socks"
+    ],
+    "relations": [
+      {
+        "name": "pants1 paired with socks2",
+        "object": "pants1"
+      }
+    ],
+    "total_displacement": 0.0,
+    "description": "entity_0061: socks2 (socks); frames 5-5; last_box=[305, 407, 313, 429]; total_displacement=0.0px; attributes=black athletic socks; relations=pants1 paired with socks2->pants1; state=active",
+    "confidence": 0.59,
+    "status": "active",
+    "source": "immediate",
+    "dedupe_key": "b3a8b8f54b76e246e46783e083d9a45f96e4cb51",
+    "memory_id": "entities_000070"
+  }
+]

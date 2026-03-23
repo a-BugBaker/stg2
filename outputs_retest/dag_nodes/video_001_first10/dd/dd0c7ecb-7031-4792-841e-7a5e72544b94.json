@@ -1,0 +1,22 @@
+{
+  "node_id": "dd0c7ecb-7031-4792-841e-7a5e72544b94",
+  "node_type": "entity_disappeared",
+  "content": "pants2 disappeared at frame 10, last position (110.2, 339.7)",
+  "tau": [
+    10,
+    98
+  ],
+  "metadata": {
+    "entity_tag": "pants2",
+    "frame_start": 10,
+    "frame_end": 10,
+    "last_position": [
+      110.188,
+      339.7485
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "39812413-ee2a-42de-8b37-45d8206e2cc7"
+  ]
+}

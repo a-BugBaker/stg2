@@ -1,0 +1,22 @@
+{
+  "node_id": "24b505ee-d132-4122-ab53-a3b6c5d707e5",
+  "node_type": "relation",
+  "content": "jersey3 t - shirt1 worn by man2 man2",
+  "tau": [
+    15,
+    52
+  ],
+  "metadata": {
+    "subject_tag": "jersey3",
+    "object_tag": "man2",
+    "predicate": "jersey3 t - shirt1 worn by man2 man2",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "d12cbefe-9d49-44d8-9982-31d5cbc01c79",
+    "6babad5e-a6d8-4c88-99a4-e86b39d29d58"
+  ]
+}

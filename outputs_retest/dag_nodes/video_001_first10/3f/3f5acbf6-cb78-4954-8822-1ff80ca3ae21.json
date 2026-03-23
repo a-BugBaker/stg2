@@ -1,0 +1,21 @@
+{
+  "node_id": "3f5acbf6-cb78-4954-8822-1ff80ca3ae21",
+  "node_type": "relation",
+  "content": "man1 man1 walk on floor floor",
+  "tau": [
+    20,
+    7
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "floor",
+    "predicate": "man1 man1 walk on floor floor",
+    "frame_start": 20,
+    "frame_end": 20,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "9bf01d32-62cd-49b9-908a-debe9b68c93d"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "node_id": "c77f6014-d056-469e-85d2-572daf0150fa",
+  "node_type": "relation",
+  "content": "window1 window1 showing man2 man2",
+  "tau": [
+    35,
+    8
+  ],
+  "metadata": {
+    "subject_tag": "window1",
+    "object_tag": "man2",
+    "predicate": "window1 window1 showing man2 man2",
+    "frame_start": 35,
+    "frame_end": 35,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "b8a2d809-9df9-434f-8d41-f82880949293"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "node_id": "0b7e06d6-ea84-44f4-84cc-c5261c1ba4d3",
+  "node_type": "relation",
+  "content": "backboard backboard supporting basketball hoop basketball hoop",
+  "tau": [
+    15,
+    39
+  ],
+  "metadata": {
+    "subject_tag": "backboard",
+    "object_tag": "basketball hoop",
+    "predicate": "backboard backboard supporting basketball hoop basketball hoop",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "3fd0e50b-ee12-44ab-be9c-ee2d5ca1f995",
+    "e524dcb4-4587-4135-8508-a3bc89544211"
+  ]
+}

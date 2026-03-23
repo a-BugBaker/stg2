@@ -1,0 +1,21 @@
+{
+  "node_id": "7741fe84-72df-454b-a576-13a8abc4f7ad",
+  "node_type": "relation",
+  "content": "door1 poster3 adjacent to door poster3",
+  "tau": [
+    15,
+    21
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "poster3",
+    "predicate": "door1 poster3 adjacent to door poster3",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "d717183f-da67-4e6d-999a-291e5cf77751"
+  ]
+}

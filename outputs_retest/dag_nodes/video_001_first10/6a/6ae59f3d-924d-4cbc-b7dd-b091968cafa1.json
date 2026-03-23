@@ -1,0 +1,21 @@
+{
+  "node_id": "6ae59f3d-924d-4cbc-b7dd-b091968cafa1",
+  "node_type": "entity_appeared",
+  "content": "advertisement3 (advertisement) appeared at frame 10, position (779.0, 113.0)",
+  "tau": [
+    10,
+    69
+  ],
+  "metadata": {
+    "entity_tag": "advertisement3",
+    "label": "advertisement",
+    "frame_start": 10,
+    "frame_end": 10,
+    "position": [
+      779.02,
+      112.95500000000001
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,21 @@
+{
+  "node_id": "49821ab4-3896-48d3-a19a-19554b0fb590",
+  "node_type": "entity_appeared",
+  "content": "steps (steps) appeared at frame 10, position (88.1, 346.1)",
+  "tau": [
+    10,
+    84
+  ],
+  "metadata": {
+    "entity_tag": "steps",
+    "label": "steps",
+    "frame_start": 10,
+    "frame_end": 10,
+    "position": [
+      88.0595,
+      346.06899999999996
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

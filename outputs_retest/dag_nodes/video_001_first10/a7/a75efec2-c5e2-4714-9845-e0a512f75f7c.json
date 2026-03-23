@@ -1,0 +1,21 @@
+{
+  "node_id": "a75efec2-c5e2-4714-9845-e0a512f75f7c",
+  "node_type": "relation",
+  "content": "man2 fire escape platform above man2 fire escape platform",
+  "tau": [
+    10,
+    17
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "fire escape platform",
+    "predicate": "man2 fire escape platform above man2 fire escape platform",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "5798a7f5-928a-42db-a675-dd0fe452ded5"
+  ]
+}

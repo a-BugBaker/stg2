@@ -1,0 +1,27 @@
+{
+  "node_id": "c159d5cd-fce7-463c-8c2d-a0f1b77e8bb9",
+  "node_type": "entity_state",
+  "content": "emergency exit sign is a emergency exit sign with attributes [emergency exit sign in window: emergency exit sign in window] at position (485.7, 102.8)",
+  "tau": [
+    10,
+    81
+  ],
+  "metadata": {
+    "entity_tag": "emergency exit sign",
+    "label": "emergency exit sign",
+    "attributes": {
+      "emergency exit sign in window": "emergency exit sign in window"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 10,
+    "latest_bbox": [
+      466.436,
+      90.622,
+      504.947,
+      115.004
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,21 @@
+{
+  "node_id": "cf3e7f13-42f1-49cf-9a72-81426366a11e",
+  "node_type": "relation",
+  "content": "banner court lines2 below banner court lines2",
+  "tau": [
+    10,
+    22
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "court lines2",
+    "predicate": "banner court lines2 below banner court lines2",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "02aa9d1d-5973-4cc9-9eca-5fc43981f5d6"
+  ]
+}

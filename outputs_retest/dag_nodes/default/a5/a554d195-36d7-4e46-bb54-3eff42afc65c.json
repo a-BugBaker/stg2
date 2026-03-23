@@ -1,0 +1,22 @@
+{
+  "node_id": "a554d195-36d7-4e46-bb54-3eff42afc65c",
+  "node_type": "entity_disappeared",
+  "content": "socks shoes disappeared at frame 5, last position (301.1, 420.0)",
+  "tau": [
+    5,
+    80
+  ],
+  "metadata": {
+    "entity_tag": "socks shoes",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      301.1255,
+      420.015
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "69a9ae8f-7aee-42cf-9358-fae8a8837b0f"
+  ]
+}

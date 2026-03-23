@@ -1,0 +1,27 @@
+{
+  "node_id": "9b3911a9-f865-4a5c-a431-4b7b4021dbdd",
+  "node_type": "entity_state",
+  "content": "advertisement3 is a advertisement with attributes [advertisement for drink on side of road: advertisement for drink on side of road] at position (779.0, 113.0)",
+  "tau": [
+    10,
+    79
+  ],
+  "metadata": {
+    "entity_tag": "advertisement3",
+    "label": "advertisement",
+    "attributes": {
+      "advertisement for drink on side of road": "advertisement for drink on side of road"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 10,
+    "latest_bbox": [
+      607.627,
+      10.431,
+      950.413,
+      215.479
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

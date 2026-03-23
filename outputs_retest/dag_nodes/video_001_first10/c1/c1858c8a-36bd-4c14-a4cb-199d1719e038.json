@@ -1,0 +1,22 @@
+{
+  "node_id": "c1858c8a-36bd-4c14-a4cb-199d1719e038",
+  "node_type": "relation",
+  "content": "bottle2 man3 holds bottle2 man3",
+  "tau": [
+    25,
+    29
+  ],
+  "metadata": {
+    "subject_tag": "bottle2",
+    "object_tag": "man3",
+    "predicate": "bottle2 man3 holds bottle2 man3",
+    "frame_start": 25,
+    "frame_end": 25,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "8d8caaa0-11e3-4ceb-8d9e-8386fe2aad54",
+    "9536d125-3df1-43ae-9438-079b87bf765d"
+  ]
+}

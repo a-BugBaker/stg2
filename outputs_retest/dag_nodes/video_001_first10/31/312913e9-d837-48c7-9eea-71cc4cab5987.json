@@ -1,0 +1,21 @@
+{
+  "node_id": "312913e9-d837-48c7-9eea-71cc4cab5987",
+  "node_type": "relation",
+  "content": "basketball hoop floor below basketball hoop floor",
+  "tau": [
+    30,
+    11
+  ],
+  "metadata": {
+    "subject_tag": "basketball hoop",
+    "object_tag": "floor",
+    "predicate": "basketball hoop floor below basketball hoop floor",
+    "frame_start": 30,
+    "frame_end": 30,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "7537d64c-3828-4681-b363-408b7206991a"
+  ]
+}

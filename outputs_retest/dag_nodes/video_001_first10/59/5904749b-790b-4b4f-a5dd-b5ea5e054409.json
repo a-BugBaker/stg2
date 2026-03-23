@@ -1,0 +1,21 @@
+{
+  "node_id": "5904749b-790b-4b4f-a5dd-b5ea5e054409",
+  "node_type": "relation",
+  "content": "door1 window2 beside door window2",
+  "tau": [
+    30,
+    16
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "window2",
+    "predicate": "door1 window2 beside door window2",
+    "frame_start": 30,
+    "frame_end": 30,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "14dc1530-e156-4679-9807-77eb0d9ef5c4"
+  ]
+}

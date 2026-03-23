@@ -1,0 +1,21 @@
+{
+  "node_id": "8cddba4d-0299-490f-8e3e-d075c6d5a961",
+  "node_type": "relation",
+  "content": "banner man4 stand near banner man4",
+  "tau": [
+    15,
+    37
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "man4",
+    "predicate": "banner man4 stand near banner man4",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "18abdcf3-a318-4fc4-b31c-1d9862db24a2"
+  ]
+}

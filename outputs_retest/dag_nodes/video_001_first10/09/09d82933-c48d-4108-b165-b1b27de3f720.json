@@ -1,0 +1,27 @@
+{
+  "node_id": "09d82933-c48d-4108-b165-b1b27de3f720",
+  "node_type": "entity_state",
+  "content": "fire escape roof is a fire escape roof with attributes [metal railing on top of building: metal railing on top of building] at position (226.3, 228.8)",
+  "tau": [
+    10,
+    52
+  ],
+  "metadata": {
+    "entity_tag": "fire escape roof",
+    "label": "fire escape roof",
+    "attributes": {
+      "metal railing on top of building": "metal railing on top of building"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 10,
+    "latest_bbox": [
+      138.61,
+      214.684,
+      313.98,
+      242.964
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

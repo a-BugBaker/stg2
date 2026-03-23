@@ -1,0 +1,27 @@
+{
+  "node_id": "7c1021a3-e15b-4d9c-afa5-37efe4a0d145",
+  "node_type": "entity_state",
+  "content": "pole3 is a pole with attributes [black pole in front of black wall: black pole in front of black wall] at position (504.8, 262.2)",
+  "tau": [
+    30,
+    58
+  ],
+  "metadata": {
+    "entity_tag": "pole3",
+    "label": "pole",
+    "attributes": {
+      "black pole in front of black wall": "black pole in front of black wall"
+    },
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 30,
+    "latest_bbox": [
+      494.85,
+      150.671,
+      514.706,
+      373.722
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

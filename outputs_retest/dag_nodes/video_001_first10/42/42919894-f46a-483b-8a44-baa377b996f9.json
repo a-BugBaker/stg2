@@ -1,0 +1,22 @@
+{
+  "node_id": "42919894-f46a-483b-8a44-baa377b996f9",
+  "node_type": "entity_disappeared",
+  "content": "fabric1 disappeared at frame 5, last position (433.8, 262.5)",
+  "tau": [
+    5,
+    82
+  ],
+  "metadata": {
+    "entity_tag": "fabric1",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      433.7845,
+      262.5165
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "f49642bb-0f3d-451d-9b66-8cf66f7a69bd"
+  ]
+}

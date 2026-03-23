@@ -1,0 +1,27 @@
+{
+  "node_id": "96ba1e78-745a-41b6-b74e-49429d43ff0d",
+  "node_type": "entity_state",
+  "content": "socks2 is a socks with attributes [black athletic socks: black athletic socks] at position (308.9, 417.9)",
+  "tau": [
+    5,
+    48
+  ],
+  "metadata": {
+    "entity_tag": "socks2",
+    "label": "socks",
+    "attributes": {
+      "black athletic socks": "black athletic socks"
+    },
+    "layer_id": 3,
+    "layer_mapping": [],
+    "frame_start": 5,
+    "latest_bbox": [
+      304.663,
+      407.178,
+      313.137,
+      428.674
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

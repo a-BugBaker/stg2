@@ -1,0 +1,21 @@
+{
+  "node_id": "9da89ddf-4ada-4ace-b36e-a838801876e9",
+  "node_type": "relation",
+  "content": "banner man3 wear jersey with number from banner man3",
+  "tau": [
+    5,
+    33
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "man3",
+    "predicate": "banner man3 wear jersey with number from banner man3",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "18abdcf3-a318-4fc4-b31c-1d9862db24a2"
+  ]
+}

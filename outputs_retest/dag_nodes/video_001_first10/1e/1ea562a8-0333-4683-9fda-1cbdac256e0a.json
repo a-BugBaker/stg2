@@ -1,0 +1,22 @@
+{
+  "node_id": "1ea562a8-0333-4683-9fda-1cbdac256e0a",
+  "node_type": "relation",
+  "content": "door1 door2 is adjacent to door1 door2",
+  "tau": [
+    10,
+    13
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "door2",
+    "predicate": "door1 door2 is adjacent to door1 door2",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "d717183f-da67-4e6d-999a-291e5cf77751",
+    "bf7c6ddd-4a1a-41a5-a10e-498c41bd01cc"
+  ]
+}

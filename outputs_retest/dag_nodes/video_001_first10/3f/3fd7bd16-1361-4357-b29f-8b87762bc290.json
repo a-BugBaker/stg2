@@ -1,0 +1,27 @@
+{
+  "node_id": "3fd7bd16-1361-4357-b29f-8b87762bc290",
+  "node_type": "entity_state",
+  "content": "sock2 is a sock with attributes [white sock on foot: white sock on foot] at position (301.2, 419.5)",
+  "tau": [
+    0,
+    34
+  ],
+  "metadata": {
+    "entity_tag": "sock2",
+    "label": "sock",
+    "attributes": {
+      "white sock on foot": "white sock on foot"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      296.116,
+      411.592,
+      306.193,
+      427.47
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

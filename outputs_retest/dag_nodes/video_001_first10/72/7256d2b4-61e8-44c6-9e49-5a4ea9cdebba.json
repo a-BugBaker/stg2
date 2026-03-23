@@ -1,0 +1,21 @@
+{
+  "node_id": "7256d2b4-61e8-44c6-9e49-5a4ea9cdebba",
+  "node_type": "relation",
+  "content": "man1 floor beneath man1 floor",
+  "tau": [
+    25,
+    7
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "floor",
+    "predicate": "man1 floor beneath man1 floor",
+    "frame_start": 25,
+    "frame_end": 25,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "3f5acbf6-cb78-4954-8822-1ff80ca3ae21"
+  ]
+}

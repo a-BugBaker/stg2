@@ -1,0 +1,28 @@
+{
+  "node_id": "268cc4df-b12b-4f10-8951-0e54f90ec69a",
+  "node_type": "entity_moved",
+  "content": "t - shirt1 moved from (103.6, 322.9) to (320.8, 356.4), displacement=219.8, direction=right",
+  "tau": [
+    20,
+    33
+  ],
+  "metadata": {
+    "entity_tag": "t - shirt1",
+    "frame_start": 20,
+    "frame_end": 20,
+    "from_position": [
+      103.634,
+      322.928
+    ],
+    "to_position": [
+      320.817,
+      356.427
+    ],
+    "displacement": 219.7513105535437,
+    "direction": "right"
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "68ccc33a-a170-4bb1-adc7-3d4f9ae978fe"
+  ]
+}

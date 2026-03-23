@@ -1,0 +1,259 @@
+{
+  "mode": "dry_run",
+  "sample_id": "video_001_first10",
+  "query": "man1和ball发生了什么",
+  "summary_stats": {
+    "num_event_evidence": 8,
+    "num_entity_evidence": 4,
+    "num_tracked_entities": 119,
+    "matched_entity_ids": [],
+    "matched_entity_tags": [],
+    "matched_entity_labels": []
+  },
+  "closure_stats": {
+    "num_seeds": 8,
+    "closure_size": 21
+  },
+  "evidence": {
+    "query": "man1和ball发生了什么",
+    "normalized_query": "man1和ball发生了什么",
+    "subqueries": [
+      "man1",
+      "ball发生了什么"
+    ],
+    "summary_stats": {
+      "num_event_evidence": 8,
+      "num_entity_evidence": 4,
+      "num_tracked_entities": 119,
+      "matched_entity_ids": [],
+      "matched_entity_tags": [],
+      "matched_entity_labels": []
+    },
+    "events": [
+      {
+        "memory_id": "a3cd9e9d-dd10-4b5c-a1d1-6abd8340a203",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "entities": [
+          "entity_0015"
+        ],
+        "entity_tags": [
+          "banner"
+        ],
+        "entity_labels": [],
+        "summary": "banner (banner) appeared at frame 0, position (433.6, 262.5)",
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "score": 0.0
+      },
+      {
+        "memory_id": "36c93cb5-2479-4d64-b5e4-3d45b72312be",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "entities": [
+          "entity_0070"
+        ],
+        "entity_tags": [
+          "jersey2"
+        ],
+        "entity_labels": [],
+        "summary": "jersey2 (jersey) appeared at frame 0, position (103.5, 325.0)",
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "score": 0.0
+      },
+      {
+        "memory_id": "91113fe0-a31f-4ecf-a99c-8d3a8b0863cf",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "entities": [
+          "entity_0023"
+        ],
+        "entity_tags": [
+          "shoe1"
+        ],
+        "entity_labels": [],
+        "summary": "shoe1 (shoe) appeared at frame 0, position (14.4, 432.5)",
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "score": 0.0
+      },
+      {
+        "memory_id": "5c9ab14e-fbff-42c0-8e70-950e17aa325a",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "entities": [
+          "entity_0095"
+        ],
+        "entity_tags": [
+          "backboard"
+        ],
+        "entity_labels": [],
+        "summary": "backboard (backboard) appeared at frame 0, position (446.6, 212.7)",
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "score": 0.0
+      },
+      {
+        "memory_id": "04807c03-1f9b-409f-b917-88212c87429c",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "entities": [
+          "entity_0093"
+        ],
+        "entity_tags": [
+          "number3"
+        ],
+        "entity_labels": [],
+        "summary": "number3 (number) appeared at frame 0, position (23.9, 360.1)",
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "score": 0.0
+      },
+      {
+        "memory_id": "2e52e46b-d4df-42be-8a1c-36950d4cfe47",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "entities": [
+          "entity_0072"
+        ],
+        "entity_tags": [
+          "shoes1"
+        ],
+        "entity_labels": [],
+        "summary": "shoes1 (shoes) appeared at frame 0, position (14.4, 432.4)",
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "score": 0.0
+      },
+      {
+        "memory_id": "0dafb7e2-eb32-4e61-b024-94c19777769c",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "entities": [
+          "entity_0036"
+        ],
+        "entity_tags": [
+          "shorts4"
+        ],
+        "entity_labels": [],
+        "summary": "shorts4 (shorts) appeared at frame 0, position (104.0, 335.9)",
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "score": 0.0
+      },
+      {
+        "memory_id": "69bfe3c1-3b11-4121-9976-bc09d0304c70",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "entities": [
+          "entity_0038"
+        ],
+        "entity_tags": [
+          "shirt2"
+        ],
+        "entity_labels": [],
+        "summary": "shirt2 (shirt) appeared at frame 0, position (308.5, 362.2)",
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "score": 0.0
+      }
+    ],
+    "entities": [
+      {
+        "memory_id": "02aa9d1d-5973-4cc9-9eca-5fc43981f5d6",
+        "memory_type": "entity_state",
+        "entity_id": "entity_0015",
+        "tag": "banner",
+        "label": "banner",
+        "frame_index": 0,
+        "frame_start": 0,
+        "frame_end": 0,
+        "bbox": null,
+        "attributes": {
+          "basketball hoop with backboard and net": "basketball hoop with backboard and net"
+        },
+        "relations": [],
+        "total_displacement": null,
+        "description": "banner is a banner with attributes [basketball hoop with backboard and net: basketball hoop with backboard and net] at position (434.0, 262.8) layer mapping: banner->pole1",
+        "confidence": null,
+        "score": 0.4802401661872864
+      },
+      {
+        "memory_id": "995d732c-c485-403d-b765-1fe5f7fa5909",
+        "memory_type": "entity_state",
+        "entity_id": "entity_0070",
+        "tag": "jersey2",
+        "label": "jersey",
+        "frame_index": 0,
+        "frame_start": 0,
+        "frame_end": 0,
+        "bbox": null,
+        "attributes": {
+          "jersey with number 00 in yellow and black": "jersey with number 00 in yellow and black"
+        },
+        "relations": [],
+        "total_displacement": null,
+        "description": "jersey2 is a jersey with attributes [jersey with number 00 in yellow and black: jersey with number 00 in yellow and black] at position (9.1, 358.8) layer mapping: jersey2->number3",
+        "confidence": null,
+        "score": 0.0
+      },
+      {
+        "memory_id": "8e88824e-44e0-49f2-b3b0-fb9ac3034e33",
+        "memory_type": "entity_state",
+        "entity_id": "entity_0023",
+        "tag": "shoe1",
+        "label": "shoe",
+        "frame_index": 0,
+        "frame_start": 0,
+        "frame_end": 0,
+        "bbox": null,
+        "attributes": {
+          "white sneaker with black sole": "white sneaker with black sole"
+        },
+        "relations": [],
+        "total_displacement": null,
+        "description": "shoe1 is a shoe with attributes [white sneaker with black sole: white sneaker with black sole] at position (14.4, 432.5)",
+        "confidence": null,
+        "score": 0.3999999761581421
+      },
+      {
+        "memory_id": "3fd0e50b-ee12-44ab-be9c-ee2d5ca1f995",
+        "memory_type": "entity_state",
+        "entity_id": "entity_0095",
+        "tag": "backboard",
+        "label": "backboard",
+        "frame_index": 0,
+        "frame_start": 0,
+        "frame_end": 0,
+        "bbox": null,
+        "attributes": {
+          "black backboard with white writing": "black backboard with white writing"
+        },
+        "relations": [],
+        "total_displacement": null,
+        "description": "backboard is a backboard with attributes [black backboard with white writing: black backboard with white writing] at position (447.8, 211.2)",
+        "confidence": null,
+        "score": 0.35082319378852844
+      }
+    ]
+  },
+  "system_prompt": "You are a grounded spatio-temporal video QA assistant. Answer strictly from the provided STG evidence. If evidence is insufficient, say so explicitly. Return only JSON with this schema: {\"answer\": str, \"sufficient_evidence\": bool, \"used_event_ids\": [str], \"used_entity_ids\": [str], \"short_rationale\": str}.",
+  "user_prompt": "Question:\nman1和ball发生了什么\n\nStructured Evidence JSON:\n{\n  \"query\": \"man1和ball发生了什么\",\n  \"normalized_query\": \"man1和ball发生了什么\",\n  \"subqueries\": [\n    \"man1\",\n    \"ball发生了什么\"\n  ],\n  \"summary_stats\": {\n    \"num_event_evidence\": 8,\n    \"num_entity_evidence\": 4,\n    \"num_tracked_entities\": 119,\n    \"matched_entity_ids\": [],\n    \"matched_entity_tags\": [],\n    \"matched_entity_labels\": []\n  },\n  \"events\": [\n    {\n      \"memory_id\": \"a3cd9e9d-dd10-4b5c-a1d1-6abd8340a203\",\n      \"memory_type\": \"event\",\n      \"event_type\": \"entity_appeared\",\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"entities\": [\n        \"entity_0015\"\n      ],\n      \"entity_tags\": [\n        \"banner\"\n      ],\n      \"entity_labels\": [],\n      \"summary\": \"banner (banner) appeared at frame 0, position (433.6, 262.5)\",\n      \"confidence\": 1.0,\n      \"source\": \"dag_closure\",\n      \"score\": 0.0\n    },\n    {\n      \"memory_id\": \"36c93cb5-2479-4d64-b5e4-3d45b72312be\",\n      \"memory_type\": \"event\",\n      \"event_type\": \"entity_appeared\",\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"entities\": [\n        \"entity_0070\"\n      ],\n      \"entity_tags\": [\n        \"jersey2\"\n      ],\n      \"entity_labels\": [],\n      \"summary\": \"jersey2 (jersey) appeared at frame 0, position (103.5, 325.0)\",\n      \"confidence\": 1.0,\n      \"source\": \"dag_closure\",\n      \"score\": 0.0\n    },\n    {\n      \"memory_id\": \"91113fe0-a31f-4ecf-a99c-8d3a8b0863cf\",\n      \"memory_type\": \"event\",\n      \"event_type\": \"entity_appeared\",\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"entities\": [\n        \"entity_0023\"\n      ],\n      \"entity_tags\": [\n        \"shoe1\"\n      ],\n      \"entity_labels\": [],\n      \"summary\": \"shoe1 (shoe) appeared at frame 0, position (14.4, 432.5)\",\n      \"confidence\": 1.0,\n      \"source\": \"dag_closure\",\n      \"score\": 0.0\n    },\n    {\n      \"memory_id\": \"5c9ab14e-fbff-42c0-8e70-950e17aa325a\",\n      \"memory_type\": \"event\",\n      \"event_type\": \"entity_appeared\",\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"entities\": [\n        \"entity_0095\"\n      ],\n      \"entity_tags\": [\n        \"backboard\"\n      ],\n      \"entity_labels\": [],\n      \"summary\": \"backboard (backboard) appeared at frame 0, position (446.6, 212.7)\",\n      \"confidence\": 1.0,\n      \"source\": \"dag_closure\",\n      \"score\": 0.0\n    },\n    {\n      \"memory_id\": \"04807c03-1f9b-409f-b917-88212c87429c\",\n      \"memory_type\": \"event\",\n      \"event_type\": \"entity_appeared\",\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"entities\": [\n        \"entity_0093\"\n      ],\n      \"entity_tags\": [\n        \"number3\"\n      ],\n      \"entity_labels\": [],\n      \"summary\": \"number3 (number) appeared at frame 0, position (23.9, 360.1)\",\n      \"confidence\": 1.0,\n      \"source\": \"dag_closure\",\n      \"score\": 0.0\n    },\n    {\n      \"memory_id\": \"2e52e46b-d4df-42be-8a1c-36950d4cfe47\",\n      \"memory_type\": \"event\",\n      \"event_type\": \"entity_appeared\",\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"entities\": [\n        \"entity_0072\"\n      ],\n      \"entity_tags\": [\n        \"shoes1\"\n      ],\n      \"entity_labels\": [],\n      \"summary\": \"shoes1 (shoes) appeared at frame 0, position (14.4, 432.4)\",\n      \"confidence\": 1.0,\n      \"source\": \"dag_closure\",\n      \"score\": 0.0\n    },\n    {\n      \"memory_id\": \"0dafb7e2-eb32-4e61-b024-94c19777769c\",\n      \"memory_type\": \"event\",\n      \"event_type\": \"entity_appeared\",\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"entities\": [\n        \"entity_0036\"\n      ],\n      \"entity_tags\": [\n        \"shorts4\"\n      ],\n      \"entity_labels\": [],\n      \"summary\": \"shorts4 (shorts) appeared at frame 0, position (104.0, 335.9)\",\n      \"confidence\": 1.0,\n      \"source\": \"dag_closure\",\n      \"score\": 0.0\n    },\n    {\n      \"memory_id\": \"69bfe3c1-3b11-4121-9976-bc09d0304c70\",\n      \"memory_type\": \"event\",\n      \"event_type\": \"entity_appeared\",\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"entities\": [\n        \"entity_0038\"\n      ],\n      \"entity_tags\": [\n        \"shirt2\"\n      ],\n      \"entity_labels\": [],\n      \"summary\": \"shirt2 (shirt) appeared at frame 0, position (308.5, 362.2)\",\n      \"confidence\": 1.0,\n      \"source\": \"dag_closure\",\n      \"score\": 0.0\n    }\n  ],\n  \"entities\": [\n    {\n      \"memory_id\": \"02aa9d1d-5973-4cc9-9eca-5fc43981f5d6\",\n      \"memory_type\": \"entity_state\",\n      \"entity_id\": \"entity_0015\",\n      \"tag\": \"banner\",\n      \"label\": \"banner\",\n      \"frame_index\": 0,\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"bbox\": null,\n      \"attributes\": {\n        \"basketball hoop with backboard and net\": \"basketball hoop with backboard and net\"\n      },\n      \"relations\": [],\n      \"total_displacement\": null,\n      \"description\": \"banner is a banner with attributes [basketball hoop with backboard and net: basketball hoop with backboard and net] at position (434.0, 262.8) layer mapping: banner->pole1\",\n      \"confidence\": null,\n      \"score\": 0.4802401661872864\n    },\n    {\n      \"memory_id\": \"995d732c-c485-403d-b765-1fe5f7fa5909\",\n      \"memory_type\": \"entity_state\",\n      \"entity_id\": \"entity_0070\",\n      \"tag\": \"jersey2\",\n      \"label\": \"jersey\",\n      \"frame_index\": 0,\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"bbox\": null,\n      \"attributes\": {\n        \"jersey with number 00 in yellow and black\": \"jersey with number 00 in yellow and black\"\n      },\n      \"relations\": [],\n      \"total_displacement\": null,\n      \"description\": \"jersey2 is a jersey with attributes [jersey with number 00 in yellow and black: jersey with number 00 in yellow and black] at position (9.1, 358.8) layer mapping: jersey2->number3\",\n      \"confidence\": null,\n      \"score\": 0.0\n    },\n    {\n      \"memory_id\": \"8e88824e-44e0-49f2-b3b0-fb9ac3034e33\",\n      \"memory_type\": \"entity_state\",\n      \"entity_id\": \"entity_0023\",\n      \"tag\": \"shoe1\",\n      \"label\": \"shoe\",\n      \"frame_index\": 0,\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"bbox\": null,\n      \"attributes\": {\n        \"white sneaker with black sole\": \"white sneaker with black sole\"\n      },\n      \"relations\": [],\n      \"total_displacement\": null,\n      \"description\": \"shoe1 is a shoe with attributes [white sneaker with black sole: white sneaker with black sole] at position (14.4, 432.5)\",\n      \"confidence\": null,\n      \"score\": 0.3999999761581421\n    },\n    {\n      \"memory_id\": \"3fd0e50b-ee12-44ab-be9c-ee2d5ca1f995\",\n      \"memory_type\": \"entity_state\",\n      \"entity_id\": \"entity_0095\",\n      \"tag\": \"backboard\",\n      \"label\": \"backboard\",\n      \"frame_index\": 0,\n      \"frame_start\": 0,\n      \"frame_end\": 0,\n      \"bbox\": null,\n      \"attributes\": {\n        \"black backboard with white writing\": \"black backboard with white writing\"\n      },\n      \"relations\": [],\n      \"total_displacement\": null,\n      \"description\": \"backboard is a backboard with attributes [black backboard with white writing: black backboard with white writing] at position (447.8, 211.2)\",\n      \"confidence\": null,\n      \"score\": 0.35082319378852844\n    }\n  ]\n}\n\nRules:\n1. Use only the evidence above.\n2. Cite memory IDs in used_event_ids and used_entity_ids.\n3. If the evidence cannot support a reliable answer, set sufficient_evidence=false.\n4. Return JSON only.\n"
+}

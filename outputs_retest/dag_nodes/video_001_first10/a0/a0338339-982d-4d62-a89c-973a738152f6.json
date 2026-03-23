@@ -1,0 +1,21 @@
+{
+  "node_id": "a0338339-982d-4d62-a89c-973a738152f6",
+  "node_type": "relation",
+  "content": "poster man2 standing in front of advertisement1 man2",
+  "tau": [
+    10,
+    49
+  ],
+  "metadata": {
+    "subject_tag": "poster",
+    "object_tag": "man2",
+    "predicate": "poster man2 standing in front of advertisement1 man2",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "5777d9ed-ac7c-492b-ba17-4fdfcaacd69e"
+  ]
+}

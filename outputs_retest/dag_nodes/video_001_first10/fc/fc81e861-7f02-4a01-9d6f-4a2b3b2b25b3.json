@@ -1,0 +1,21 @@
+{
+  "node_id": "fc81e861-7f02-4a01-9d6f-4a2b3b2b25b3",
+  "node_type": "entity_appeared",
+  "content": "pants2 (pants) appeared at frame 20, position (110.8, 343.7)",
+  "tau": [
+    20,
+    57
+  ],
+  "metadata": {
+    "entity_tag": "pants2",
+    "label": "pants",
+    "frame_start": 20,
+    "frame_end": 20,
+    "position": [
+      110.82849999999999,
+      343.6625
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

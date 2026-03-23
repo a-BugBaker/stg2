@@ -1,0 +1,21 @@
+{
+  "node_id": "78933309-df3a-4ddb-a4eb-aafa47c99832",
+  "node_type": "relation",
+  "content": "poster poster1 visible through window2 window2",
+  "tau": [
+    35,
+    35
+  ],
+  "metadata": {
+    "subject_tag": "poster",
+    "object_tag": "window2",
+    "predicate": "poster poster1 visible through window2 window2",
+    "frame_start": 35,
+    "frame_end": 35,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "e0fad66c-729b-4ea9-9e3c-72a790e4dc95"
+  ]
+}

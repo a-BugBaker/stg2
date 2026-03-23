@@ -1,0 +1,22 @@
+{
+  "node_id": "73dcb59c-89f0-4e4d-841c-8e8c21466558",
+  "node_type": "relation",
+  "content": "sign1 advertisement2 adjacent to logo logo",
+  "tau": [
+    10,
+    3
+  ],
+  "metadata": {
+    "subject_tag": "sign1",
+    "object_tag": "logo",
+    "predicate": "sign1 advertisement2 adjacent to logo logo",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "2bc3e0fc-b268-4a8e-86e2-229c7909222f",
+    "546a98f3-70c0-4e4f-a348-ad4bf11a236c"
+  ]
+}

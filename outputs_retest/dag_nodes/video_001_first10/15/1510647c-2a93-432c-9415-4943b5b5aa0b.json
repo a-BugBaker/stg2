@@ -1,0 +1,21 @@
+{
+  "node_id": "1510647c-2a93-432c-9415-4943b5b5aa0b",
+  "node_type": "relation",
+  "content": "man2 man2 standing before poster1 poster1",
+  "tau": [
+    45,
+    33
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "poster1",
+    "predicate": "man2 man2 standing before poster1 poster1",
+    "frame_start": 45,
+    "frame_end": 45,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "45e3a2f8-7ce3-4e41-a250-215ab690725e"
+  ]
+}

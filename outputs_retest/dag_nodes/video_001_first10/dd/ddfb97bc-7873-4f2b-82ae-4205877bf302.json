@@ -1,0 +1,21 @@
+{
+  "node_id": "ddfb97bc-7873-4f2b-82ae-4205877bf302",
+  "node_type": "relation",
+  "content": "man1 man1 below fire escape platform fire escape platform",
+  "tau": [
+    10,
+    9
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "fire escape platform",
+    "predicate": "man1 man1 below fire escape platform fire escape platform",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "8fb60f81-6679-4e58-9976-42b64e96ce4b"
+  ]
+}

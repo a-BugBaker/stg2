@@ -1,0 +1,27 @@
+{
+  "node_id": "53eed681-34d8-46ef-acaa-aa363e02814a",
+  "node_type": "entity_state",
+  "content": "poster is a poster with attributes [poster of astronaut drinking water: poster of astronaut drinking water] at position (102.8, 89.4)",
+  "tau": [
+    0,
+    102
+  ],
+  "metadata": {
+    "entity_tag": "poster",
+    "label": "poster",
+    "attributes": {
+      "poster of astronaut drinking water": "poster of astronaut drinking water"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      0.332,
+      39.316,
+      205.288,
+      139.507
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

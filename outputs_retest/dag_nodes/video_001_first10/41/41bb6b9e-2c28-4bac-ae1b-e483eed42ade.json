@@ -1,0 +1,21 @@
+{
+  "node_id": "41bb6b9e-2c28-4bac-ae1b-e483eed42ade",
+  "node_type": "relation",
+  "content": "banner banner adjacent to court lines1 court lines1",
+  "tau": [
+    10,
+    21
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "court lines1",
+    "predicate": "banner banner adjacent to court lines1 court lines1",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "02aa9d1d-5973-4cc9-9eca-5fc43981f5d6"
+  ]
+}

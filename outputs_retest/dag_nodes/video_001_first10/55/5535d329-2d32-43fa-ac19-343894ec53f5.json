@@ -1,0 +1,27 @@
+{
+  "node_id": "5535d329-2d32-43fa-ac19-343894ec53f5",
+  "node_type": "entity_state",
+  "content": "advertisement1 is a advertisement with attributes [red banner with white text: red banner with white text] at position (102.6, 89.7)",
+  "tau": [
+    10,
+    40
+  ],
+  "metadata": {
+    "entity_tag": "advertisement1",
+    "label": "advertisement",
+    "attributes": {
+      "red banner with white text": "red banner with white text"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 10,
+    "latest_bbox": [
+      0.164,
+      39.516,
+      205.076,
+      139.824
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

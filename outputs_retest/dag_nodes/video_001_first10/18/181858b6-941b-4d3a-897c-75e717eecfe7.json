@@ -1,0 +1,32 @@
+{
+  "node_id": "181858b6-941b-4d3a-897c-75e717eecfe7",
+  "node_type": "entity_state",
+  "content": "man4 is a man with attributes [man wearing orange basketball shorts: man wearing orange basketball shorts] at position (13.9, 383.8) layer mapping: man4->pants2",
+  "tau": [
+    15,
+    55
+  ],
+  "metadata": {
+    "entity_tag": "man4",
+    "label": "man",
+    "attributes": {
+      "man wearing orange basketball shorts": "man wearing orange basketball shorts"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 18,
+        "tag": "pants2"
+      }
+    ],
+    "frame_start": 15,
+    "latest_bbox": [
+      0.058,
+      329.255,
+      27.823,
+      438.361
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

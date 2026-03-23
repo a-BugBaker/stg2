@@ -1,0 +1,36 @@
+{
+  "node_id": "9af62f66-ae66-4718-9600-c37c1bd1cbb2",
+  "node_type": "entity_state",
+  "content": "man3 is a man with attributes [man wearing yellow jersey and white shorts: man wearing yellow jersey and white shorts] at position (17.5, 379.6) layer mapping: man3->pants3, man3->t - shirt2",
+  "tau": [
+    5,
+    34
+  ],
+  "metadata": {
+    "entity_tag": "man3",
+    "label": "man",
+    "attributes": {
+      "man wearing yellow jersey and white shorts": "man wearing yellow jersey and white shorts"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 20,
+        "tag": "pants3"
+      },
+      {
+        "idx": 21,
+        "tag": "t - shirt2"
+      }
+    ],
+    "frame_start": 5,
+    "latest_bbox": [
+      0.125,
+      319.718,
+      34.911,
+      439.415
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

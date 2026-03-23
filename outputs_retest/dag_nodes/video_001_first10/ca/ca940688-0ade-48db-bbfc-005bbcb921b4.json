@@ -1,0 +1,22 @@
+{
+  "node_id": "ca940688-0ade-48db-bbfc-005bbcb921b4",
+  "node_type": "relation",
+  "content": "door1 man2 is close to door1 man2",
+  "tau": [
+    10,
+    21
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "man2",
+    "predicate": "door1 man2 is close to door1 man2",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "6e960cb2-3369-4408-850e-eae0beffb0e8",
+    "6babad5e-a6d8-4c88-99a4-e86b39d29d58"
+  ]
+}

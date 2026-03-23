@@ -1,0 +1,22 @@
+{
+  "node_id": "88c3f931-3537-4405-8b64-147a74d5823d",
+  "node_type": "relation",
+  "content": "poster2 man2 sit near poster1 man2",
+  "tau": [
+    20,
+    49
+  ],
+  "metadata": {
+    "subject_tag": "poster2",
+    "object_tag": "man2",
+    "predicate": "poster2 man2 sit near poster1 man2",
+    "frame_start": 20,
+    "frame_end": 20,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "6fefca1c-c060-415f-8bfa-27a798e4fcdd",
+    "5798a7f5-928a-42db-a675-dd0fe452ded5"
+  ]
+}

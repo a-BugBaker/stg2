@@ -369,7 +369,11 @@ class ImmediateUpdater:
                 self._write_event(sample_id, relation_event)
             
             # DAG: 处理关系事件（使用当前帧的所有关系）
-            self._dag_process_relations(frame_index, curr_obj.get("relations", []))
+            self._dag_process_relations(
+                frame_index,
+                match.prev_snapshot["tag"],
+                curr_obj.get("relations", []),
+            )
 
             # 属性变化检测：使用语义相似度 + 去抖动
             prev_attrs = normalize_attributes(prev_obj.get("attributes", []))
@@ -467,7 +471,12 @@ class ImmediateUpdater:
         # 处理layer_mapping
         layer_mapping = obj.get("layer_mapping")
         if layer_mapping:
-            self.dag_event_generator.process_layer_mapping(layer_mapping, frame_index)
+            # 数据中常见格式是 list[{'tag': child}]，当前实体作为父节点。
+            if isinstance(layer_mapping, list):
+                normalized = [{"parent_tag": record.tag, **(item if isinstance(item, dict) else {"tag": item})} for item in layer_mapping]
+                self.dag_event_generator.process_layer_mapping(normalized, frame_index)
+            else:
+                self.dag_event_generator.process_layer_mapping(layer_mapping, frame_index)
     
     def _dag_update_entity_state(
         self,
@@ -511,13 +520,32 @@ class ImmediateUpdater:
     def _dag_process_relations(
         self,
         frame_index: int,
+        subject_tag: str,
         relations: List[Dict[str, Any]]
     ) -> None:
         """DAG: 处理关系事件。"""
         if not self.dag_event_generator:
             return
-        
-        self.dag_event_generator.process_relations(frame_index, relations)
+
+        normalized_relations: List[Dict[str, Any]] = []
+        for rel in relations:
+            rel_name = rel.get("predicate") or rel.get("name") or rel.get("relation")
+            object_tag = rel.get("object_tag") or rel.get("object") or rel.get("target")
+            if not rel_name:
+                continue
+            if not object_tag:
+                object_tag = "unknown"
+            predicate = f"{subject_tag} {str(rel_name)} {str(object_tag)}"
+            normalized_relations.append(
+                {
+                    "subject_tag": str(subject_tag),
+                    "predicate": predicate,
+                    "object_tag": str(object_tag),
+                }
+            )
+
+        if normalized_relations:
+            self.dag_event_generator.process_relations(frame_index, normalized_relations)
     
     def _dag_process_attribute_change(
         self,

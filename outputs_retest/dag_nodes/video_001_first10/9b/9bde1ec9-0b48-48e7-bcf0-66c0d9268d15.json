@@ -1,0 +1,25 @@
+{
+  "node_id": "9bde1ec9-0b48-48e7-bcf0-66c0d9268d15",
+  "node_type": "entity_state",
+  "content": "shorts3 is a shorts at position (640.8, 293.3)",
+  "tau": [
+    0,
+    64
+  ],
+  "metadata": {
+    "entity_tag": "shorts3",
+    "label": "shorts",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      632.407,
+      282.66,
+      649.103,
+      303.923
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

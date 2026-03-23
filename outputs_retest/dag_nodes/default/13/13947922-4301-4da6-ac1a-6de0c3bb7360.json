@@ -1,0 +1,22 @@
+{
+  "node_id": "13947922-4301-4da6-ac1a-6de0c3bb7360",
+  "node_type": "entity_disappeared",
+  "content": "shirt1 disappeared at frame 5, last position (17.0, 361.3)",
+  "tau": [
+    5,
+    78
+  ],
+  "metadata": {
+    "entity_tag": "shirt1",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      16.997,
+      361.3085
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "02b6f12a-d5a9-4b93-91bf-e320b4f9ab26"
+  ]
+}

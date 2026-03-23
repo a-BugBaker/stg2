@@ -1,0 +1,21 @@
+{
+  "node_id": "7c6eb73a-0314-47ef-af67-9f5ddecd14fc",
+  "node_type": "relation",
+  "content": "man2 fire escape roof above man2 fire escape roof",
+  "tau": [
+    10,
+    18
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "fire escape roof",
+    "predicate": "man2 fire escape roof above man2 fire escape roof",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "5798a7f5-928a-42db-a675-dd0fe452ded5"
+  ]
+}

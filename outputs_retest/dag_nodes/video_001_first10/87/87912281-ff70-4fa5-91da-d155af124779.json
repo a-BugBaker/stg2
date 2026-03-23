@@ -1,0 +1,21 @@
+{
+  "node_id": "87912281-ff70-4fa5-91da-d155af124779",
+  "node_type": "relation",
+  "content": "banner contains pole2",
+  "tau": [
+    20,
+    31
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "pole2",
+    "predicate": "banner contains pole2",
+    "frame_start": 20,
+    "frame_end": 20,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "aeeed372-c672-4875-a7ec-40eefbacbe46"
+  ]
+}

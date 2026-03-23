@@ -1,0 +1,21 @@
+{
+  "node_id": "5c8c3806-779e-4062-995d-f2f2a95c5c5e",
+  "node_type": "relation",
+  "content": "basketball hoop basketball hoop above man1 man1",
+  "tau": [
+    25,
+    16
+  ],
+  "metadata": {
+    "subject_tag": "basketball hoop",
+    "object_tag": "man1",
+    "predicate": "basketball hoop basketball hoop above man1 man1",
+    "frame_start": 25,
+    "frame_end": 25,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "c157ebd7-7120-4442-8f81-3b96bc1d2a9d"
+  ]
+}

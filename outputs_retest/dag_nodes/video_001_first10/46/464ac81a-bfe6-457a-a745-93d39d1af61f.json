@@ -1,0 +1,27 @@
+{
+  "node_id": "464ac81a-bfe6-457a-a745-93d39d1af61f",
+  "node_type": "entity_state",
+  "content": "court lines1 is a court lines with attributes [black and orange painted lines on basketball court: black and orange painted lines on basketball court] at position (475.7, 444.9)",
+  "tau": [
+    10,
+    57
+  ],
+  "metadata": {
+    "entity_tag": "court lines1",
+    "label": "court lines",
+    "attributes": {
+      "black and orange painted lines on basketball court": "black and orange painted lines on basketball court"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 10,
+    "latest_bbox": [
+      40.619,
+      349.475,
+      910.743,
+      540.394
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

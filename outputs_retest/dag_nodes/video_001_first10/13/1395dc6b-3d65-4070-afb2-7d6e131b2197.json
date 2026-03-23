@@ -1,0 +1,21 @@
+{
+  "node_id": "1395dc6b-3d65-4070-afb2-7d6e131b2197",
+  "node_type": "entity_appeared",
+  "content": "number3 (number) appeared at frame 10, position (9.9, 354.4)",
+  "tau": [
+    10,
+    81
+  ],
+  "metadata": {
+    "entity_tag": "number3",
+    "label": "number",
+    "frame_start": 10,
+    "frame_end": 10,
+    "position": [
+      9.9115,
+      354.385
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,21 @@
+{
+  "node_id": "7e5c5a44-fd7b-4823-ae8a-6fd3bd4930c8",
+  "node_type": "relation",
+  "content": "poster2 poster1 has bottle2 on it bottle2",
+  "tau": [
+    30,
+    47
+  ],
+  "metadata": {
+    "subject_tag": "poster2",
+    "object_tag": "bottle2",
+    "predicate": "poster2 poster1 has bottle2 on it bottle2",
+    "frame_start": 30,
+    "frame_end": 30,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "12c72249-9e99-4a0d-b942-b67a142b8118"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "node_id": "1715e657-fd77-4e8d-8d44-e03081f3d339",
+  "node_type": "relation",
+  "content": "banner basketball hoop above banner basketball hoop",
+  "tau": [
+    5,
+    25
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "basketball hoop",
+    "predicate": "banner basketball hoop above banner basketball hoop",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "3a814b34-0a49-448a-b05e-37b7c0e9159c",
+    "4040ca46-1b3d-4c7d-b19a-5a87797f5faf"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "node_id": "92e5aace-6aca-4262-a478-1aedeccb0b0b",
+  "node_type": "entity_state",
+  "content": "window1 is a window with attributes [metal barred window: metal barred window] at position (260.3, 282.5)",
+  "tau": [
+    0,
+    6
+  ],
+  "metadata": {
+    "entity_tag": "window1",
+    "label": "window",
+    "attributes": {
+      "metal barred window": "metal barred window"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      240.745,
+      252.661,
+      279.769,
+      312.318
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

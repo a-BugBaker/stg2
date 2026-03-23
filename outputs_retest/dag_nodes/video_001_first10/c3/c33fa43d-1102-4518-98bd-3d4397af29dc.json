@@ -1,0 +1,21 @@
+{
+  "node_id": "c33fa43d-1102-4518-98bd-3d4397af29dc",
+  "node_type": "relation",
+  "content": "man1 contains t - shirt",
+  "tau": [
+    40,
+    6
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "t - shirt",
+    "predicate": "man1 contains t - shirt",
+    "frame_start": 40,
+    "frame_end": 40,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "07dfc7df-6ecb-4a88-a836-80397e85a4b0"
+  ]
+}

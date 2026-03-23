@@ -1,0 +1,25 @@
+{
+  "node_id": "4e026835-6b3f-41a5-9205-b83cfd81eeb0",
+  "node_type": "entity_state",
+  "content": "pole2 is a pole at position (564.1, 260.9)",
+  "tau": [
+    5,
+    46
+  ],
+  "metadata": {
+    "entity_tag": "pole2",
+    "label": "pole",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 5,
+    "latest_bbox": [
+      558.264,
+      158.319,
+      569.894,
+      363.554
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

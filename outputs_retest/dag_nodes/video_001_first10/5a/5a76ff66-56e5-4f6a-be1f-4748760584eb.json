@@ -1,0 +1,27 @@
+{
+  "node_id": "5a76ff66-56e5-4f6a-be1f-4748760584eb",
+  "node_type": "entity_state",
+  "content": "poster2 is a poster with attributes [red poster of horse in basketball hoop: red poster of horse in basketball hoop] at position (454.4, 177.6)",
+  "tau": [
+    40,
+    49
+  ],
+  "metadata": {
+    "entity_tag": "poster2",
+    "label": "poster",
+    "attributes": {
+      "red poster of horse in basketball hoop": "red poster of horse in basketball hoop"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 40,
+    "latest_bbox": [
+      401.848,
+      140.918,
+      506.977,
+      214.205
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

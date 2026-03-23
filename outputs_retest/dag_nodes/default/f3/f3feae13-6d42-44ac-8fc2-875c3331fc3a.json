@@ -1,0 +1,22 @@
+{
+  "node_id": "f3feae13-6d42-44ac-8fc2-875c3331fc3a",
+  "node_type": "entity_disappeared",
+  "content": "water bottle2 disappeared at frame 5, last position (176.0, 107.9)",
+  "tau": [
+    5,
+    60
+  ],
+  "metadata": {
+    "entity_tag": "water bottle2",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      175.971,
+      107.935
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "55a2ea45-0dbf-494e-8f66-6509650c4dad"
+  ]
+}

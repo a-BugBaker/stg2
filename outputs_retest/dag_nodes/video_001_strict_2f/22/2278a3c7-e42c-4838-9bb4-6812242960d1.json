@@ -1,0 +1,21 @@
+{
+  "node_id": "2278a3c7-e42c-4838-9bb4-6812242960d1",
+  "node_type": "entity_appeared",
+  "content": "backboard (backboard) appeared at frame 0, position (446.6, 212.7)",
+  "tau": [
+    0,
+    47
+  ],
+  "metadata": {
+    "entity_tag": "backboard",
+    "label": "backboard",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      446.571,
+      212.735
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

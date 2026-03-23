@@ -1,0 +1,22 @@
+{
+  "node_id": "fef2f1b1-9207-48b6-94e9-df59878c75fa",
+  "node_type": "entity_disappeared",
+  "content": "shorts3 disappeared at frame 5, last position (640.8, 293.3)",
+  "tau": [
+    5,
+    74
+  ],
+  "metadata": {
+    "entity_tag": "shorts3",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      640.755,
+      293.29150000000004
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "bc02702c-48d2-4d6f-bc72-9a77e3b9f04b"
+  ]
+}

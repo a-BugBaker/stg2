@@ -1,0 +1,21 @@
+{
+  "node_id": "8fd02209-5183-47bd-b490-6da598dadad8",
+  "node_type": "relation",
+  "content": "poster advertisement1 above jersey4 jersey4",
+  "tau": [
+    10,
+    50
+  ],
+  "metadata": {
+    "subject_tag": "poster",
+    "object_tag": "jersey4",
+    "predicate": "poster advertisement1 above jersey4 jersey4",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "6e7c2be7-683b-451c-a3a5-47672d9c9171"
+  ]
+}

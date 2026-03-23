@@ -58,7 +58,9 @@ class DAGManager:
         self.graph_store = Neo4jGraphStore(
             uri=config.dag.neo4j_uri,
             user=config.dag.neo4j_user,
-            password=config.dag.neo4j_password
+            password=config.dag.neo4j_password,
+            allow_fallback=config.dag.allow_memory_fallback,
+            store_content=config.dag.neo4j_store_content,
         )
         
         self.meta_store = JSONMetaStore(config.dag_node_meta_path)
@@ -181,7 +183,10 @@ class DAGManager:
         self.graph_store.create_node(
             node_id=node.node_id,
             node_type=node_type.value,
-            tau=tau.to_tuple()
+            tau=tau.to_tuple(),
+            content=node.content,
+            metadata=node.metadata,
+            is_tombstone=node.is_tombstone,
         )
         
         # 5. 建立边
@@ -212,7 +217,10 @@ class DAGManager:
         self.graph_store.create_node(
             node_id=node.node_id,
             node_type=node.event_type.value,
-            tau=node.tau.to_tuple()
+            tau=node.tau.to_tuple(),
+            content=node.content,
+            metadata=node.metadata,
+            is_tombstone=node.is_tombstone,
         )
         
         # 建立边
@@ -261,7 +269,7 @@ class DAGManager:
         Returns:
             更新后的节点，不存在则返回None
         """
-        node = self.meta_store.load_node(node_id)
+        node = self.meta_store.load_node(self._current_sample_id, node_id)
         if node is None:
             return None
         
@@ -274,7 +282,15 @@ class DAGManager:
             except Exception as e:
                 logger.warning(f"Failed to compute embedding: {e}")
         
-        self.meta_store.save_node(node)
+        self.meta_store.save_node(self._current_sample_id, node)
+        self.graph_store.create_node(
+            node_id=node.node_id,
+            node_type=node.event_type.value,
+            tau=node.tau.to_tuple(),
+            content=node.content,
+            metadata=node.metadata,
+            is_tombstone=node.is_tombstone,
+        )
         return node
     
     def delete_node(self, node_id: str) -> bool:
@@ -288,12 +304,12 @@ class DAGManager:
         Returns:
             是否成功
         """
-        node = self.meta_store.load_node(node_id)
+        node = self.meta_store.load_node(self._current_sample_id, node_id)
         if node is None:
             return False
         
         node.is_tombstone = True
-        self.meta_store.save_node(node)
+        self.meta_store.save_node(self._current_sample_id, node)
         
         # 获取子节点（调用方需要处理孤儿节点）
         children = self.graph_store.get_children(node_id)

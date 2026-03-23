@@ -1,0 +1,21 @@
+{
+  "node_id": "2b90ee8f-c4fd-46b1-af58-e111d27dfea0",
+  "node_type": "relation",
+  "content": "man2 man3 stand near window2 window2",
+  "tau": [
+    40,
+    14
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "window2",
+    "predicate": "man2 man3 stand near window2 window2",
+    "frame_start": 40,
+    "frame_end": 40,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "42824956-b460-4930-9d6c-12a1b86b3cc9"
+  ]
+}

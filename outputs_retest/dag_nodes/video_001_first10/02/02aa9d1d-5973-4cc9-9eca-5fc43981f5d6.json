@@ -1,0 +1,27 @@
+{
+  "node_id": "02aa9d1d-5973-4cc9-9eca-5fc43981f5d6",
+  "node_type": "entity_state",
+  "content": "banner is a banner with attributes [basketball hoop with backboard and net: basketball hoop with backboard and net] at position (434.0, 262.8) layer mapping: banner->pole1",
+  "tau": [
+    0,
+    28
+  ],
+  "metadata": {
+    "entity_tag": "banner",
+    "label": "banner",
+    "attributes": {
+      "basketball hoop with backboard and net": "basketball hoop with backboard and net"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      311.039,
+      159.046,
+      556.934,
+      366.583
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

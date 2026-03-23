@@ -1,0 +1,21 @@
+{
+  "node_id": "f5532ba2-2856-41ff-8597-84f3618ac656",
+  "node_type": "relation",
+  "content": "poster man4 standing before poster2 man4",
+  "tau": [
+    5,
+    32
+  ],
+  "metadata": {
+    "subject_tag": "poster",
+    "object_tag": "man4",
+    "predicate": "poster man4 standing before poster2 man4",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "53eed681-34d8-46ef-acaa-aa363e02814a"
+  ]
+}

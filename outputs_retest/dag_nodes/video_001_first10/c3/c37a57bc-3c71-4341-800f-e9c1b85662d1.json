@@ -1,0 +1,27 @@
+{
+  "node_id": "c37a57bc-3c71-4341-800f-e9c1b85662d1",
+  "node_type": "entity_state",
+  "content": "seating is a seating with attributes [red plastic chairs in a gym: red plastic chairs in a gym] at position (87.4, 345.9)",
+  "tau": [
+    10,
+    71
+  ],
+  "metadata": {
+    "entity_tag": "seating",
+    "label": "seating",
+    "attributes": {
+      "red plastic chairs in a gym": "red plastic chairs in a gym"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 10,
+    "latest_bbox": [
+      44.474,
+      321.26,
+      130.316,
+      370.613
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

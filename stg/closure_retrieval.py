@@ -554,10 +554,19 @@ class ClosureRetriever:
         # 添加节点
         embeddings = []
         for node in nodes:
-            if node.embedding is not None:
-                self._node_embeddings[node.node_id] = node.embedding
-                self._node_ids_list.append(node.node_id)
-                embeddings.append(node.embedding.astype(np.float32))
+            emb = node.embedding
+            if emb is None and self.embed_func is not None:
+                try:
+                    emb = self.embed_func(node.content)
+                    node.embedding = emb
+                except Exception as e:
+                    logger.warning(f"Failed to compute embedding for node {node.node_id}: {e}")
+                    continue
+            if emb is None:
+                continue
+            self._node_embeddings[node.node_id] = emb
+            self._node_ids_list.append(node.node_id)
+            embeddings.append(np.asarray(emb, dtype=np.float32))
         
         if embeddings and self._faiss_index is not None:
             emb_matrix = np.vstack(embeddings)

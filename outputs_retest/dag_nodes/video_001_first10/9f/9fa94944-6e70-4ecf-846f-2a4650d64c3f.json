@@ -1,0 +1,21 @@
+{
+  "node_id": "9fa94944-6e70-4ecf-846f-2a4650d64c3f",
+  "node_type": "relation",
+  "content": "banner banner attached to pole1 pole1",
+  "tau": [
+    45,
+    17
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "pole1",
+    "predicate": "banner banner attached to pole1 pole1",
+    "frame_start": 45,
+    "frame_end": 45,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "74b130ad-615e-41d5-b0d1-58108d096e8e"
+  ]
+}

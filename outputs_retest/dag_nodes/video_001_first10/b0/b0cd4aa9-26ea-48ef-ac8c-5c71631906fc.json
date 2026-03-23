@@ -1,0 +1,22 @@
+{
+  "node_id": "b0cd4aa9-26ea-48ef-ac8c-5c71631906fc",
+  "node_type": "relation",
+  "content": "poster2 paper in proximity to poster1 paper",
+  "tau": [
+    35,
+    37
+  ],
+  "metadata": {
+    "subject_tag": "poster2",
+    "object_tag": "paper",
+    "predicate": "poster2 paper in proximity to poster1 paper",
+    "frame_start": 35,
+    "frame_end": 35,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "6fefca1c-c060-415f-8bfa-27a798e4fcdd",
+    "c6fe58cc-d306-4529-873d-af1b634fc072"
+  ]
+}

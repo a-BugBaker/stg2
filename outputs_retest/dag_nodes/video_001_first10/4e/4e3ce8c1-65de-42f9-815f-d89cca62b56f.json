@@ -1,0 +1,21 @@
+{
+  "node_id": "4e3ce8c1-65de-42f9-815f-d89cca62b56f",
+  "node_type": "relation",
+  "content": "sign1 floor below poster2 floor",
+  "tau": [
+    20,
+    0
+  ],
+  "metadata": {
+    "subject_tag": "sign1",
+    "object_tag": "floor",
+    "predicate": "sign1 floor below poster2 floor",
+    "frame_start": 20,
+    "frame_end": 20,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "170e9787-acbd-43f4-b6a7-745914157b0d"
+  ]
+}

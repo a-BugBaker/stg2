@@ -1,0 +1,21 @@
+{
+  "node_id": "22309aec-9eff-4ea4-9a8f-7aeaf4433fc1",
+  "node_type": "entity_appeared",
+  "content": "cap (cap) appeared at frame 45, position (313.2, 306.6)",
+  "tau": [
+    45,
+    49
+  ],
+  "metadata": {
+    "entity_tag": "cap",
+    "label": "cap",
+    "frame_start": 45,
+    "frame_end": 45,
+    "position": [
+      313.244,
+      306.6165
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

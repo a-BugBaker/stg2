@@ -1,0 +1,27 @@
+{
+  "node_id": "2b8b0ec9-8c58-43ba-ac22-31fc9c99281f",
+  "node_type": "entity_state",
+  "content": "shorts1 is a shorts with attributes [white shorts: white shorts] at position (21.2, 395.4)",
+  "tau": [
+    0,
+    56
+  ],
+  "metadata": {
+    "entity_tag": "shorts1",
+    "label": "shorts",
+    "attributes": {
+      "white shorts": "white shorts"
+    },
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      8.519,
+      384.913,
+      33.904,
+      405.964
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

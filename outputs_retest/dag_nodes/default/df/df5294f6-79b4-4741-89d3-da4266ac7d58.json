@@ -1,0 +1,21 @@
+{
+  "node_id": "df5294f6-79b4-4741-89d3-da4266ac7d58",
+  "node_type": "entity_appeared",
+  "content": "water bottle1 (water bottle) appeared at frame 0, position (920.2, 81.3)",
+  "tau": [
+    0,
+    3
+  ],
+  "metadata": {
+    "entity_tag": "water bottle1",
+    "label": "water bottle",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      920.1880000000001,
+      81.2515
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

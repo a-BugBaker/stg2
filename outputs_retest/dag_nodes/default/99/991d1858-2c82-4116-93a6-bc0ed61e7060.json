@@ -1,0 +1,21 @@
+{
+  "node_id": "991d1858-2c82-4116-93a6-bc0ed61e7060",
+  "node_type": "relation",
+  "content": "door1 man4 stands before door man4",
+  "tau": [
+    5,
+    17
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "man4",
+    "predicate": "door1 man4 stands before door man4",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "b7e43c91-7ed2-4e33-95c1-ebb86650a8de"
+  ]
+}

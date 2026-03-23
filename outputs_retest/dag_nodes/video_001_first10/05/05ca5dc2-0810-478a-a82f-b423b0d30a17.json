@@ -1,0 +1,27 @@
+{
+  "node_id": "05ca5dc2-0810-478a-a82f-b423b0d30a17",
+  "node_type": "entity_state",
+  "content": "number1 is a number with attributes [yellow basketball jersey with red number 1: yellow basketball jersey with red number 1] at position (317.1, 353.8)",
+  "tau": [
+    0,
+    12
+  ],
+  "metadata": {
+    "entity_tag": "number1",
+    "label": "number",
+    "attributes": {
+      "yellow basketball jersey with red number 1": "yellow basketball jersey with red number 1"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      309.965,
+      345.152,
+      324.306,
+      362.47
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

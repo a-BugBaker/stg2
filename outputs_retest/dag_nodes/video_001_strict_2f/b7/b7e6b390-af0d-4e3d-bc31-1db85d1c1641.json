@@ -1,0 +1,22 @@
+{
+  "node_id": "b7e6b390-af0d-4e3d-bc31-1db85d1c1641",
+  "node_type": "entity_disappeared",
+  "content": "sock1 disappeared at frame 5, last position (320.4, 424.8)",
+  "tau": [
+    5,
+    57
+  ],
+  "metadata": {
+    "entity_tag": "sock1",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      320.37,
+      424.7625
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "f56d48ed-0996-445e-9260-fd4c3cf82e5a"
+  ]
+}

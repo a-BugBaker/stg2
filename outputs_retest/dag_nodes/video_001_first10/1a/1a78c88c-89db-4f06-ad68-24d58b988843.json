@@ -1,0 +1,21 @@
+{
+  "node_id": "1a78c88c-89db-4f06-ad68-24d58b988843",
+  "node_type": "entity_appeared",
+  "content": "window2 (window) appeared at frame 20, position (452.5, 88.5)",
+  "tau": [
+    20,
+    54
+  ],
+  "metadata": {
+    "entity_tag": "window2",
+    "label": "window",
+    "frame_start": 20,
+    "frame_end": 20,
+    "position": [
+      452.5025,
+      88.4945
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

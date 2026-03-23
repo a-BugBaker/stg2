@@ -1,0 +1,25 @@
+{
+  "node_id": "a931a65e-aeaa-494d-9baf-1e50132c5315",
+  "node_type": "entity_state",
+  "content": "socks shoes is a socks shoes at position (301.1, 420.0)",
+  "tau": [
+    0,
+    78
+  ],
+  "metadata": {
+    "entity_tag": "socks shoes",
+    "label": "socks shoes",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      295.958,
+      412.177,
+      306.293,
+      427.853
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

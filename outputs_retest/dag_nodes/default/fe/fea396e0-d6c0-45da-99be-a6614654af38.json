@@ -1,0 +1,21 @@
+{
+  "node_id": "fea396e0-d6c0-45da-99be-a6614654af38",
+  "node_type": "entity_appeared",
+  "content": "player2 (player) appeared at frame 0, position (113.4, 331.3)",
+  "tau": [
+    0,
+    15
+  ],
+  "metadata": {
+    "entity_tag": "player2",
+    "label": "player",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      113.3595,
+      331.32000000000005
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

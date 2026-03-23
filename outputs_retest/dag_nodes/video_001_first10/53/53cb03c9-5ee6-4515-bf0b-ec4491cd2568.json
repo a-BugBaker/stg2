@@ -1,0 +1,22 @@
+{
+  "node_id": "53cb03c9-5ee6-4515-bf0b-ec4491cd2568",
+  "node_type": "entity_disappeared",
+  "content": "shoes6 disappeared at frame 5, last position (109.6, 357.4)",
+  "tau": [
+    5,
+    87
+  ],
+  "metadata": {
+    "entity_tag": "shoes6",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      109.5535,
+      357.3585
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "90cbe05d-baf9-4b32-be98-f55f0e68a8e6"
+  ]
+}

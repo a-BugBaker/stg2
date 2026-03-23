@@ -1,0 +1,21 @@
+{
+  "node_id": "2b9c2df5-c514-46f7-9bed-768302bac0a9",
+  "node_type": "relation",
+  "content": "man2 door beside man2 door",
+  "tau": [
+    20,
+    43
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "door",
+    "predicate": "man2 door beside man2 door",
+    "frame_start": 20,
+    "frame_end": 20,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "7be6c710-6861-4da6-b47b-32e9ee77fae0"
+  ]
+}

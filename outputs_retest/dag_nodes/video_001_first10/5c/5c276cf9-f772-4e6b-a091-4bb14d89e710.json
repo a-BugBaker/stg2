@@ -1,0 +1,21 @@
+{
+  "node_id": "5c276cf9-f772-4e6b-a091-4bb14d89e710",
+  "node_type": "relation",
+  "content": "man1 man1 walk away from man4 man4",
+  "tau": [
+    15,
+    2
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "man4",
+    "predicate": "man1 man1 walk away from man4 man4",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "c4afe91f-9659-44fd-be14-8cfb0d9c2f21"
+  ]
+}

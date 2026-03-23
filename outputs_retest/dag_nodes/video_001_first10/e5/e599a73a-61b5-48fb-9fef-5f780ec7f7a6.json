@@ -1,0 +1,21 @@
+{
+  "node_id": "e599a73a-61b5-48fb-9fef-5f780ec7f7a6",
+  "node_type": "relation",
+  "content": "poster2 contains paper",
+  "tau": [
+    35,
+    43
+  ],
+  "metadata": {
+    "subject_tag": "poster2",
+    "object_tag": "paper",
+    "predicate": "poster2 contains paper",
+    "frame_start": 35,
+    "frame_end": 35,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "b0cd4aa9-26ea-48ef-ac8c-5c71631906fc"
+  ]
+}

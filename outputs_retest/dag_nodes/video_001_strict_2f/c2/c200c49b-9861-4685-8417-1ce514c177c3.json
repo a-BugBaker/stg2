@@ -1,0 +1,21 @@
+{
+  "node_id": "c200c49b-9861-4685-8417-1ce514c177c3",
+  "node_type": "entity_appeared",
+  "content": "label1 (label) appeared at frame 0, position (454.2, 177.5)",
+  "tau": [
+    0,
+    69
+  ],
+  "metadata": {
+    "entity_tag": "label1",
+    "label": "label",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      454.2215,
+      177.4505
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

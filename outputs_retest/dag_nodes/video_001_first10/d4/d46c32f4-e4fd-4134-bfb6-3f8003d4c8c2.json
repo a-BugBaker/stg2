@@ -1,0 +1,21 @@
+{
+  "node_id": "d46c32f4-e4fd-4134-bfb6-3f8003d4c8c2",
+  "node_type": "entity_appeared",
+  "content": "bottle2 (bottle) appeared at frame 10, position (176.2, 107.8)",
+  "tau": [
+    10,
+    44
+  ],
+  "metadata": {
+    "entity_tag": "bottle2",
+    "label": "bottle",
+    "frame_start": 10,
+    "frame_end": 10,
+    "position": [
+      176.2405,
+      107.774
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

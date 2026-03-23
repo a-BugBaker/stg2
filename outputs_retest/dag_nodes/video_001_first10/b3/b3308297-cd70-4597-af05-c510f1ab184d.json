@@ -1,0 +1,21 @@
+{
+  "node_id": "b3308297-cd70-4597-af05-c510f1ab184d",
+  "node_type": "relation",
+  "content": "window1 man3 looking through window1 man3",
+  "tau": [
+    25,
+    7
+  ],
+  "metadata": {
+    "subject_tag": "window1",
+    "object_tag": "man3",
+    "predicate": "window1 man3 looking through window1 man3",
+    "frame_start": 25,
+    "frame_end": 25,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "b1e7c6d1-2fff-4d4c-b708-e2792361dde2"
+  ]
+}

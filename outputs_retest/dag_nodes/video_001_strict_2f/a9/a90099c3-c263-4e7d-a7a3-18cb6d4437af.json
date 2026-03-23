@@ -1,0 +1,27 @@
+{
+  "node_id": "a90099c3-c263-4e7d-a7a3-18cb6d4437af",
+  "node_type": "entity_state",
+  "content": "window2 is a window with attributes [window with reflection of trees and sky: window with reflection of trees and sky] at position (452.6, 88.4)",
+  "tau": [
+    0,
+    36
+  ],
+  "metadata": {
+    "entity_tag": "window2",
+    "label": "window",
+    "attributes": {
+      "window with reflection of trees and sky": "window with reflection of trees and sky"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      356.049,
+      49.332,
+      549.086,
+      127.386
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -136,7 +136,7 @@ class DAGEventGenerator:
         attributes: Dict[str, Any],
         bbox: Tuple[float, float, float, float],
         layer_id: Optional[int],
-        layer_mapping: Optional[Dict[str, str]]
+        layer_mapping: Optional[Any]
     ) -> str:
         """构建实体状态的自然语言描述。"""
         parts = [f"{entity_tag} is a {label}"]
@@ -150,11 +150,48 @@ class DAGEventGenerator:
         cy = (bbox[1] + bbox[3]) / 2
         parts.append(f"at position ({cx:.1f}, {cy:.1f})")
         
-        if layer_mapping:
-            mapping_strs = [f"{k}->{v}" for k, v in layer_mapping.items()]
+        mapping_pairs = self._normalize_layer_mapping(entity_tag, layer_mapping)
+        if mapping_pairs:
+            mapping_strs = [f"{parent}->{child}" for parent, child in mapping_pairs]
             parts.append(f"layer mapping: {', '.join(mapping_strs)}")
         
         return " ".join(parts)
+
+    def _normalize_layer_mapping(self, parent_tag: str, layer_mapping: Optional[Any]) -> List[Tuple[str, str]]:
+        """将 layer_mapping 统一为 (parent, child) 列表。
+
+        支持格式：
+        - dict: {child: parent} 或 {child: <any>}（若 parent 非字符串，则回退为当前实体）
+        - list[dict]: [{"tag": "child"}, {"child": "x"}, {"object_tag": "x"}]
+        - list[str]: ["child1", "child2"]
+        """
+        if not layer_mapping:
+            return []
+
+        pairs: List[Tuple[str, str]] = []
+
+        if isinstance(layer_mapping, dict):
+            for child, mapped_parent in layer_mapping.items():
+                child_tag = str(child).strip()
+                if not child_tag:
+                    continue
+                parent = str(mapped_parent).strip() if isinstance(mapped_parent, str) and mapped_parent.strip() else parent_tag
+                pairs.append((parent, child_tag))
+            return pairs
+
+        if isinstance(layer_mapping, list):
+            for item in layer_mapping:
+                if isinstance(item, dict):
+                    child = item.get("tag") or item.get("child") or item.get("object_tag") or item.get("target")
+                    if child:
+                        pairs.append((parent_tag, str(child).strip()))
+                elif isinstance(item, str):
+                    child = item.strip()
+                    if child:
+                        pairs.append((parent_tag, child))
+            return pairs
+
+        return pairs
     
     # ==================== entity_appeared事件 ====================
     
@@ -372,15 +409,35 @@ class DAGEventGenerator:
         # 提取当前关系的key集合
         current_keys = set()
         for rel in current_relations:
-            subject_tag = rel.get("subject_tag") or self._extract_subject_from_predicate(rel["predicate"])
-            object_tag = rel["object_tag"]
-            predicate = self._normalize_predicate(rel["predicate"])
+            subject_tag = (
+                rel.get("subject_tag")
+                or rel.get("subject")
+                or rel.get("source")
+                or rel.get("subject_id")
+            )
+            raw_predicate = rel.get("predicate") or rel.get("name") or rel.get("relation")
+            object_tag = (
+                rel.get("object_tag")
+                or rel.get("object")
+                or rel.get("target")
+                or rel.get("object_id")
+            )
+
+            if not raw_predicate:
+                continue
+            if not subject_tag:
+                subject_tag = self._extract_subject_from_predicate(str(raw_predicate))
+            if not object_tag:
+                object_tag = "unknown"
+
+            predicate_text = str(raw_predicate)
+            predicate = self._normalize_predicate(predicate_text)
             relation_key = f"{subject_tag}:{predicate}:{object_tag}"
             current_keys.add(relation_key)
             
             # 处理新出现或继续的关系
             node = self._process_single_relation(
-                frame_idx, relation_key, subject_tag, object_tag, rel["predicate"]
+                frame_idx, relation_key, str(subject_tag), str(object_tag), predicate_text
             )
             if node:
                 created_nodes.append(node)
@@ -910,7 +967,7 @@ class DAGEventGenerator:
         )
         for parent_id in node.parent_ids:
             self.dag_manager.graph_store.create_edge(parent_id, node.node_id)
-        self.dag_manager.meta_store.save_node(node)
+        self.dag_manager.meta_store.save_node(self.dag_manager._current_sample_id, node)
         
         logger.debug(f"Created periodic description: {description_type}")
         return node
@@ -919,7 +976,7 @@ class DAGEventGenerator:
     
     def process_layer_mapping(
         self,
-        layer_mapping: Dict[str, str],
+        layer_mapping: Any,
         frame_idx: int
     ) -> None:
         """处理layer_mapping依赖关系。
@@ -930,8 +987,23 @@ class DAGEventGenerator:
             layer_mapping: 层级映射字典，如 {"shoes1": "man3"}
             frame_idx: 帧索引
         """
-        for child_tag, parent_tag in layer_mapping.items():
-            self.dag_manager.process_layer_mapping(parent_tag, child_tag, frame_idx)
+        # 支持 dict/list 两种 layer_mapping 表达，调用方多传当前实体时优先使用。
+        pairs: List[Tuple[str, str]] = []
+        if isinstance(layer_mapping, dict):
+            for child_tag, parent_tag in layer_mapping.items():
+                if isinstance(parent_tag, str) and str(parent_tag).strip():
+                    pairs.append((str(parent_tag).strip(), str(child_tag).strip()))
+        elif isinstance(layer_mapping, list):
+            for item in layer_mapping:
+                if isinstance(item, dict):
+                    parent_tag = item.get("parent") or item.get("parent_tag")
+                    child_tag = item.get("tag") or item.get("child") or item.get("object_tag")
+                    if parent_tag and child_tag:
+                        pairs.append((str(parent_tag).strip(), str(child_tag).strip()))
+
+        for parent_tag, child_tag in pairs:
+            if parent_tag and child_tag:
+                self.dag_manager.process_layer_mapping(parent_tag, child_tag, frame_idx)
     
     # ==================== 帧级处理入口 ====================
     
@@ -1004,7 +1076,7 @@ class DAGEventGenerator:
                     entity_tag=tag,
                     frame_idx=frame_idx,
                     label=label,
-                    position=center
+                    bbox=bbox
                 )
                 if appeared_node:
                     generated_nodes.append(appeared_node)
@@ -1014,7 +1086,7 @@ class DAGEventGenerator:
                 movement_node = self.check_and_create_movement_event(
                     entity_tag=tag,
                     frame_idx=frame_idx,
-                    current_position=center
+                    current_bbox=bbox
                 )
                 if movement_node:
                     generated_nodes.append(movement_node)

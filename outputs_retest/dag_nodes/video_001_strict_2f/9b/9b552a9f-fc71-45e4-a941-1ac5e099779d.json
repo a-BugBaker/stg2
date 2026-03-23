@@ -1,0 +1,27 @@
+{
+  "node_id": "9b552a9f-fc71-45e4-a941-1ac5e099779d",
+  "node_type": "entity_state",
+  "content": "jersey2 is a jersey with attributes [jersey with white writing on back: jersey with white writing on back] at position (103.5, 325.0)",
+  "tau": [
+    0,
+    38
+  ],
+  "metadata": {
+    "entity_tag": "jersey2",
+    "label": "jersey",
+    "attributes": {
+      "jersey with white writing on back": "jersey with white writing on back"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      93.489,
+      307.623,
+      113.486,
+      342.294
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

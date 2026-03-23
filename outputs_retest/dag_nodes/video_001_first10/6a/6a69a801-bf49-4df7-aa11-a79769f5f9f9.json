@@ -1,0 +1,25 @@
+{
+  "node_id": "6a69a801-bf49-4df7-aa11-a79769f5f9f9",
+  "node_type": "entity_state",
+  "content": "steps is a steps at position (88.1, 346.1)",
+  "tau": [
+    0,
+    92
+  ],
+  "metadata": {
+    "entity_tag": "steps",
+    "label": "steps",
+    "attributes": {},
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      45.772,
+      320.904,
+      130.347,
+      371.234
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

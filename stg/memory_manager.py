@@ -154,6 +154,8 @@ class STGraphMemory:
             self.store.clear_sample(sample_id)
         # 3) 重置内存态组件（跟踪器与缓冲区）。
         self.reset_build_state()
+        if self.dag_manager:
+            self.dag_manager.set_current_sample(sample_id)
 
         # 4) 逐帧执行即时更新；缓冲区达到阈值时触发一次批量 flush。
         for frame in frames:
@@ -327,61 +329,117 @@ class STGraphMemory:
         top_k: int | None = None,
         similarity_threshold: float | None = None,
     ) -> Dict[str, Any]:
-        """执行查询解析、分区检索、去重重排并产出 evidence bundle。"""
-        # 1) 解析检索参数并应用默认配置。
+        """执行闭包检索并产出 evidence bundle（仅 DAG 路径）。"""
+        if not self.dag_manager or not self.closure_retriever:
+            raise RuntimeError("DAG/ClosureRetriever is required. Please enable config.dag.enabled.")
+
+        # similarity_threshold 参数保留接口兼容，但检索统一走闭包路径。
+        _ = similarity_threshold
+
         top_k = top_k or self.config.search.top_k
         entity_top_k = min(self.config.search.entity_top_k, top_k)
-        similarity_threshold = (
-            similarity_threshold
-            if similarity_threshold is not None
-            else self.config.search.similarity_threshold
-        )
 
-        # 2) 加载实体注册表并解析自然语言查询。
         registry = self._load_registry(sample_id)
         registry_index = self._registry_index(sample_id)
+        tag_to_entity_id = {
+            str(item.get("tag", "")): str(item.get("entity_id", ""))
+            for item in registry
+            if item.get("tag") and item.get("entity_id")
+        }
         query_info = self.query_parser.parse(query, registry=registry)
 
-        # 3) 子查询级 dense 检索：events/entities 双分区并行累积候选。
-        subqueries = query_info.subqueries if self.config.search.enable_subquery_decomposition else [query]
-        event_hits: List[Dict[str, Any]] = []
-        entity_hits: List[Dict[str, Any]] = []
-        candidate_multiplier = max(1, self.config.search.dense_candidate_multiplier)
+        # 闭包检索以DAG为唯一来源：按 sample 重新装载索引。
+        self.dag_manager.set_current_sample(sample_id)
+        self.closure_retriever.build_index_for_sample(sample_id)
 
-        for subquery in subqueries:
-            query_vector = self.embedder.embed(subquery)
-            event_hits.extend(
-                self._search_partition(
-                    sample_id,
-                    "events",
-                    query_vector,
-                    top_k=top_k * candidate_multiplier,
-                    similarity_threshold=similarity_threshold,
+        closure_result = self.closure_retriever.retrieve_with_context(
+            query=query,
+            top_k=top_k,
+            max_depth=self.config.dag.closure_max_depth,
+        )
+        seed_score_map = {str(node_id): float(score) for node_id, score in closure_result.get("seeds", [])}
+        structured_nodes = closure_result.get("context_structured", [])
+
+        events: List[Dict[str, Any]] = []
+        entities: List[Dict[str, Any]] = []
+
+        for item in structured_nodes:
+            node_id = str(item.get("node_id", ""))
+            node_type = str(item.get("node_type", ""))
+            metadata = dict(item.get("metadata", {}))
+            seed_score = seed_score_map.get(node_id, 0.0)
+            frame_start = int(item.get("frame_start", 0) or 0)
+            frame_end = int(item.get("frame_end", frame_start) or frame_start)
+            content = str(item.get("content", ""))
+
+            if node_type == "entity_state":
+                tag = str(metadata.get("entity_tag", ""))
+                entities.append(
+                    {
+                        "memory_id": node_id,
+                        "memory_type": "entity_state",
+                        "entity_id": tag_to_entity_id.get(tag, tag),
+                        "tag": tag,
+                        "label": metadata.get("label", "unknown"),
+                        "frame_index": frame_end,
+                        "frame_start": frame_start,
+                        "frame_end": frame_end,
+                        "bbox": metadata.get("bbox"),
+                        "attributes": metadata.get("attributes", {}),
+                        "relations": metadata.get("layer_mapping", []),
+                        "description": content,
+                        "source": "dag_closure",
+                        "dense_score": seed_score,
+                        "final_score": seed_score,
+                    }
                 )
-            )
-            entity_hits.extend(
-                self._search_partition(
-                    sample_id,
-                    "entities",
-                    query_vector,
-                    top_k=entity_top_k * candidate_multiplier,
-                    similarity_threshold=similarity_threshold,
-                )
+                continue
+
+            entity_tags: List[str] = []
+            for key in ("entity_tag", "subject_tag", "object_tag"):
+                value = metadata.get(key)
+                if isinstance(value, str) and value:
+                    entity_tags.append(value)
+            involved = metadata.get("involved_entities", [])
+            if isinstance(involved, list):
+                entity_tags.extend([str(x) for x in involved if x])
+            # Preserve order while deduplicating.
+            entity_tags = list(dict.fromkeys(entity_tags))
+            entity_ids = [tag_to_entity_id.get(tag, tag) for tag in entity_tags]
+
+            events.append(
+                {
+                    "memory_id": node_id,
+                    "memory_type": "event",
+                    "event_type": node_type,
+                    "frame_start": frame_start,
+                    "frame_end": frame_end,
+                    "summary": content,
+                    "entities": entity_ids,
+                    "entity_tags": entity_tags,
+                    "entity_labels": [],
+                    "confidence": metadata.get("confidence", 1.0),
+                    "source": "dag_closure",
+                    "dense_score": seed_score,
+                    "final_score": seed_score,
+                }
             )
 
-        # 4) 按 memory_id 去重后，结合查询意图/时序线索进行启发式重排。
-        deduped_events = self._dedupe_hits(event_hits)
-        deduped_entities = self._dedupe_hits(entity_hits)
-        reranked_events = self._rerank_hits(deduped_events, query_info, registry_index, top_k=top_k)
-        reranked_entities = self._rerank_hits(deduped_entities, query_info, registry_index, top_k=entity_top_k)
+        # 闭包内节点已按τ线性化，这里只做数量裁剪。
+        events = events[:top_k]
+        entities = entities[:entity_top_k]
 
-        # 5) 组装标准 evidence bundle（文本版 + 结构化 JSON）。
-        return self.evidence_formatter.build_bundle(
+        bundle = self.evidence_formatter.build_bundle(
             query_info=query_info,
-            events=reranked_events,
-            entities=reranked_entities,
+            events=events,
+            entities=entities,
             registry=registry,
         )
+        bundle["closure_stats"] = {
+            "num_seeds": len(closure_result.get("seeds", [])),
+            "closure_size": int(closure_result.get("closure_size", 0)),
+        }
+        return bundle
 
     def search_structured(
         self,
@@ -436,13 +494,16 @@ class STGraphMemory:
         return registry
 
     def export_stg_graph(self, sample_id: str) -> Dict[str, Any]:
-        """导出 STG 图结构（实体节点、事件节点与时序/关联边）。"""
-        # 1) 读取实体注册表与事件记忆元数据，准备图节点。
+        """导出 DAG 派生视图（保留实体注册表 + DAG 因果边）。"""
         registry = self._load_registry(sample_id)
-        event_metadata = self.store.all_metadata(sample_id, "events")
         nodes: List[Dict[str, Any]] = []
         edges: List[Dict[str, Any]] = []
         edge_keys = set()
+        tag_to_entity_id = {
+            str(item.get("tag", "")): str(item.get("entity_id", ""))
+            for item in registry
+            if item.get("tag") and item.get("entity_id")
+        }
 
         # 2) 写入实体节点。
         for entity in registry:
@@ -462,86 +523,73 @@ class STGraphMemory:
                 }
             )
 
-        # 3) 写入事件节点。
-        for event in event_metadata:
-            nodes.append(
-                {
-                    "id": event.get("memory_id"),
-                    "node_type": "event",
-                    "event_type": event.get("event_type"),
-                    "frame_start": event.get("frame_start"),
-                    "frame_end": event.get("frame_end"),
-                    "summary": event.get("summary", ""),
-                    "entities": event.get("entities", []),
-                    "entity_tags": event.get("entity_tags", []),
-                    "entity_labels": event.get("entity_labels", []),
-                    "confidence": event.get("confidence"),
-                    "source": event.get("source"),
-                }
-            )
+        # 3) 从DAG加载节点与因果边，导出为直观视图。
+        if self.dag_manager:
+            dag_nodes = self.dag_manager.get_all_nodes(sample_id)
+            for node in dag_nodes:
+                metadata = dict(node.metadata)
+                nodes.append(
+                    {
+                        "id": node.node_id,
+                        "node_type": "dag_node",
+                        "dag_node_type": node.node_type.value,
+                        "content": node.content,
+                        "tau": node.tau.to_tuple(),
+                        "frame_start": node.frame_start,
+                        "frame_end": node.frame_end,
+                        "metadata": metadata,
+                    }
+                )
 
-        # 4) 建立 event_to_entity 关联边，并按实体聚合其事件序列。
-        entity_to_events: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
-        for event in event_metadata:
-            event_id = event.get("memory_id")
-            if not event_id:
-                continue
-            for entity_id in event.get("entities", []):
-                edge_key = (str(entity_id), str(event_id), "event_to_entity_association")
-                if edge_key not in edge_keys:
+                # 因果边：父 -> 子。
+                for parent_id in node.parent_ids:
+                    edge_key = (str(parent_id), str(node.node_id), "causes")
+                    if edge_key in edge_keys:
+                        continue
                     edges.append(
                         {
-                            "source": str(entity_id),
-                            "target": str(event_id),
-                            "relation": "event_to_entity_association",
+                            "source": str(parent_id),
+                            "target": str(node.node_id),
+                            "relation": "causes",
                         }
                     )
                     edge_keys.add(edge_key)
-                entity_to_events[str(entity_id)].append(event)
 
-        # 5) 对每个实体的事件序列构造 temporal_entity_chain 边。
-        for entity_id, items in entity_to_events.items():
-            items = sorted(items, key=lambda item: (item.get("frame_start", 0), item.get("frame_end", 0), item.get("memory_id", "")))
-            for src, dst in zip(items[:-1], items[1:]):
-                edge_key = (str(src["memory_id"]), str(dst["memory_id"]), "temporal_entity_chain", entity_id)
-                if edge_key in edge_keys:
-                    continue
-                edges.append(
-                    {
-                        "source": str(src["memory_id"]),
-                        "target": str(dst["memory_id"]),
-                        "relation": "temporal_entity_chain",
-                        "entity_id": entity_id,
-                    }
-                )
-                edge_keys.add(edge_key)
+                # 实体映射边：DAG节点关联到实体注册表（便于可视化）。
+                entity_tags: List[str] = []
+                for key in ("entity_tag", "subject_tag", "object_tag"):
+                    value = metadata.get(key)
+                    if isinstance(value, str) and value:
+                        entity_tags.append(value)
+                involved = metadata.get("involved_entities", [])
+                if isinstance(involved, list):
+                    entity_tags.extend([str(x) for x in involved if x])
 
-        # 6) 在全局事件序列上构造 temporal_adjacency 边。
-        sorted_events = sorted(
-            [event for event in event_metadata if event.get("memory_id")],
-            key=lambda item: (item.get("frame_start", 0), item.get("frame_end", 0), item.get("memory_id", "")),
-        )
-        for src, dst in zip(sorted_events[:-1], sorted_events[1:]):
-            edge_key = (str(src["memory_id"]), str(dst["memory_id"]), "temporal_adjacency")
-            if edge_key in edge_keys:
-                continue
-            edges.append(
-                {
-                    "source": str(src["memory_id"]),
-                    "target": str(dst["memory_id"]),
-                    "relation": "temporal_adjacency",
-                }
-            )
-            edge_keys.add(edge_key)
+                for tag in dict.fromkeys(entity_tags):
+                    entity_id = tag_to_entity_id.get(tag)
+                    if not entity_id:
+                        continue
+                    edge_key = (str(entity_id), str(node.node_id), "entity_context")
+                    if edge_key in edge_keys:
+                        continue
+                    edges.append(
+                        {
+                            "source": str(entity_id),
+                            "target": str(node.node_id),
+                            "relation": "entity_context",
+                            "entity_tag": tag,
+                        }
+                    )
+                    edge_keys.add(edge_key)
 
-        # 7) 汇总图统计并写出到磁盘。
+        # 4) 汇总图统计并写出到磁盘。
         graph = {
             "sample_id": sample_id,
             "nodes": nodes,
             "edges": edges,
             "stats": {
                 "num_entity_nodes": sum(1 for node in nodes if node["node_type"] == "entity"),
-                "num_event_nodes": sum(1 for node in nodes if node["node_type"] == "event"),
+                "num_dag_nodes": sum(1 for node in nodes if node["node_type"] == "dag_node"),
                 "num_edges": len(edges),
             },
         }

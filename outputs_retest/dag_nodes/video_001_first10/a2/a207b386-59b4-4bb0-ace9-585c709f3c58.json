@@ -1,0 +1,21 @@
+{
+  "node_id": "a207b386-59b4-4bb0-ace9-585c709f3c58",
+  "node_type": "entity_appeared",
+  "content": "paper (paper) appeared at frame 5, position (454.2, 177.8)",
+  "tau": [
+    5,
+    43
+  ],
+  "metadata": {
+    "entity_tag": "paper",
+    "label": "paper",
+    "frame_start": 5,
+    "frame_end": 5,
+    "position": [
+      454.244,
+      177.839
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

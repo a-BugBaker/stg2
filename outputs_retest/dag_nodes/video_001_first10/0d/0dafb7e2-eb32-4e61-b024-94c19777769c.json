@@ -1,0 +1,21 @@
+{
+  "node_id": "0dafb7e2-eb32-4e61-b024-94c19777769c",
+  "node_type": "entity_appeared",
+  "content": "shorts4 (shorts) appeared at frame 0, position (104.0, 335.9)",
+  "tau": [
+    0,
+    71
+  ],
+  "metadata": {
+    "entity_tag": "shorts4",
+    "label": "shorts",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      104.0195,
+      335.929
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

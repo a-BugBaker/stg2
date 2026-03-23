@@ -1,0 +1,25 @@
+{
+  "node_id": "68ec5872-fe61-4df8-ba5f-bddedd02802b",
+  "node_type": "entity_state",
+  "content": "collar is a collar at position (91.9, 234.3)",
+  "tau": [
+    0,
+    98
+  ],
+  "metadata": {
+    "entity_tag": "collar",
+    "label": "collar",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      82.534,
+      229.33,
+      101.34,
+      239.315
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

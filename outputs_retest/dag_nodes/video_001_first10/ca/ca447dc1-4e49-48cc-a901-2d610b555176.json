@@ -1,0 +1,21 @@
+{
+  "node_id": "ca447dc1-4e49-48cc-a901-2d610b555176",
+  "node_type": "relation",
+  "content": "man1 contains pants1",
+  "tau": [
+    40,
+    5
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "pants1",
+    "predicate": "man1 contains pants1",
+    "frame_start": 40,
+    "frame_end": 40,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "efbaf7b7-6c0c-4236-81ee-c5d569af4ca6"
+  ]
+}

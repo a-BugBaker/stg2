@@ -1,0 +1,22 @@
+{
+  "node_id": "7ccbd5aa-3da2-47d5-80f7-7d404c71f6f6",
+  "node_type": "entity_disappeared",
+  "content": "man2 disappeared at frame 10, last position (113.0, 331.2)",
+  "tau": [
+    10,
+    92
+  ],
+  "metadata": {
+    "entity_tag": "man2",
+    "frame_start": 10,
+    "frame_end": 10,
+    "last_position": [
+      113.037,
+      331.1915
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "5798a7f5-928a-42db-a675-dd0fe452ded5"
+  ]
+}

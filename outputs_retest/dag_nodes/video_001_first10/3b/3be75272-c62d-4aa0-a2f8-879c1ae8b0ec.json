@@ -1,0 +1,22 @@
+{
+  "node_id": "3be75272-c62d-4aa0-a2f8-879c1ae8b0ec",
+  "node_type": "relation",
+  "content": "man1 banner behind man1 banner",
+  "tau": [
+    5,
+    3
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "banner",
+    "predicate": "man1 banner behind man1 banner",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "c4afe91f-9659-44fd-be14-8cfb0d9c2f21",
+    "02aa9d1d-5973-4cc9-9eca-5fc43981f5d6"
+  ]
+}

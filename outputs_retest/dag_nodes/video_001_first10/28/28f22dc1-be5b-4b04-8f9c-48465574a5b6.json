@@ -1,0 +1,21 @@
+{
+  "node_id": "28f22dc1-be5b-4b04-8f9c-48465574a5b6",
+  "node_type": "relation",
+  "content": "man2 pants2 worn by man2 pants2",
+  "tau": [
+    40,
+    32
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "pants2",
+    "predicate": "man2 pants2 worn by man2 pants2",
+    "frame_start": 40,
+    "frame_end": 40,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "8ffce923-411b-461e-9d43-cc38bdc10c66"
+  ]
+}

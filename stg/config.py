@@ -40,9 +40,9 @@ class EmbeddingConfig:
         random_seed:  hashing 模式下的随机种子
     """
 
-    backend: str = "auto"
-    model_name: str = "BAAI/bge-m3"
-    dim: int = 1024
+    backend: str = "sentence-transformers"
+    model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
+    dim: int = 384
     normalize: bool = True
     batch_size: int = 8
     device: str = "cpu"
@@ -182,6 +182,8 @@ class DAGConfig:
     neo4j_uri: str = "bolt://localhost:7687"
     neo4j_user: str = "neo4j"
     neo4j_password: str = "password"
+    neo4j_store_content: bool = True
+    allow_memory_fallback: bool = True
     
     # 节点元数据存储目录（相对于output_dir）
     node_meta_dir: str = "dag_nodes"
@@ -198,7 +200,7 @@ class DAGConfig:
     enable_periodic_description: bool = True  # 缓冲区级
     
     # 位移检测阈值（与上次记录位置比较）
-    movement_threshold: float = 50.0
+    movement_threshold: float = 10.0
     
     # 关系去抖动帧数（关系消失后等待N帧确认）
     relation_debounce_frames: int = 3

@@ -1,0 +1,21 @@
+{
+  "node_id": "381a074a-9d5d-4b0d-8607-daabfc06d6b3",
+  "node_type": "relation",
+  "content": "poster advertisement1 beside advertisement3 advertisement3",
+  "tau": [
+    10,
+    43
+  ],
+  "metadata": {
+    "subject_tag": "poster",
+    "object_tag": "advertisement3",
+    "predicate": "poster advertisement1 beside advertisement3 advertisement3",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "6e7c2be7-683b-451c-a3a5-47672d9c9171"
+  ]
+}

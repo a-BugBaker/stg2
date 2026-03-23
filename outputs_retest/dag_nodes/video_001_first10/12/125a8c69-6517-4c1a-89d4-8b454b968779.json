@@ -1,0 +1,21 @@
+{
+  "node_id": "125a8c69-6517-4c1a-89d4-8b454b968779",
+  "node_type": "entity_appeared",
+  "content": "audience (audience) appeared at frame 10, position (760.3, 276.3)",
+  "tau": [
+    10,
+    63
+  ],
+  "metadata": {
+    "entity_tag": "audience",
+    "label": "audience",
+    "frame_start": 10,
+    "frame_end": 10,
+    "position": [
+      760.255,
+      276.256
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

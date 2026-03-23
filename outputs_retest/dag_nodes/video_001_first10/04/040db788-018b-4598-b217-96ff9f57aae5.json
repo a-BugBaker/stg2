@@ -1,0 +1,22 @@
+{
+  "node_id": "040db788-018b-4598-b217-96ff9f57aae5",
+  "node_type": "entity_disappeared",
+  "content": "cap disappeared at frame 20, last position (312.0, 316.5)",
+  "tau": [
+    20,
+    58
+  ],
+  "metadata": {
+    "entity_tag": "cap",
+    "frame_start": 20,
+    "frame_end": 20,
+    "last_position": [
+      311.97249999999997,
+      316.45050000000003
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "01171290-f037-4b6b-9d0b-764185663b83"
+  ]
+}

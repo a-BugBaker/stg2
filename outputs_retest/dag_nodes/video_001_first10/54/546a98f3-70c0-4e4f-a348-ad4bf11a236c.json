@@ -1,0 +1,32 @@
+{
+  "node_id": "546a98f3-70c0-4e4f-a348-ad4bf11a236c",
+  "node_type": "entity_state",
+  "content": "logo is a logo with attributes [ogl basketball league logo: ogl basketball league logo] at position (424.6, 266.8)",
+  "tau": [
+    0,
+    40
+  ],
+  "metadata": {
+    "entity_tag": "logo",
+    "label": "logo",
+    "attributes": {
+      "ogl basketball league logo": "ogl basketball league logo"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 52,
+        "tag": "text"
+      }
+    ],
+    "frame_start": 0,
+    "latest_bbox": [
+      350.709,
+      194.467,
+      498.538,
+      339.066
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

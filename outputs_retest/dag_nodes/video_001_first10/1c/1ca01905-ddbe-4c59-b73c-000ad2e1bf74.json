@@ -1,0 +1,21 @@
+{
+  "node_id": "1ca01905-ddbe-4c59-b73c-000ad2e1bf74",
+  "node_type": "relation",
+  "content": "banner poster2 below banner poster2",
+  "tau": [
+    45,
+    16
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "poster2",
+    "predicate": "banner poster2 below banner poster2",
+    "frame_start": 45,
+    "frame_end": 45,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "196a7a38-afe2-4ecb-924c-7207c3a901ee"
+  ]
+}

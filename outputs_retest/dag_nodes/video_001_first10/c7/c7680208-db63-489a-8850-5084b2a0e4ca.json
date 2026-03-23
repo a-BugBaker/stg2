@@ -1,0 +1,27 @@
+{
+  "node_id": "c7680208-db63-489a-8850-5084b2a0e4ca",
+  "node_type": "entity_state",
+  "content": "audience is a audience with attributes [audience watching basketball game: audience watching basketball game] at position (760.3, 276.3)",
+  "tau": [
+    10,
+    62
+  ],
+  "metadata": {
+    "entity_tag": "audience",
+    "label": "audience",
+    "attributes": {
+      "audience watching basketball game": "audience watching basketball game"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 10,
+    "latest_bbox": [
+      562.928,
+      204.108,
+      957.582,
+      348.404
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

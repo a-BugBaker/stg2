@@ -1,0 +1,21 @@
+{
+  "node_id": "13f1d096-3d06-430a-a34d-252608f8f5f8",
+  "node_type": "relation",
+  "content": "man1 man1 within boundaries of court lines2 court lines2",
+  "tau": [
+    10,
+    11
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "court lines2",
+    "predicate": "man1 man1 within boundaries of court lines2 court lines2",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "8fb60f81-6679-4e58-9976-42b64e96ce4b"
+  ]
+}

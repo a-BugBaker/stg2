@@ -1,0 +1,21 @@
+{
+  "node_id": "4f791211-8844-449d-8dda-55730ed63033",
+  "node_type": "relation",
+  "content": "door1 door1 adjacent to fire escape platform fire escape platform",
+  "tau": [
+    10,
+    11
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "fire escape platform",
+    "predicate": "door1 door1 adjacent to fire escape platform fire escape platform",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "d717183f-da67-4e6d-999a-291e5cf77751"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "node_id": "9a36e9b8-6eff-4ff9-a2ed-3363954adbdc",
+  "node_type": "entity_state",
+  "content": "shirt3 is a shirt with attributes [red basketball jersey with white number 7: red basketball jersey with white number 7] at position (102.8, 318.8)",
+  "tau": [
+    0,
+    76
+  ],
+  "metadata": {
+    "entity_tag": "shirt3",
+    "label": "shirt",
+    "attributes": {
+      "red basketball jersey with white number 7": "red basketball jersey with white number 7"
+    },
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      93.936,
+      307.332,
+      111.689,
+      330.311
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

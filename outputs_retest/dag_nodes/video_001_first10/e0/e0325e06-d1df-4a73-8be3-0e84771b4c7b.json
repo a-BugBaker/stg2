@@ -1,0 +1,21 @@
+{
+  "node_id": "e0325e06-d1df-4a73-8be3-0e84771b4c7b",
+  "node_type": "relation",
+  "content": "bottle2 man3 has bottle2 on his head man3",
+  "tau": [
+    30,
+    30
+  ],
+  "metadata": {
+    "subject_tag": "bottle2",
+    "object_tag": "man3",
+    "predicate": "bottle2 man3 has bottle2 on his head man3",
+    "frame_start": 30,
+    "frame_end": 30,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "c1858c8a-36bd-4c14-a4cb-199d1719e038"
+  ]
+}

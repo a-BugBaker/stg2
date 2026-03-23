@@ -1,0 +1,21 @@
+{
+  "node_id": "cfe7234a-45d4-4cc9-a4a6-61ce427da25e",
+  "node_type": "relation",
+  "content": "man2 t - shirt2 worn by man2 t - shirt2",
+  "tau": [
+    25,
+    35
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "t - shirt2",
+    "predicate": "man2 t - shirt2 worn by man2 t - shirt2",
+    "frame_start": 25,
+    "frame_end": 25,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "fb1268ae-bf79-40c0-8a62-9f6ff91e2e86"
+  ]
+}

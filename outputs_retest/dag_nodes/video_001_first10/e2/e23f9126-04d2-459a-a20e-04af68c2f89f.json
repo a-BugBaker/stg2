@@ -1,0 +1,21 @@
+{
+  "node_id": "e23f9126-04d2-459a-a20e-04af68c2f89f",
+  "node_type": "entity_appeared",
+  "content": "glass1 (glass) appeared at frame 15, position (920.4, 81.7)",
+  "tau": [
+    15,
+    58
+  ],
+  "metadata": {
+    "entity_tag": "glass1",
+    "label": "glass",
+    "frame_start": 15,
+    "frame_end": 15,
+    "position": [
+      920.4335,
+      81.723
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

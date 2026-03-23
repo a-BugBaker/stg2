@@ -1,0 +1,27 @@
+{
+  "node_id": "bf7c6ddd-4a1a-41a5-a10e-498c41bd01cc",
+  "node_type": "entity_state",
+  "content": "door2 is a door with attributes [door in a basketball court: door in a basketball court] at position (89.4, 261.6)",
+  "tau": [
+    0,
+    26
+  ],
+  "metadata": {
+    "entity_tag": "door2",
+    "label": "door",
+    "attributes": {
+      "door in a basketball court": "door in a basketball court"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      35.286,
+      152.922,
+      143.607,
+      370.235
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

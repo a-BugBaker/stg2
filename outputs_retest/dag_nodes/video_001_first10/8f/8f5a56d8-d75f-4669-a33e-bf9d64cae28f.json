@@ -1,0 +1,22 @@
+{
+  "node_id": "8f5a56d8-d75f-4669-a33e-bf9d64cae28f",
+  "node_type": "entity_disappeared",
+  "content": "backboard disappeared at frame 5, last position (446.6, 212.7)",
+  "tau": [
+    5,
+    68
+  ],
+  "metadata": {
+    "entity_tag": "backboard",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      446.571,
+      212.735
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "85072399-8ff7-4c71-a70b-57ced22ededa"
+  ]
+}

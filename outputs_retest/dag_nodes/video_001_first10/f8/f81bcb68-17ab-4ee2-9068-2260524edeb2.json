@@ -1,0 +1,22 @@
+{
+  "node_id": "f81bcb68-17ab-4ee2-9068-2260524edeb2",
+  "node_type": "entity_disappeared",
+  "content": "player1 disappeared at frame 15, last position (113.4, 331.0)",
+  "tau": [
+    15,
+    65
+  ],
+  "metadata": {
+    "entity_tag": "player1",
+    "frame_start": 15,
+    "frame_end": 15,
+    "last_position": [
+      113.41199999999999,
+      330.98699999999997
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "fef91d90-e3da-47da-8c27-b5a25bfe93f6"
+  ]
+}

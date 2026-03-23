@@ -1,0 +1,27 @@
+{
+  "node_id": "15170e22-3ed7-4fff-bc32-7e61af7e481d",
+  "node_type": "entity_state",
+  "content": "shoes4 is a shoes with attributes [black sneakers with white soles: black sneakers with white soles] at position (324.2, 444.3)",
+  "tau": [
+    0,
+    84
+  ],
+  "metadata": {
+    "entity_tag": "shoes4",
+    "label": "shoes",
+    "attributes": {
+      "black sneakers with white soles": "black sneakers with white soles"
+    },
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      315.922,
+      433.55,
+      332.391,
+      455.1
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

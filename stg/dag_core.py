@@ -247,8 +247,13 @@ class LogicalClockManager:
         Returns:
             新的LogicalClock实例
         """
-        # 使用下一帧的第一个seq，确保大于当前帧所有节点
-        return LogicalClock(frame_idx=frame_idx + 1, seq=0)
+        # 在同一frame上分配下一个seq，保证τ.frame等于该缓冲区最大帧号，
+        # 且τ仍大于该frame内已创建的所有节点。
+        if frame_idx not in self._frame_seq_counters:
+            self._frame_seq_counters[frame_idx] = 0
+        seq = self._frame_seq_counters[frame_idx]
+        self._frame_seq_counters[frame_idx] += 1
+        return LogicalClock(frame_idx=frame_idx, seq=seq)
     
     def get_current_seq(self, frame_idx: int) -> int:
         """获取指定帧当前的序列号。"""

@@ -1,0 +1,32 @@
+{
+  "node_id": "e7c25a96-50a1-4ec8-b982-993f2275628e",
+  "node_type": "entity_state",
+  "content": "poster1 is a poster with attributes [red paper with white writing and logo: red paper with white writing and logo] at position (454.4, 177.4) layer mapping: poster1->paper",
+  "tau": [
+    5,
+    36
+  ],
+  "metadata": {
+    "entity_tag": "poster1",
+    "label": "poster",
+    "attributes": {
+      "red paper with white writing and logo": "red paper with white writing and logo"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 15,
+        "tag": "paper"
+      }
+    ],
+    "frame_start": 5,
+    "latest_bbox": [
+      401.828,
+      140.926,
+      506.891,
+      213.942
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

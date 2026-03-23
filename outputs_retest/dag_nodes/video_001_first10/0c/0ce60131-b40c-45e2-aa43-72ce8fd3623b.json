@@ -1,0 +1,27 @@
+{
+  "node_id": "0ce60131-b40c-45e2-aa43-72ce8fd3623b",
+  "node_type": "entity_state",
+  "content": "shorts1 is a shorts with attributes [black shorts: black shorts] at position (319.9, 400.0)",
+  "tau": [
+    0,
+    56
+  ],
+  "metadata": {
+    "entity_tag": "shorts1",
+    "label": "shorts",
+    "attributes": {
+      "black shorts": "black shorts"
+    },
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      304.673,
+      389.087,
+      335.069,
+      411.003
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

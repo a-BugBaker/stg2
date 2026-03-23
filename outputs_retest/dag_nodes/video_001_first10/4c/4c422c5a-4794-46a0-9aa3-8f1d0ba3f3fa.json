@@ -1,0 +1,25 @@
+{
+  "node_id": "4c422c5a-4794-46a0-9aa3-8f1d0ba3f3fa",
+  "node_type": "entity_state",
+  "content": "banners2 is a banners at position (433.9, 262.3)",
+  "tau": [
+    10,
+    88
+  ],
+  "metadata": {
+    "entity_tag": "banners2",
+    "label": "banners",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 10,
+    "latest_bbox": [
+      311.261,
+      158.741,
+      556.496,
+      365.813
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

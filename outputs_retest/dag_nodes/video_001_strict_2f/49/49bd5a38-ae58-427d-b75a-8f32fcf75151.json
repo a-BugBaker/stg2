@@ -1,0 +1,27 @@
+{
+  "node_id": "49bd5a38-ae58-427d-b75a-8f32fcf75151",
+  "node_type": "entity_state",
+  "content": "sign1 is a sign with attributes [red sign with white writing and logo: red sign with white writing and logo] at position (454.4, 177.6)",
+  "tau": [
+    0,
+    0
+  ],
+  "metadata": {
+    "entity_tag": "sign1",
+    "label": "sign",
+    "attributes": {
+      "red sign with white writing and logo": "red sign with white writing and logo"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      401.859,
+      141.021,
+      506.932,
+      214.279
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

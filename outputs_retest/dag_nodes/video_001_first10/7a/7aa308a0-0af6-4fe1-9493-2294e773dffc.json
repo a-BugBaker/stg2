@@ -1,0 +1,21 @@
+{
+  "node_id": "7aa308a0-0af6-4fe1-9493-2294e773dffc",
+  "node_type": "relation",
+  "content": "basketball hoop man1 shoot at basketball hoop man1",
+  "tau": [
+    45,
+    10
+  ],
+  "metadata": {
+    "subject_tag": "basketball hoop",
+    "object_tag": "man1",
+    "predicate": "basketball hoop man1 shoot at basketball hoop man1",
+    "frame_start": 45,
+    "frame_end": 45,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "d527ca14-e1d8-41e5-b24e-42c0007d1602"
+  ]
+}

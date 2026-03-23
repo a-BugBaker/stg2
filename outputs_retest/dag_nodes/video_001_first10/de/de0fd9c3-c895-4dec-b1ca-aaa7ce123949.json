@@ -1,0 +1,22 @@
+{
+  "node_id": "de0fd9c3-c895-4dec-b1ca-aaa7ce123949",
+  "node_type": "entity_disappeared",
+  "content": "number3 disappeared at frame 15, last position (9.9, 354.4)",
+  "tau": [
+    15,
+    86
+  ],
+  "metadata": {
+    "entity_tag": "number3",
+    "frame_start": 15,
+    "frame_end": 15,
+    "last_position": [
+      9.9115,
+      354.385
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "90dd8be8-59a3-4801-bb21-00358431d810"
+  ]
+}

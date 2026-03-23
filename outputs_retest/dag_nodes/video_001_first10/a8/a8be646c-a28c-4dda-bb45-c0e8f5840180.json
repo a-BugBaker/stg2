@@ -1,0 +1,36 @@
+{
+  "node_id": "a8be646c-a28c-4dda-bb45-c0e8f5840180",
+  "node_type": "entity_state",
+  "content": "pants1 is a pants with attributes [orange shorts: orange shorts] at position (317.1, 385.0)",
+  "tau": [
+    5,
+    40
+  ],
+  "metadata": {
+    "entity_tag": "pants1",
+    "label": "pants",
+    "attributes": {
+      "orange shorts": "orange shorts"
+    },
+    "layer_id": 2,
+    "layer_mapping": [
+      {
+        "idx": 23,
+        "tag": "socks1"
+      },
+      {
+        "idx": 24,
+        "tag": "socks2"
+      }
+    ],
+    "frame_start": 5,
+    "latest_bbox": [
+      302.15,
+      375.572,
+      332.038,
+      394.458
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

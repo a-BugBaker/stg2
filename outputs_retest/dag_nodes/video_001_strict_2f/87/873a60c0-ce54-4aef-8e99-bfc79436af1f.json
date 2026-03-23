@@ -1,0 +1,27 @@
+{
+  "node_id": "873a60c0-ce54-4aef-8e99-bfc79436af1f",
+  "node_type": "entity_state",
+  "content": "pants2 is a pants with attributes [red shorts with white stripes down sides: red shorts with white stripes down sides] at position (110.2, 339.7)",
+  "tau": [
+    5,
+    44
+  ],
+  "metadata": {
+    "entity_tag": "pants2",
+    "label": "pants",
+    "attributes": {
+      "red shorts with white stripes down sides": "red shorts with white stripes down sides"
+    },
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 5,
+    "latest_bbox": [
+      95.352,
+      330.126,
+      125.024,
+      349.371
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

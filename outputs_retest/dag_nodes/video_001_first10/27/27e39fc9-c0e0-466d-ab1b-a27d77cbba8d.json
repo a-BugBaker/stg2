@@ -1,0 +1,21 @@
+{
+  "node_id": "27e39fc9-c0e0-466d-ab1b-a27d77cbba8d",
+  "node_type": "relation",
+  "content": "door1 man2 approaches door man2",
+  "tau": [
+    15,
+    18
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "man2",
+    "predicate": "door1 man2 approaches door man2",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "25f9683a-9ed1-4d85-9de5-ec3aba9082c4"
+  ]
+}

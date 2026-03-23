@@ -1,0 +1,21 @@
+{
+  "node_id": "fa45b947-74b7-47e8-bca5-3501ca25b906",
+  "node_type": "relation",
+  "content": "basketball hoop man1 approach basketball hoop man1",
+  "tau": [
+    15,
+    16
+  ],
+  "metadata": {
+    "subject_tag": "basketball hoop",
+    "object_tag": "man1",
+    "predicate": "basketball hoop man1 approach basketball hoop man1",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "1447b201-c701-4071-84d9-3f049b02f666"
+  ]
+}

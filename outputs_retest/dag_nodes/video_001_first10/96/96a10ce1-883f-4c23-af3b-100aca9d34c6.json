@@ -1,0 +1,22 @@
+{
+  "node_id": "96a10ce1-883f-4c23-af3b-100aca9d34c6",
+  "node_type": "relation",
+  "content": "door man3 standing near door man3",
+  "tau": [
+    45,
+    45
+  ],
+  "metadata": {
+    "subject_tag": "door",
+    "object_tag": "man3",
+    "predicate": "door man3 standing near door man3",
+    "frame_start": 45,
+    "frame_end": 45,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "321ae99d-17a0-4815-b8f6-9ff96bf2d216",
+    "9536d125-3df1-43ae-9438-079b87bf765d"
+  ]
+}

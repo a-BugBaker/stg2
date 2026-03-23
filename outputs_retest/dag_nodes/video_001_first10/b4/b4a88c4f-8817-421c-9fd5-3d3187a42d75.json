@@ -1,0 +1,21 @@
+{
+  "node_id": "b4a88c4f-8817-421c-9fd5-3d3187a42d75",
+  "node_type": "relation",
+  "content": "man1 man1 face away from man3 man3",
+  "tau": [
+    5,
+    1
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "man3",
+    "predicate": "man1 man1 face away from man3 man3",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "c4afe91f-9659-44fd-be14-8cfb0d9c2f21"
+  ]
+}

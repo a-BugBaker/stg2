@@ -1,0 +1,32 @@
+{
+  "node_id": "24631c4f-7e76-42e3-999c-75d38ba88fcc",
+  "node_type": "entity_state",
+  "content": "man2 is a man with attributes [man wearing yellow shirt and blue shoes: man wearing yellow shirt and blue shoes] at position (113.0, 331.2) layer mapping: man2->pants2, man2->t - shirt3",
+  "tau": [
+    0,
+    22
+  ],
+  "metadata": {
+    "entity_tag": "man2",
+    "label": "man",
+    "attributes": {
+      "man wearing yellow shirt and blue shoes": "man wearing yellow shirt and blue shoes"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 45,
+        "tag": "shirt3"
+      }
+    ],
+    "frame_start": 0,
+    "latest_bbox": [
+      92.462,
+      299.519,
+      133.612,
+      362.864
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

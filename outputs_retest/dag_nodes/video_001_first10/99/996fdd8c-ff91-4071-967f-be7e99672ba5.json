@@ -1,0 +1,21 @@
+{
+  "node_id": "996fdd8c-ff91-4071-967f-be7e99672ba5",
+  "node_type": "relation",
+  "content": "man2 man3 sit beside man2 man2",
+  "tau": [
+    15,
+    26
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "man2",
+    "predicate": "man2 man3 sit beside man2 man2",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "b298c81a-3708-4940-aa6e-8043b715fcff"
+  ]
+}

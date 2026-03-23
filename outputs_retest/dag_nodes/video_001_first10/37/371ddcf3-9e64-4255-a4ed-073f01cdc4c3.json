@@ -1,0 +1,22 @@
+{
+  "node_id": "371ddcf3-9e64-4255-a4ed-073f01cdc4c3",
+  "node_type": "relation",
+  "content": "door bottle1 beside door bottle1",
+  "tau": [
+    45,
+    41
+  ],
+  "metadata": {
+    "subject_tag": "door",
+    "object_tag": "bottle1",
+    "predicate": "door bottle1 beside door bottle1",
+    "frame_start": 45,
+    "frame_end": 45,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "9b63a941-dfbe-4ca4-a8a6-c64ed88d11f7",
+    "e495786f-5a4e-4529-8429-75e2f6bd0bb7"
+  ]
+}

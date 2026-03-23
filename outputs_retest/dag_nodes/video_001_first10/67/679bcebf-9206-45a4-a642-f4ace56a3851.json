@@ -1,0 +1,22 @@
+{
+  "node_id": "679bcebf-9206-45a4-a642-f4ace56a3851",
+  "node_type": "relation",
+  "content": "label1 poster2 behind man1 man1",
+  "tau": [
+    35,
+    27
+  ],
+  "metadata": {
+    "subject_tag": "label1",
+    "object_tag": "man1",
+    "predicate": "label1 poster2 behind man1 man1",
+    "frame_start": 35,
+    "frame_end": 35,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "ea5ee6e6-cf5d-4918-a921-cef07d625479",
+    "8fb60f81-6679-4e58-9976-42b64e96ce4b"
+  ]
+}

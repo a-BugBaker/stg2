@@ -1,0 +1,21 @@
+{
+  "node_id": "aed052d5-b080-4433-bf30-e571296e365d",
+  "node_type": "relation",
+  "content": "man1 audience watch man1 audience",
+  "tau": [
+    10,
+    1
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "audience",
+    "predicate": "man1 audience watch man1 audience",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "c4afe91f-9659-44fd-be14-8cfb0d9c2f21"
+  ]
+}

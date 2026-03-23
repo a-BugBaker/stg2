@@ -1,0 +1,21 @@
+{
+  "node_id": "f81f193e-7399-4a27-b3e6-423996f2f2a1",
+  "node_type": "relation",
+  "content": "man2 contains t - shirt2",
+  "tau": [
+    30,
+    50
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "t - shirt2",
+    "predicate": "man2 contains t - shirt2",
+    "frame_start": 30,
+    "frame_end": 30,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "1b207b51-75ae-423b-b72c-1c1563851ac5"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "node_id": "182318b5-a34b-4ed5-a3fc-33992ccd2cda",
+  "node_type": "entity_appeared",
+  "content": "shirt2 (shirt) appeared at frame 0, position (308.5, 362.2)",
+  "tau": [
+    0,
+    75
+  ],
+  "metadata": {
+    "entity_tag": "shirt2",
+    "label": "shirt",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      308.4615,
+      362.18
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

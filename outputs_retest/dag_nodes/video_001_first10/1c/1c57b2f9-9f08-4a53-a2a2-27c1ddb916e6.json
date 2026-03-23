@@ -1,0 +1,21 @@
+{
+  "node_id": "1c57b2f9-9f08-4a53-a2a2-27c1ddb916e6",
+  "node_type": "relation",
+  "content": "socks1 socks1 worn by pants1 pants1",
+  "tau": [
+    5,
+    28
+  ],
+  "metadata": {
+    "subject_tag": "socks1",
+    "object_tag": "pants1",
+    "predicate": "socks1 socks1 worn by pants1 pants1",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "03d04133-389e-4d3c-992b-8304f20c2e35"
+  ]
+}

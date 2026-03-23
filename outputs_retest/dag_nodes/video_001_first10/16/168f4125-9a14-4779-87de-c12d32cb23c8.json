@@ -1,0 +1,21 @@
+{
+  "node_id": "168f4125-9a14-4779-87de-c12d32cb23c8",
+  "node_type": "relation",
+  "content": "sign1 poster1 behind man1 man1",
+  "tau": [
+    15,
+    3
+  ],
+  "metadata": {
+    "subject_tag": "sign1",
+    "object_tag": "man1",
+    "predicate": "sign1 poster1 behind man1 man1",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "e2009db4-894f-43e1-bc16-4d76e0bcbbd0"
+  ]
+}

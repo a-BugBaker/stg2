@@ -1,0 +1,27 @@
+{
+  "node_id": "b9b69d5a-7acb-4d5f-b5de-5a6c35ba0b68",
+  "node_type": "entity_state",
+  "content": "water bottle1 is a water bottle with attributes [white plastic water bottle with black writing: white plastic water bottle with black writing] at position (920.2, 81.3)",
+  "tau": [
+    0,
+    2
+  ],
+  "metadata": {
+    "entity_tag": "water bottle1",
+    "label": "water bottle",
+    "attributes": {
+      "white plastic water bottle with black writing": "white plastic water bottle with black writing"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      895.205,
+      27.241,
+      945.171,
+      135.262
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

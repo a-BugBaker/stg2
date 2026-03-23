@@ -1,0 +1,21 @@
+{
+  "node_id": "fe56cea2-8950-43b2-aa6a-79dbf99493d6",
+  "node_type": "entity_appeared",
+  "content": "man2 (man) appeared at frame 5, position (113.0, 331.2)",
+  "tau": [
+    5,
+    47
+  ],
+  "metadata": {
+    "entity_tag": "man2",
+    "label": "man",
+    "frame_start": 5,
+    "frame_end": 5,
+    "position": [
+      113.037,
+      331.1915
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

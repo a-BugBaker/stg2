@@ -1,0 +1,25 @@
+{
+  "node_id": "01171290-f037-4b6b-9d0b-764185663b83",
+  "node_type": "entity_state",
+  "content": "cap is a cap at position (313.2, 306.6)",
+  "tau": [
+    15,
+    51
+  ],
+  "metadata": {
+    "entity_tag": "cap",
+    "label": "cap",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 15,
+    "latest_bbox": [
+      303.605,
+      299.464,
+      322.883,
+      313.769
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

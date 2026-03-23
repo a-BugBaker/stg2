@@ -1,0 +1,22 @@
+{
+  "node_id": "03eebcef-6e93-4fe1-af0a-49927a596278",
+  "node_type": "entity_disappeared",
+  "content": "seating disappeared at frame 15, last position (87.4, 345.9)",
+  "tau": [
+    15,
+    74
+  ],
+  "metadata": {
+    "entity_tag": "seating",
+    "frame_start": 15,
+    "frame_end": 15,
+    "last_position": [
+      87.395,
+      345.9365
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "c37a57bc-3c71-4341-800f-e9c1b85662d1"
+  ]
+}

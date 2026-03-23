@@ -1,0 +1,21 @@
+{
+  "node_id": "a3cd9e9d-dd10-4b5c-a1d1-6abd8340a203",
+  "node_type": "entity_appeared",
+  "content": "banner (banner) appeared at frame 0, position (433.6, 262.5)",
+  "tau": [
+    0,
+    29
+  ],
+  "metadata": {
+    "entity_tag": "banner",
+    "label": "banner",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      433.595,
+      262.5085
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

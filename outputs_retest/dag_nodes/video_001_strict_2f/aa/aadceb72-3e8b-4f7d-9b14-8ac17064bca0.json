@@ -1,0 +1,32 @@
+{
+  "node_id": "aadceb72-3e8b-4f7d-9b14-8ac17064bca0",
+  "node_type": "entity_state",
+  "content": "logo is a logo with attributes [logo with white letters inside red box: logo with white letters inside red box] at position (424.7, 267.2) layer mapping: logo->text",
+  "tau": [
+    0,
+    40
+  ],
+  "metadata": {
+    "entity_tag": "logo",
+    "label": "logo",
+    "attributes": {
+      "logo with white letters inside red box": "logo with white letters inside red box"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 52,
+        "tag": "text"
+      }
+    ],
+    "frame_start": 0,
+    "latest_bbox": [
+      350.845,
+      195.262,
+      498.466,
+      339.169
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

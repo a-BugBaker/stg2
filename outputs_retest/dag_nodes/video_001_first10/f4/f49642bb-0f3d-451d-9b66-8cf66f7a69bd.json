@@ -1,0 +1,25 @@
+{
+  "node_id": "f49642bb-0f3d-451d-9b66-8cf66f7a69bd",
+  "node_type": "entity_state",
+  "content": "fabric1 is a fabric at position (433.8, 262.5)",
+  "tau": [
+    0,
+    82
+  ],
+  "metadata": {
+    "entity_tag": "fabric1",
+    "label": "fabric",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      311.253,
+      161.032,
+      556.316,
+      364.001
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

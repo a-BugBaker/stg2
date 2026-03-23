@@ -1,0 +1,27 @@
+{
+  "node_id": "ecdd41f6-6c3a-45da-8fcd-d7647c82ab64",
+  "node_type": "entity_state",
+  "content": "jersey1 is a jersey with attributes [yellow basketball jersey with number 62: yellow basketball jersey with number 62] at position (307.9, 362.2)",
+  "tau": [
+    0,
+    16
+  ],
+  "metadata": {
+    "entity_tag": "jersey1",
+    "label": "jersey",
+    "attributes": {
+      "yellow basketball jersey with number 62": "yellow basketball jersey with number 62"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      288.491,
+      330.89,
+      327.25,
+      393.523
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

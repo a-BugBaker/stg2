@@ -1,0 +1,21 @@
+{
+  "node_id": "87832633-638e-4afd-ad0c-28c393997d37",
+  "node_type": "relation",
+  "content": "sign1 poster1 below banner banner",
+  "tau": [
+    15,
+    1
+  ],
+  "metadata": {
+    "subject_tag": "sign1",
+    "object_tag": "banner",
+    "predicate": "sign1 poster1 below banner banner",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "f7caccb7-daa5-4005-9693-b1851acbfecf"
+  ]
+}

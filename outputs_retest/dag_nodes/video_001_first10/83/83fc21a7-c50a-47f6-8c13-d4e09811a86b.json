@@ -1,0 +1,21 @@
+{
+  "node_id": "83fc21a7-c50a-47f6-8c13-d4e09811a86b",
+  "node_type": "entity_appeared",
+  "content": "logo (logo) appeared at frame 0, position (424.7, 267.2)",
+  "tau": [
+    0,
+    41
+  ],
+  "metadata": {
+    "entity_tag": "logo",
+    "label": "logo",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      424.6555,
+      267.2155
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

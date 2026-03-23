@@ -1,0 +1,36 @@
+{
+  "node_id": "8fb60f81-6679-4e58-9976-42b64e96ce4b",
+  "node_type": "entity_state",
+  "content": "man1 is a man with attributes [man wearing yellow shirt and orange shorts: man wearing yellow shirt and orange shorts] at position (316.9, 363.6) layer mapping: man1->pants1, man1->t - shirt",
+  "tau": [
+    0,
+    4
+  ],
+  "metadata": {
+    "entity_tag": "man1",
+    "label": "man",
+    "attributes": {
+      "man wearing yellow shirt and orange shorts": "man wearing yellow shirt and orange shorts"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 44,
+        "tag": "shirt2"
+      },
+      {
+        "idx": 49,
+        "tag": "shoes4"
+      }
+    ],
+    "frame_start": 0,
+    "latest_bbox": [
+      298.911,
+      299.97,
+      334.803,
+      427.204
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,32 @@
+{
+  "node_id": "f607a891-e26c-4d21-af8d-d836cc59e818",
+  "node_type": "entity_state",
+  "content": "staircase is a staircase with attributes [staircase in gym: staircase in gym] at position (90.1, 345.4) layer mapping: staircase->steps",
+  "tau": [
+    0,
+    54
+  ],
+  "metadata": {
+    "entity_tag": "staircase",
+    "label": "staircase",
+    "attributes": {
+      "staircase in gym": "staircase in gym"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 53,
+        "tag": "steps"
+      }
+    ],
+    "frame_start": 0,
+    "latest_bbox": [
+      48.92,
+      319.975,
+      131.272,
+      370.825
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

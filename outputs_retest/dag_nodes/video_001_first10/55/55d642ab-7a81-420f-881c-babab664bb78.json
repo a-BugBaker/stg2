@@ -1,0 +1,22 @@
+{
+  "node_id": "55d642ab-7a81-420f-881c-babab664bb78",
+  "node_type": "entity_disappeared",
+  "content": "glass2 disappeared at frame 35, last position (176.5, 107.8)",
+  "tau": [
+    35,
+    54
+  ],
+  "metadata": {
+    "entity_tag": "glass2",
+    "frame_start": 35,
+    "frame_end": 35,
+    "last_position": [
+      176.4855,
+      107.7705
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "a38a0e94-ab1c-4bc3-9902-97aaaaaf2362"
+  ]
+}

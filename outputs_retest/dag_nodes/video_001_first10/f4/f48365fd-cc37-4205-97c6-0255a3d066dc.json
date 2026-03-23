@@ -1,0 +1,21 @@
+{
+  "node_id": "f48365fd-cc37-4205-97c6-0255a3d066dc",
+  "node_type": "relation",
+  "content": "sign1 man1 standing before poster2 man1",
+  "tau": [
+    30,
+    1
+  ],
+  "metadata": {
+    "subject_tag": "sign1",
+    "object_tag": "man1",
+    "predicate": "sign1 man1 standing before poster2 man1",
+    "frame_start": 30,
+    "frame_end": 30,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "cbd2d2d8-0c40-4a5c-a4bc-a93cbfcf91a7"
+  ]
+}

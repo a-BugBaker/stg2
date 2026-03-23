@@ -1,0 +1,21 @@
+{
+  "node_id": "6e1d6738-890a-401b-ba33-e98cf32e166e",
+  "node_type": "entity_appeared",
+  "content": "sign2 (sign) appeared at frame 0, position (102.7, 90.0)",
+  "tau": [
+    0,
+    9
+  ],
+  "metadata": {
+    "entity_tag": "sign2",
+    "label": "sign",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      102.7475,
+      90.0215
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,21 @@
+{
+  "node_id": "8a0d7352-bda4-429c-a332-75b76479d05e",
+  "node_type": "entity_appeared",
+  "content": "fire escape roof (fire escape roof) appeared at frame 10, position (226.3, 228.8)",
+  "tau": [
+    10,
+    53
+  ],
+  "metadata": {
+    "entity_tag": "fire escape roof",
+    "label": "fire escape roof",
+    "frame_start": 10,
+    "frame_end": 10,
+    "position": [
+      226.29500000000002,
+      228.824
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

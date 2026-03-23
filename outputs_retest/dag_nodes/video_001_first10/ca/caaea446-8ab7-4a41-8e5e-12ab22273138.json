@@ -1,0 +1,21 @@
+{
+  "node_id": "caaea446-8ab7-4a41-8e5e-12ab22273138",
+  "node_type": "relation",
+  "content": "man2 advertisement3 above man2 advertisement3",
+  "tau": [
+    10,
+    23
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "advertisement3",
+    "predicate": "man2 advertisement3 above man2 advertisement3",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "6babad5e-a6d8-4c88-99a4-e86b39d29d58"
+  ]
+}

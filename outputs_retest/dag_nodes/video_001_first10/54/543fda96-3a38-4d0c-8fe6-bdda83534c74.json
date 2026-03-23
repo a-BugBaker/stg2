@@ -1,0 +1,21 @@
+{
+  "node_id": "543fda96-3a38-4d0c-8fe6-bdda83534c74",
+  "node_type": "relation",
+  "content": "man2 ceiling above man2 ceiling",
+  "tau": [
+    10,
+    22
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "ceiling",
+    "predicate": "man2 ceiling above man2 ceiling",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "6babad5e-a6d8-4c88-99a4-e86b39d29d58"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "node_id": "d717183f-da67-4e6d-999a-291e5cf77751",
+  "node_type": "entity_state",
+  "content": "door1 is a door with attributes [brown wooden door with gold handle: brown wooden door with gold handle] at position (194.6, 303.9)",
+  "tau": [
+    0,
+    20
+  ],
+  "metadata": {
+    "entity_tag": "door1",
+    "label": "door",
+    "attributes": {
+      "brown wooden door with gold handle": "brown wooden door with gold handle"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      178.084,
+      258.649,
+      211.197,
+      349.101
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,21 @@
+{
+  "node_id": "2da68276-da37-41bf-8bed-8342d61cbe92",
+  "node_type": "entity_appeared",
+  "content": "shoes1 (shoes) appeared at frame 0, position (14.4, 432.4)",
+  "tau": [
+    0,
+    63
+  ],
+  "metadata": {
+    "entity_tag": "shoes1",
+    "label": "shoes",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      14.361,
+      432.35699999999997
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

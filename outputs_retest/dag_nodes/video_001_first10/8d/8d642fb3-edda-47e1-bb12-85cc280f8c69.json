@@ -1,0 +1,27 @@
+{
+  "node_id": "8d642fb3-edda-47e1-bb12-85cc280f8c69",
+  "node_type": "entity_state",
+  "content": "shoes3 is a shoes with attributes [red and white sneakers: red and white sneakers] at position (127.0, 353.5)",
+  "tau": [
+    0,
+    80
+  ],
+  "metadata": {
+    "entity_tag": "shoes3",
+    "label": "shoes",
+    "attributes": {
+      "red and white sneakers": "red and white sneakers"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      120.059,
+      348.726,
+      133.891,
+      358.362
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

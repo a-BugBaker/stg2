@@ -1,0 +1,27 @@
+{
+  "node_id": "ac50d0a5-c4b8-484e-bd11-2435ce25cd2d",
+  "node_type": "entity_state",
+  "content": "shoes1 is a shoes with attributes [white sneakers with black stripes: white sneakers with black stripes] at position (324.7, 445.0)",
+  "tau": [
+    0,
+    62
+  ],
+  "metadata": {
+    "entity_tag": "shoes1",
+    "label": "shoes",
+    "attributes": {
+      "white sneakers with black stripes": "white sneakers with black stripes"
+    },
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      316.08,
+      434.922,
+      333.367,
+      455.151
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

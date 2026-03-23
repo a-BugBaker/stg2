@@ -1,0 +1,21 @@
+{
+  "node_id": "a8aa432f-72ed-43c8-9521-68cbe44624a0",
+  "node_type": "relation",
+  "content": "banner banner behind audience audience",
+  "tau": [
+    10,
+    23
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "audience",
+    "predicate": "banner banner behind audience audience",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "02aa9d1d-5973-4cc9-9eca-5fc43981f5d6"
+  ]
+}

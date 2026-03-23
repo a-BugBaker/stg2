@@ -1,0 +1,22 @@
+{
+  "node_id": "cf960896-04f2-4ab0-840b-cb73ce0d92ca",
+  "node_type": "relation",
+  "content": "shorts4 pants2 worn by man2 man2",
+  "tau": [
+    5,
+    42
+  ],
+  "metadata": {
+    "subject_tag": "shorts4",
+    "object_tag": "man2",
+    "predicate": "shorts4 pants2 worn by man2 man2",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "adb43140-0348-4265-9002-a243501440d5",
+    "6babad5e-a6d8-4c88-99a4-e86b39d29d58"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "node_id": "28831a2f-42f4-43fd-bb04-5bdf0d83fc18",
+  "node_type": "entity_disappeared",
+  "content": "door2 disappeared at frame 5, last position (89.2, 262.8)",
+  "tau": [
+    5,
+    58
+  ],
+  "metadata": {
+    "entity_tag": "door2",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      89.2345,
+      262.8295
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "fe3884bd-482a-40fd-82de-bacecdc12c33"
+  ]
+}

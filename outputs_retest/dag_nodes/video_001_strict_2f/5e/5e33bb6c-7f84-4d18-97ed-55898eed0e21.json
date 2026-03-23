@@ -1,0 +1,21 @@
+{
+  "node_id": "5e33bb6c-7f84-4d18-97ed-55898eed0e21",
+  "node_type": "entity_appeared",
+  "content": "door2 (door) appeared at frame 0, position (89.2, 262.8)",
+  "tau": [
+    0,
+    27
+  ],
+  "metadata": {
+    "entity_tag": "door2",
+    "label": "door",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      89.2345,
+      262.8295
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

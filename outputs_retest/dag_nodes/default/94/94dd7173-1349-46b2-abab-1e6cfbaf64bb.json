@@ -1,0 +1,21 @@
+{
+  "node_id": "94dd7173-1349-46b2-abab-1e6cfbaf64bb",
+  "node_type": "relation",
+  "content": "basketball hoop man3 stand near basketball hoop man3",
+  "tau": [
+    5,
+    10
+  ],
+  "metadata": {
+    "subject_tag": "basketball hoop",
+    "object_tag": "man3",
+    "predicate": "basketball hoop man3 stand near basketball hoop man3",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "619796e2-ee51-4aab-b269-6c48844c0b63"
+  ]
+}

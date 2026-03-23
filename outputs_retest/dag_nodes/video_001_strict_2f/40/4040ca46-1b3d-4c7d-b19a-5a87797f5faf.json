@@ -1,0 +1,27 @@
+{
+  "node_id": "4040ca46-1b3d-4c7d-b19a-5a87797f5faf",
+  "node_type": "entity_state",
+  "content": "basketball hoop is a basketball hoop with attributes [basketball hoop with black backboard and white writing: basketball hoop with black backboard and white writing] at position (446.7, 206.1) layer mapping: basketball hoop->backboard",
+  "tau": [
+    0,
+    18
+  ],
+  "metadata": {
+    "entity_tag": "basketball hoop",
+    "label": "basketball hoop",
+    "attributes": {
+      "basketball hoop with black backboard and white writing": "basketball hoop with black backboard and white writing"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      423.703,
+      184.515,
+      469.793,
+      227.732
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

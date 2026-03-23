@@ -1,0 +1,27 @@
+{
+  "node_id": "b3c2ff96-2069-4edb-a333-33ffb92f2c2b",
+  "node_type": "entity_state",
+  "content": "sign2 is a sign with attributes [sign with white letters on blue background: sign with white letters on blue background] at position (102.7, 90.0)",
+  "tau": [
+    0,
+    8
+  ],
+  "metadata": {
+    "entity_tag": "sign2",
+    "label": "sign",
+    "attributes": {
+      "sign with white letters on blue background": "sign with white letters on blue background"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      0.198,
+      39.444,
+      205.297,
+      140.599
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

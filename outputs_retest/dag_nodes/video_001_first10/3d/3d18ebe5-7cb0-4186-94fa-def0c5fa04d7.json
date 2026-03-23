@@ -1,0 +1,46 @@
+{
+  "node_id": "3d18ebe5-7cb0-4186-94fa-def0c5fa04d7",
+  "node_type": "entity_state",
+  "content": "player1 is a player at position (113.4, 331.0)",
+  "tau": [
+    0,
+    10
+  ],
+  "metadata": {
+    "entity_tag": "player1",
+    "label": "player",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 35,
+        "tag": "shorts1"
+      },
+      {
+        "idx": 65,
+        "tag": "socks2"
+      },
+      {
+        "idx": 38,
+        "tag": "shoes1"
+      },
+      {
+        "idx": 40,
+        "tag": "shoes2"
+      },
+      {
+        "idx": 69,
+        "tag": "shoes10"
+      }
+    ],
+    "frame_start": 0,
+    "latest_bbox": [
+      93.195,
+      299.498,
+      133.629,
+      362.476
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

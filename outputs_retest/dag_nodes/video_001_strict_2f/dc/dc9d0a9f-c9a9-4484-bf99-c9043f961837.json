@@ -1,0 +1,22 @@
+{
+  "node_id": "dc9d0a9f-c9a9-4484-bf99-c9043f961837",
+  "node_type": "entity_disappeared",
+  "content": "jersey1 disappeared at frame 5, last position (307.9, 362.2)",
+  "tau": [
+    5,
+    56
+  ],
+  "metadata": {
+    "entity_tag": "jersey1",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      307.8705,
+      362.2065
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "047c8ceb-cf49-4923-b61e-a382641d6984"
+  ]
+}

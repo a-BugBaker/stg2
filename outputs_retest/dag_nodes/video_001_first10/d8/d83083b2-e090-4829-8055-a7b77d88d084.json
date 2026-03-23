@@ -1,0 +1,21 @@
+{
+  "node_id": "d83083b2-e090-4829-8055-a7b77d88d084",
+  "node_type": "relation",
+  "content": "basketball hoop basketball hoop behind man4 man4",
+  "tau": [
+    15,
+    12
+  ],
+  "metadata": {
+    "subject_tag": "basketball hoop",
+    "object_tag": "man4",
+    "predicate": "basketball hoop basketball hoop behind man4 man4",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "e524dcb4-4587-4135-8508-a3bc89544211"
+  ]
+}

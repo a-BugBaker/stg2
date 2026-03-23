@@ -1,0 +1,22 @@
+{
+  "node_id": "6a9bc705-8479-4875-8bf0-61daee6bb05d",
+  "node_type": "entity_disappeared",
+  "content": "sign2 disappeared at frame 5, last position (102.7, 90.0)",
+  "tau": [
+    5,
+    55
+  ],
+  "metadata": {
+    "entity_tag": "sign2",
+    "frame_start": 5,
+    "frame_end": 5,
+    "last_position": [
+      102.7475,
+      90.0215
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "a62c2244-7934-41f5-b870-045e89e94ddb"
+  ]
+}

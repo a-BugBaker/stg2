@@ -17,7 +17,7 @@ from __future__ import annotations
 import json
 import logging
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 from .dag_core import DAGNode, EventType, LogicalClock
 
@@ -33,7 +33,14 @@ class Neo4jGraphStore:
     如果Neo4j不可用，会回退到内存字典存储（仅用于测试/开发）。
     """
     
-    def __init__(self, uri: str, user: str, password: str):
+    def __init__(
+        self,
+        uri: str,
+        user: str,
+        password: str,
+        allow_fallback: bool = True,
+        store_content: bool = True,
+    ):
         """初始化Neo4j连接。
         
         Args:
@@ -44,6 +51,8 @@ class Neo4jGraphStore:
         self._uri = uri
         self._user = user
         self._password = password
+        self._allow_fallback = allow_fallback
+        self._store_content = store_content
         self._driver = None
         self._fallback_mode = False
         
@@ -68,16 +77,30 @@ class Neo4jGraphStore:
             logger.info(f"Connected to Neo4j at {self._uri}")
             self._fallback_mode = False
         except Exception as e:
-            logger.warning(f"Neo4j connection failed: {e}. Using in-memory fallback.")
-            self._fallback_mode = True
-            self._driver = None
+            if self._allow_fallback:
+                logger.warning(f"Neo4j connection failed: {e}. Using in-memory fallback.")
+                self._fallback_mode = True
+                self._driver = None
+                return
+            raise RuntimeError(
+                f"Neo4j connection failed at {self._uri} and fallback is disabled. "
+                "Please start Neo4j or enable dag.allow_memory_fallback."
+            ) from e
     
     def close(self) -> None:
         """关闭Neo4j连接。"""
         if self._driver:
             self._driver.close()
     
-    def create_node(self, node_id: str, node_type: str, tau: tuple) -> None:
+    def create_node(
+        self,
+        node_id: str,
+        node_type: str,
+        tau: tuple,
+        content: Optional[str] = None,
+        metadata: Optional[Dict[str, Any]] = None,
+        is_tombstone: bool = False,
+    ) -> None:
         """在图中创建节点。
         
         Args:
@@ -89,8 +112,12 @@ class Neo4jGraphStore:
             self._memory_nodes[node_id] = {
                 "type": node_type,
                 "tau_frame": tau[0],
-                "tau_seq": tau[1]
+                "tau_seq": tau[1],
             }
+            if self._store_content:
+                self._memory_nodes[node_id]["content"] = content or ""
+                self._memory_nodes[node_id]["metadata_json"] = json.dumps(metadata or {}, ensure_ascii=False)
+                self._memory_nodes[node_id]["is_tombstone"] = bool(is_tombstone)
             if node_id not in self._memory_edges:
                 self._memory_edges[node_id] = set()
             if node_id not in self._memory_children:
@@ -98,16 +125,36 @@ class Neo4jGraphStore:
             return
         
         with self._driver.session() as session:
-            session.run(
-                """
-                MERGE (n:DAGNode {node_id: $node_id})
-                SET n.type = $node_type, n.tau_frame = $tau_frame, n.tau_seq = $tau_seq
-                """,
-                node_id=node_id,
-                node_type=node_type,
-                tau_frame=tau[0],
-                tau_seq=tau[1]
-            )
+            if self._store_content:
+                session.run(
+                    """
+                    MERGE (n:DAGNode {node_id: $node_id})
+                    SET n.type = $node_type,
+                        n.tau_frame = $tau_frame,
+                        n.tau_seq = $tau_seq,
+                        n.content = $content,
+                        n.metadata_json = $metadata_json,
+                        n.is_tombstone = $is_tombstone
+                    """,
+                    node_id=node_id,
+                    node_type=node_type,
+                    tau_frame=tau[0],
+                    tau_seq=tau[1],
+                    content=content or "",
+                    metadata_json=json.dumps(metadata or {}, ensure_ascii=False),
+                    is_tombstone=bool(is_tombstone),
+                )
+            else:
+                session.run(
+                    """
+                    MERGE (n:DAGNode {node_id: $node_id})
+                    SET n.type = $node_type, n.tau_frame = $tau_frame, n.tau_seq = $tau_seq
+                    """,
+                    node_id=node_id,
+                    node_type=node_type,
+                    tau_frame=tau[0],
+                    tau_seq=tau[1],
+                )
     
     def create_edge(self, parent_id: str, child_id: str) -> None:
         """创建从父节点到子节点的边。
@@ -257,7 +304,8 @@ class Neo4jGraphStore:
         with self._driver.session() as session:
             result = session.run(
                 """
-                MATCH (n:DAGNode {node_id: $node_id})<-[:CAUSES*1..$max_depth]-(ancestor:DAGNode)
+                MATCH path = (n:DAGNode {node_id: $node_id})<-[:CAUSES*1..]-(ancestor:DAGNode)
+                WHERE length(path) <= $max_depth
                 RETURN DISTINCT ancestor.node_id AS ancestor_id
                 """,
                 node_id=node_id,
@@ -303,7 +351,8 @@ class Neo4jGraphStore:
         with self._driver.session() as session:
             result = session.run(
                 """
-                MATCH path = (from:DAGNode {node_id: $from_id})-[:CAUSES*1..$max_depth]->(to:DAGNode {node_id: $to_id})
+                MATCH path = (from:DAGNode {node_id: $from_id})-[:CAUSES*1..]->(to:DAGNode {node_id: $to_id})
+                WHERE length(path) <= $max_depth
                 RETURN count(path) > 0 AS exists
                 """,
                 from_id=from_id,
@@ -366,7 +415,7 @@ class JSONMetaStore:
         
         # 内存缓存，减少IO
         self._cache: Dict[str, DAGNode] = {}
-        self._dirty: Set[str] = set()  # 需要写入磁盘的节点
+        self._dirty: Set[Tuple[str, str]] = set()  # 需要写入磁盘的节点
     
     def _node_path(self, sample_id: str, node_id: str) -> Path:
         """获取节点的JSON文件路径。
@@ -386,18 +435,28 @@ class JSONMetaStore:
         """生成缓存key。"""
         return f"{sample_id}:{node_id}"
     
-    def save_node(self, sample_id: str, node: DAGNode) -> None:
+    def save_node(self, sample_id: str | DAGNode, node: Optional[DAGNode] = None) -> None:
         """保存节点到缓存（延迟写入磁盘）。
         
         Args:
             sample_id: 样本ID
             node: DAG节点
         """
-        cache_key = self._cache_key(sample_id, node.node_id)
-        self._cache[cache_key] = node
-        self._dirty.add((sample_id, node.node_id))
+        # 向后兼容：允许 save_node(node) 调用，默认 sample_id='default'。
+        if node is None and isinstance(sample_id, DAGNode):
+            actual_sample_id = "default"
+            actual_node = sample_id
+        else:
+            actual_sample_id = str(sample_id)
+            if node is None:
+                raise ValueError("node must be provided when sample_id is specified")
+            actual_node = node
+
+        cache_key = self._cache_key(actual_sample_id, actual_node.node_id)
+        self._cache[cache_key] = actual_node
+        self._dirty.add((actual_sample_id, actual_node.node_id))
     
-    def load_node(self, sample_id: str, node_id: str) -> Optional[DAGNode]:
+    def load_node(self, sample_id: str, node_id: Optional[str] = None) -> Optional[DAGNode]:
         """加载节点。
         
         Args:
@@ -407,14 +466,22 @@ class JSONMetaStore:
         Returns:
             DAGNode实例，不存在则返回None
         """
-        cache_key = self._cache_key(sample_id, node_id)
+        # 向后兼容：允许 load_node(node_id) 调用，默认 sample_id='default'。
+        if node_id is None:
+            actual_sample_id = "default"
+            actual_node_id = str(sample_id)
+        else:
+            actual_sample_id = str(sample_id)
+            actual_node_id = str(node_id)
+
+        cache_key = self._cache_key(actual_sample_id, actual_node_id)
         
         # 先查缓存
         if cache_key in self._cache:
             return self._cache[cache_key]
         
         # 从磁盘加载
-        path = self._node_path(sample_id, node_id)
+        path = self._node_path(actual_sample_id, actual_node_id)
         if not path.exists():
             return None
         
@@ -425,7 +492,7 @@ class JSONMetaStore:
             self._cache[cache_key] = node
             return node
         except Exception as e:
-            logger.error(f"Failed to load node {node_id}: {e}")
+            logger.error(f"Failed to load node {actual_node_id}: {e}")
             return None
     
     def update_node(self, sample_id: str, node_id: str, updates: Dict[str, Any]) -> Optional[DAGNode]:
@@ -504,11 +571,18 @@ class JSONMetaStore:
             加载的节点数量
         """
         count = 0
-        for subdir in self._base_dir.iterdir():
-            if subdir.is_dir():
-                for json_file in subdir.glob("*.json"):
+        # 目录结构：base/sample_id/prefix/node.json
+        for sample_dir in self._base_dir.iterdir():
+            if not sample_dir.is_dir():
+                continue
+            sample_id = sample_dir.name
+            for prefix_dir in sample_dir.iterdir():
+                if not prefix_dir.is_dir():
+                    continue
+                for json_file in prefix_dir.glob("*.json"):
                     node_id = json_file.stem
-                    if node_id not in self._cache:
-                        self.load_node(node_id)
+                    cache_key = self._cache_key(sample_id, node_id)
+                    if cache_key not in self._cache:
+                        self.load_node(sample_id, node_id)
                         count += 1
         return count

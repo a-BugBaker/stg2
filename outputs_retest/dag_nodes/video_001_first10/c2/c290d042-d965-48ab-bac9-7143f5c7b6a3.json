@@ -1,0 +1,21 @@
+{
+  "node_id": "c290d042-d965-48ab-bac9-7143f5c7b6a3",
+  "node_type": "relation",
+  "content": "banner floor below banner floor",
+  "tau": [
+    20,
+    27
+  ],
+  "metadata": {
+    "subject_tag": "banner",
+    "object_tag": "floor",
+    "predicate": "banner floor below banner floor",
+    "frame_start": 20,
+    "frame_end": 20,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "a2e4658e-bebd-454f-9fda-721e47142138"
+  ]
+}

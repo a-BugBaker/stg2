@@ -1,0 +1,27 @@
+{
+  "node_id": "f435e17a-1b1b-4b1d-a29a-fc15d38be415",
+  "node_type": "entity_state",
+  "content": "pole1 is a pole with attributes [black metal pole: black metal pole] at position (505.6, 263.5)",
+  "tau": [
+    5,
+    50
+  ],
+  "metadata": {
+    "entity_tag": "pole1",
+    "label": "pole",
+    "attributes": {
+      "black metal pole": "black metal pole"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 5,
+    "latest_bbox": [
+      494.373,
+      150.47,
+      516.773,
+      376.453
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

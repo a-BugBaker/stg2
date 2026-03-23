@@ -1,0 +1,27 @@
+{
+  "node_id": "329e9ee3-cb87-42b9-95a3-a1ed7f34b52f",
+  "node_type": "entity_state",
+  "content": "steps is a steps with attributes [stairs in gym: stairs in gym] at position (79.9, 345.5)",
+  "tau": [
+    0,
+    92
+  ],
+  "metadata": {
+    "entity_tag": "steps",
+    "label": "steps",
+    "attributes": {
+      "stairs in gym": "stairs in gym"
+    },
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      53.774,
+      321.715,
+      106.012,
+      369.299
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

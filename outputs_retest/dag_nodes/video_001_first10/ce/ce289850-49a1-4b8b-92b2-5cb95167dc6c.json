@@ -1,0 +1,21 @@
+{
+  "node_id": "ce289850-49a1-4b8b-92b2-5cb95167dc6c",
+  "node_type": "relation",
+  "content": "man1 man1 within court lines1 court lines1",
+  "tau": [
+    10,
+    7
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "court lines1",
+    "predicate": "man1 man1 within court lines1 court lines1",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "8fb60f81-6679-4e58-9976-42b64e96ce4b"
+  ]
+}

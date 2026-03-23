@@ -1,0 +1,19 @@
+{
+  "node_id": "3bd2f951-9a29-4a1b-a78a-38f1f0f80f2e",
+  "node_type": "relation",
+  "content": "man2 man4 beside man2 man2",
+  "tau": [
+    5,
+    21
+  ],
+  "metadata": {
+    "subject_tag": "man2",
+    "object_tag": "man2",
+    "predicate": "man2 man4 beside man2 man2",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

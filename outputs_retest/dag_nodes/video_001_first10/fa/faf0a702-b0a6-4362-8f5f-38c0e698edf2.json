@@ -1,0 +1,21 @@
+{
+  "node_id": "faf0a702-b0a6-4362-8f5f-38c0e698edf2",
+  "node_type": "entity_appeared",
+  "content": "jersey4 (jersey) appeared at frame 10, position (87.5, 274.9)",
+  "tau": [
+    10,
+    67
+  ],
+  "metadata": {
+    "entity_tag": "jersey4",
+    "label": "jersey",
+    "frame_start": 10,
+    "frame_end": 10,
+    "position": [
+      87.51650000000001,
+      274.8585
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

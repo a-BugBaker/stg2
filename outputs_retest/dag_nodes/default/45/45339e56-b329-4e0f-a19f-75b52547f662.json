@@ -1,0 +1,27 @@
+{
+  "node_id": "45339e56-b329-4e0f-a19f-75b52547f662",
+  "node_type": "entity_state",
+  "content": "shoe2 is a shoe with attributes [red rubber shoe with white sole: red rubber shoe with white sole] at position (39.6, 433.5)",
+  "tau": [
+    0,
+    50
+  ],
+  "metadata": {
+    "entity_tag": "shoe2",
+    "label": "shoe",
+    "attributes": {
+      "red rubber shoe with white sole": "red rubber shoe with white sole"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      33.917,
+      426.38,
+      45.38,
+      440.695
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

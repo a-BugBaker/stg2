@@ -1,0 +1,25 @@
+{
+  "node_id": "77d2ad39-41c1-48ff-b3f3-f74b3ad7ceb4",
+  "node_type": "entity_state",
+  "content": "shorts5 is a shorts at position (601.2, 302.9)",
+  "tau": [
+    0,
+    88
+  ],
+  "metadata": {
+    "entity_tag": "shorts5",
+    "label": "shorts",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      592.147,
+      293.954,
+      610.292,
+      311.882
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

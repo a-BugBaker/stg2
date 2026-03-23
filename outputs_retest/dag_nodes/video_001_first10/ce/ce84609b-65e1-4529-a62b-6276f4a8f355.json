@@ -1,0 +1,27 @@
+{
+  "node_id": "ce84609b-65e1-4529-a62b-6276f4a8f355",
+  "node_type": "entity_state",
+  "content": "jersey3 is a jersey with attributes [jersey with number 14 on it: jersey with number 14 on it] at position (103.3, 322.8)",
+  "tau": [
+    0,
+    42
+  ],
+  "metadata": {
+    "entity_tag": "jersey3",
+    "label": "jersey",
+    "attributes": {
+      "jersey with number 14 on it": "jersey with number 14 on it"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      93.99,
+      307.957,
+      112.697,
+      337.608
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

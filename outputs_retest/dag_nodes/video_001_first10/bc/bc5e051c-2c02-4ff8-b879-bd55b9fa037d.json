@@ -1,0 +1,21 @@
+{
+  "node_id": "bc5e051c-2c02-4ff8-b879-bd55b9fa037d",
+  "node_type": "entity_appeared",
+  "content": "text (text) appeared at frame 0, position (431.3, 296.3)",
+  "tau": [
+    0,
+    91
+  ],
+  "metadata": {
+    "entity_tag": "text",
+    "label": "text",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      431.326,
+      296.3415
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

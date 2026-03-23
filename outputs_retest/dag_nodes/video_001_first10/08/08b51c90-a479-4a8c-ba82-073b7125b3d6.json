@@ -1,0 +1,27 @@
+{
+  "node_id": "08b51c90-a479-4a8c-ba82-073b7125b3d6",
+  "node_type": "entity_state",
+  "content": "bottle2 is a bottle with attributes [white plastic bottle of water: white plastic bottle of water] at position (176.5, 107.6)",
+  "tau": [
+    10,
+    57
+  ],
+  "metadata": {
+    "entity_tag": "bottle2",
+    "label": "bottle",
+    "attributes": {
+      "white plastic bottle of water": "white plastic bottle of water"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 10,
+    "latest_bbox": [
+      157.511,
+      63.324,
+      195.556,
+      151.864
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

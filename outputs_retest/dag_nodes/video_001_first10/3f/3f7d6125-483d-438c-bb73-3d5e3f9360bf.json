@@ -1,0 +1,21 @@
+{
+  "node_id": "3f7d6125-483d-438c-bb73-3d5e3f9360bf",
+  "node_type": "entity_appeared",
+  "content": "seating (seating) appeared at frame 10, position (87.4, 345.9)",
+  "tau": [
+    10,
+    72
+  ],
+  "metadata": {
+    "entity_tag": "seating",
+    "label": "seating",
+    "frame_start": 10,
+    "frame_end": 10,
+    "position": [
+      87.395,
+      345.9365
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

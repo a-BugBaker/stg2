@@ -1,0 +1,25 @@
+{
+  "node_id": "94a74a2d-9c3d-4eb5-acfe-83177cf11d28",
+  "node_type": "entity_state",
+  "content": "glass2 is a glass at position (176.5, 107.7)",
+  "tau": [
+    20,
+    55
+  ],
+  "metadata": {
+    "entity_tag": "glass2",
+    "label": "glass",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 20,
+    "latest_bbox": [
+      157.516,
+      63.371,
+      195.505,
+      152.058
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

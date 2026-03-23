@@ -1,0 +1,233 @@
+{
+  "sample_id": "video_001_first10",
+  "queries": [
+    {
+      "query": "man1发生了什么",
+      "seed_count": 5,
+      "seeds": [
+        {
+          "node_id": "4dbdd98c-7e32-4b04-b866-b8fd6e82bc24",
+          "score": 0.0
+        },
+        {
+          "node_id": "e9aeb79e-49d3-4b28-af84-cd95106e5cae",
+          "score": 0.0
+        },
+        {
+          "node_id": "a69aca42-5a9a-4b01-943c-13c9ee855b66",
+          "score": 0.0
+        },
+        {
+          "node_id": "35c82fe1-513c-408b-b3f4-9a2789b68094",
+          "score": 0.0
+        },
+        {
+          "node_id": "00ef6087-6817-4751-91a6-9607aa60ebab",
+          "score": 0.0
+        }
+      ],
+      "summary_stats": {
+        "num_event_evidence": 5,
+        "num_entity_evidence": 4,
+        "num_tracked_entities": 119,
+        "matched_entity_ids": [],
+        "matched_entity_tags": [],
+        "matched_entity_labels": []
+      },
+      "closure_stats": {
+        "num_seeds": 8,
+        "closure_size": 9
+      },
+      "top_event": {
+        "memory_id": "35c82fe1-513c-408b-b3f4-9a2789b68094",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "summary": "sign1 (sign) appeared at frame 0, position (454.4, 177.6)",
+        "entities": [
+          "entity_0001"
+        ],
+        "entity_tags": [
+          "sign1"
+        ],
+        "entity_labels": [],
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "dense_score": 0.0,
+        "final_score": 0.0
+      },
+      "top_entity": {
+        "memory_id": "00ef6087-6817-4751-91a6-9607aa60ebab",
+        "memory_type": "entity_state",
+        "entity_id": "entity_0001",
+        "tag": "sign1",
+        "label": "sign",
+        "frame_index": 0,
+        "frame_start": 0,
+        "frame_end": 0,
+        "bbox": null,
+        "attributes": {
+          "red sign with white writing and logo": "red sign with white writing and logo"
+        },
+        "relations": [],
+        "description": "sign1 is a sign with attributes [red sign with white writing and logo: red sign with white writing and logo] at position (454.4, 177.6)",
+        "source": "dag_closure",
+        "dense_score": 0.0,
+        "final_score": 0.0
+      }
+    },
+    {
+      "query": "ball发生了什么",
+      "seed_count": 5,
+      "seeds": [
+        {
+          "node_id": "e8bc33cb-1c70-4415-9538-024843bdedf1",
+          "score": 0.12977713346481323
+        },
+        {
+          "node_id": "5aa91b44-6ab3-495d-8b6e-41c684c0dedc",
+          "score": 0.12777531147003174
+        },
+        {
+          "node_id": "e72764b2-bf6f-4e9e-8053-587bed2c3c28",
+          "score": 0.12649111449718475
+        },
+        {
+          "node_id": "02aa9d1d-5973-4cc9-9eca-5fc43981f5d6",
+          "score": 0.1200600415468216
+        },
+        {
+          "node_id": "a66bf77e-98f1-4c0d-a139-f0664116ae3a",
+          "score": 0.11795356124639511
+        }
+      ],
+      "summary_stats": {
+        "num_event_evidence": 8,
+        "num_entity_evidence": 4,
+        "num_tracked_entities": 119,
+        "matched_entity_ids": [],
+        "matched_entity_tags": [],
+        "matched_entity_labels": []
+      },
+      "closure_stats": {
+        "num_seeds": 8,
+        "closure_size": 20
+      },
+      "top_event": {
+        "memory_id": "90dfe128-1835-421c-ae29-2618adb2a3c3",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "summary": "jersey1 (jersey) appeared at frame 0, position (307.9, 362.2)",
+        "entities": [
+          "entity_0067"
+        ],
+        "entity_tags": [
+          "jersey1"
+        ],
+        "entity_labels": [],
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "dense_score": 0.0,
+        "final_score": 0.0
+      },
+      "top_entity": {
+        "memory_id": "5aa91b44-6ab3-495d-8b6e-41c684c0dedc",
+        "memory_type": "entity_state",
+        "entity_id": "entity_0067",
+        "tag": "jersey1",
+        "label": "jersey",
+        "frame_index": 0,
+        "frame_start": 0,
+        "frame_end": 0,
+        "bbox": null,
+        "attributes": {
+          "jersey with red number 62": "jersey with red number 62"
+        },
+        "relations": [],
+        "description": "jersey1 is a jersey with attributes [jersey with red number 62: jersey with red number 62] at position (318.0, 361.2) layer mapping: jersey1->number1",
+        "source": "dag_closure",
+        "dense_score": 0.12777531147003174,
+        "final_score": 0.12777531147003174
+      }
+    },
+    {
+      "query": "有哪些交互事件",
+      "seed_count": 5,
+      "seeds": [
+        {
+          "node_id": "a28ccd6b-444c-43cc-997a-d1d7e8ba2064",
+          "score": 0.12060454487800598
+        },
+        {
+          "node_id": "c4afe91f-9659-44fd-be14-8cfb0d9c2f21",
+          "score": 0.0
+        },
+        {
+          "node_id": "e9aeb79e-49d3-4b28-af84-cd95106e5cae",
+          "score": 0.0
+        },
+        {
+          "node_id": "a69aca42-5a9a-4b01-943c-13c9ee855b66",
+          "score": 0.0
+        },
+        {
+          "node_id": "35c82fe1-513c-408b-b3f4-9a2789b68094",
+          "score": 0.0
+        }
+      ],
+      "summary_stats": {
+        "num_event_evidence": 5,
+        "num_entity_evidence": 3,
+        "num_tracked_entities": 119,
+        "matched_entity_ids": [],
+        "matched_entity_tags": [],
+        "matched_entity_labels": []
+      },
+      "closure_stats": {
+        "num_seeds": 8,
+        "closure_size": 8
+      },
+      "top_event": {
+        "memory_id": "35c82fe1-513c-408b-b3f4-9a2789b68094",
+        "memory_type": "event",
+        "event_type": "entity_appeared",
+        "frame_start": 0,
+        "frame_end": 0,
+        "summary": "sign1 (sign) appeared at frame 0, position (454.4, 177.6)",
+        "entities": [
+          "entity_0001"
+        ],
+        "entity_tags": [
+          "sign1"
+        ],
+        "entity_labels": [],
+        "confidence": 1.0,
+        "source": "dag_closure",
+        "dense_score": 0.0,
+        "final_score": 0.0
+      },
+      "top_entity": {
+        "memory_id": "a69aca42-5a9a-4b01-943c-13c9ee855b66",
+        "memory_type": "entity_state",
+        "entity_id": "entity_0002",
+        "tag": "water bottle1",
+        "label": "water bottle",
+        "frame_index": 0,
+        "frame_start": 0,
+        "frame_end": 0,
+        "bbox": null,
+        "attributes": {
+          "white plastic water bottle with black writing": "white plastic water bottle with black writing"
+        },
+        "relations": [],
+        "description": "water bottle1 is a water bottle with attributes [white plastic water bottle with black writing: white plastic water bottle with black writing] at position (920.2, 81.3)",
+        "source": "dag_closure",
+        "dense_score": 0.0,
+        "final_score": 0.0
+      }
+    }
+  ]
+}

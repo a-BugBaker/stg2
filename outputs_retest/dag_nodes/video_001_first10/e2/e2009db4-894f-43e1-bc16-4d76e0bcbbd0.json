@@ -1,0 +1,21 @@
+{
+  "node_id": "e2009db4-894f-43e1-bc16-4d76e0bcbbd0",
+  "node_type": "relation",
+  "content": "sign1 advertisement2 behind man1 man1",
+  "tau": [
+    10,
+    5
+  ],
+  "metadata": {
+    "subject_tag": "sign1",
+    "object_tag": "man1",
+    "predicate": "sign1 advertisement2 behind man1 man1",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "54797e57-5580-420d-bc64-5a8dfad192f3"
+  ]
+}

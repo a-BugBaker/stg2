@@ -1,0 +1,21 @@
+{
+  "node_id": "c9b03975-d265-417f-96e4-1b7761671fae",
+  "node_type": "relation",
+  "content": "window1 window1 showing man4 man4",
+  "tau": [
+    5,
+    15
+  ],
+  "metadata": {
+    "subject_tag": "window1",
+    "object_tag": "man4",
+    "predicate": "window1 window1 showing man4 man4",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "b0dd217b-ece9-4bc1-911a-7d5e3af65c13"
+  ]
+}

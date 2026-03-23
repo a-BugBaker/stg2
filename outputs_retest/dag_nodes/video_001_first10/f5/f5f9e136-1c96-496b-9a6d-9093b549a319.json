@@ -1,0 +1,27 @@
+{
+  "node_id": "f5f9e136-1c96-496b-9a6d-9093b549a319",
+  "node_type": "entity_state",
+  "content": "shoes6 is a shoes with attributes [brown leather dress shoes: brown leather dress shoes] at position (109.6, 357.4)",
+  "tau": [
+    0,
+    94
+  ],
+  "metadata": {
+    "entity_tag": "shoes6",
+    "label": "shoes",
+    "attributes": {
+      "brown leather dress shoes": "brown leather dress shoes"
+    },
+    "layer_id": 2,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      105.315,
+      352.041,
+      113.792,
+      362.676
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

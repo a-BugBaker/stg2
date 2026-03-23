@@ -1,0 +1,27 @@
+{
+  "node_id": "df22922c-c316-4bfe-bf5e-6a7ae7726ee5",
+  "node_type": "entity_state",
+  "content": "door2 is a door with attributes [door in a wall: door in a wall] at position (89.2, 262.8)",
+  "tau": [
+    0,
+    26
+  ],
+  "metadata": {
+    "entity_tag": "door2",
+    "label": "door",
+    "attributes": {
+      "door in a wall": "door in a wall"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      34.835,
+      153.387,
+      143.634,
+      372.272
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

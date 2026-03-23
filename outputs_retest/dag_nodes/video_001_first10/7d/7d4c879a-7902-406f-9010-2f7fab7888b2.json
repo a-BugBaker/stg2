@@ -1,0 +1,21 @@
+{
+  "node_id": "7d4c879a-7902-406f-9010-2f7fab7888b2",
+  "node_type": "relation",
+  "content": "sign1 court lines2 below advertisement2 court lines2",
+  "tau": [
+    10,
+    1
+  ],
+  "metadata": {
+    "subject_tag": "sign1",
+    "object_tag": "court lines2",
+    "predicate": "sign1 court lines2 below advertisement2 court lines2",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "2bc3e0fc-b268-4a8e-86e2-229c7909222f"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "node_id": "c5f45303-9847-4b7d-b5dc-3927534935fa",
+  "node_type": "relation",
+  "content": "man1 logo on man1 jersey logo",
+  "tau": [
+    10,
+    6
+  ],
+  "metadata": {
+    "subject_tag": "man1",
+    "object_tag": "logo",
+    "predicate": "man1 logo on man1 jersey logo",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "c4afe91f-9659-44fd-be14-8cfb0d9c2f21",
+    "924f4b8a-c617-4814-9131-134e7c09be46"
+  ]
+}

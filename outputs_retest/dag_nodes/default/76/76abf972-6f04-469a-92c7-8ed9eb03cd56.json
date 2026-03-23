@@ -1,0 +1,36 @@
+{
+  "node_id": "76abf972-6f04-469a-92c7-8ed9eb03cd56",
+  "node_type": "entity_state",
+  "content": "player2 is a player with attributes [basketball player in mid-action, wearing white and yellow uniform: basketball player in mid-action, wearing white and yellow uniform] at position (113.4, 331.3) layer mapping: player2->shorts4, player2->shoes6",
+  "tau": [
+    0,
+    14
+  ],
+  "metadata": {
+    "entity_tag": "player2",
+    "label": "player",
+    "attributes": {
+      "basketball player in mid-action, wearing white and yellow uniform": "basketball player in mid-action, wearing white and yellow uniform"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 42,
+        "tag": "shorts4"
+      },
+      {
+        "idx": 54,
+        "tag": "shoes6"
+      }
+    ],
+    "frame_start": 0,
+    "latest_bbox": [
+      92.782,
+      299.807,
+      133.937,
+      362.833
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

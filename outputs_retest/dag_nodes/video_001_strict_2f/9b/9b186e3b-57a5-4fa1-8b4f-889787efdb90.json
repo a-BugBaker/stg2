@@ -1,0 +1,27 @@
+{
+  "node_id": "9b186e3b-57a5-4fa1-8b4f-889787efdb90",
+  "node_type": "entity_state",
+  "content": "number3 is a number with attributes [number 3 on back of basketball player: number 3 on back of basketball player] at position (23.9, 360.1)",
+  "tau": [
+    0,
+    52
+  ],
+  "metadata": {
+    "entity_tag": "number3",
+    "label": "number",
+    "attributes": {
+      "number 3 on back of basketball player": "number 3 on back of basketball player"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      18.519,
+      349.488,
+      29.29,
+      370.621
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,22 @@
+{
+  "node_id": "f42ed304-3471-46a8-9740-ddc677fee78e",
+  "node_type": "entity_disappeared",
+  "content": "paper disappeared at frame 40, last position (102.5, 89.5)",
+  "tau": [
+    40,
+    54
+  ],
+  "metadata": {
+    "entity_tag": "paper",
+    "frame_start": 40,
+    "frame_end": 40,
+    "last_position": [
+      102.544,
+      89.497
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "615b7541-6a2f-4a7d-a3c8-9811e5eab5e0"
+  ]
+}

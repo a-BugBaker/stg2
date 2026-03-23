@@ -1,0 +1,21 @@
+{
+  "node_id": "12ebd4c1-facf-4c91-8d6a-a13b04dc0eae",
+  "node_type": "relation",
+  "content": "door1 door1 next to advertisement3 advertisement3",
+  "tau": [
+    10,
+    10
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "advertisement3",
+    "predicate": "door1 door1 next to advertisement3 advertisement3",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "d717183f-da67-4e6d-999a-291e5cf77751"
+  ]
+}

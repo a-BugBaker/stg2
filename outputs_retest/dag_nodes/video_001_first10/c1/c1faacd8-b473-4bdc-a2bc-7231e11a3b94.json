@@ -1,0 +1,32 @@
+{
+  "node_id": "c1faacd8-b473-4bdc-a2bc-7231e11a3b94",
+  "node_type": "entity_state",
+  "content": "water bottle2 is a water bottle with attributes [water bottle with white shirt design: water bottle with white shirt design] at position (176.0, 107.9) layer mapping: water bottle2->label2",
+  "tau": [
+    0,
+    32
+  ],
+  "metadata": {
+    "entity_tag": "water bottle2",
+    "label": "water bottle",
+    "attributes": {
+      "water bottle with white shirt design": "water bottle with white shirt design"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 66,
+        "tag": "label2"
+      }
+    ],
+    "frame_start": 0,
+    "latest_bbox": [
+      157.846,
+      63.637,
+      194.096,
+      152.233
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

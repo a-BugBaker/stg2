@@ -1,0 +1,32 @@
+{
+  "node_id": "85300ff7-ae23-43ce-93c1-19e80a911152",
+  "node_type": "entity_state",
+  "content": "fire escape platform is a fire escape platform with attributes [red metal fire escape platform attached to building: red metal fire escape platform attached to building] at position (453.0, 142.0) layer mapping: fire escape platform->railing",
+  "tau": [
+    10,
+    75
+  ],
+  "metadata": {
+    "entity_tag": "fire escape platform",
+    "label": "fire escape platform",
+    "attributes": {
+      "red metal fire escape platform attached to building": "red metal fire escape platform attached to building"
+    },
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 45,
+        "tag": "railing"
+      }
+    ],
+    "frame_start": 10,
+    "latest_bbox": [
+      310.394,
+      110.939,
+      595.563,
+      173.134
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

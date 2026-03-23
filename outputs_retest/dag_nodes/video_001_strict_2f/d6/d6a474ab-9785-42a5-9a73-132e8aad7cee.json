@@ -1,0 +1,27 @@
+{
+  "node_id": "d6a474ab-9785-42a5-9a73-132e8aad7cee",
+  "node_type": "entity_state",
+  "content": "number1 is a number with attributes [number 1 on back of basketball player: number 1 on back of basketball player] at position (304.9, 354.9)",
+  "tau": [
+    0,
+    12
+  ],
+  "metadata": {
+    "entity_tag": "number1",
+    "label": "number",
+    "attributes": {
+      "number 1 on back of basketball player": "number 1 on back of basketball player"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      297.575,
+      345.856,
+      312.272,
+      364.008
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

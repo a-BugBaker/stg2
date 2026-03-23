@@ -1,0 +1,21 @@
+{
+  "node_id": "30b1e725-26bb-44fe-ac5b-3f4e30506dce",
+  "node_type": "relation",
+  "content": "basketball hoop contains backboard",
+  "tau": [
+    15,
+    22
+  ],
+  "metadata": {
+    "subject_tag": "basketball hoop",
+    "object_tag": "backboard",
+    "predicate": "basketball hoop contains backboard",
+    "frame_start": 15,
+    "frame_end": 15,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "6568cad1-f07c-4649-9456-7a599e1cd3e3"
+  ]
+}

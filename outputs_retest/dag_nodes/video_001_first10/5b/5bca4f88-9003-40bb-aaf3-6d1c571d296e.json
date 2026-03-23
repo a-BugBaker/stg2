@@ -1,0 +1,21 @@
+{
+  "node_id": "5bca4f88-9003-40bb-aaf3-6d1c571d296e",
+  "node_type": "relation",
+  "content": "bottle2 window2 reflects bottle2 window2",
+  "tau": [
+    25,
+    40
+  ],
+  "metadata": {
+    "subject_tag": "bottle2",
+    "object_tag": "window2",
+    "predicate": "bottle2 window2 reflects bottle2 window2",
+    "frame_start": 25,
+    "frame_end": 25,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "e22d3cd3-d007-45d2-a1bc-58272757fb93"
+  ]
+}

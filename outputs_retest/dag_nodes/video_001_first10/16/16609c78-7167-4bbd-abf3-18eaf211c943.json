@@ -1,0 +1,22 @@
+{
+  "node_id": "16609c78-7167-4bbd-abf3-18eaf211c943",
+  "node_type": "entity_disappeared",
+  "content": "man4 disappeared at frame 20, last position (13.9, 383.8)",
+  "tau": [
+    20,
+    60
+  ],
+  "metadata": {
+    "entity_tag": "man4",
+    "frame_start": 20,
+    "frame_end": 20,
+    "last_position": [
+      13.9405,
+      383.808
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "181858b6-941b-4d3a-897c-75e717eecfe7"
+  ]
+}

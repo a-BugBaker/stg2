@@ -1,0 +1,21 @@
+{
+  "node_id": "cf82f574-ef8c-4a3a-965c-ac66bb56270d",
+  "node_type": "entity_appeared",
+  "content": "collar (collar) appeared at frame 0, position (91.9, 234.3)",
+  "tau": [
+    0,
+    99
+  ],
+  "metadata": {
+    "entity_tag": "collar",
+    "label": "collar",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      91.93700000000001,
+      234.3225
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

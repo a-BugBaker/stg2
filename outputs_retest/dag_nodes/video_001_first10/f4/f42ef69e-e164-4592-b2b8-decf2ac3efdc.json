@@ -1,0 +1,22 @@
+{
+  "node_id": "f42ef69e-e164-4592-b2b8-decf2ac3efdc",
+  "node_type": "entity_disappeared",
+  "content": "pole3 disappeared at frame 40, last position (504.8, 262.2)",
+  "tau": [
+    40,
+    53
+  ],
+  "metadata": {
+    "entity_tag": "pole3",
+    "frame_start": 40,
+    "frame_end": 40,
+    "last_position": [
+      504.778,
+      262.1965
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "7c1021a3-e15b-4d9c-afa5-37efe4a0d145"
+  ]
+}

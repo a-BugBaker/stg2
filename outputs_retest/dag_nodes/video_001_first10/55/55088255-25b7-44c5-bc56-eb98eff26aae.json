@@ -1,0 +1,21 @@
+{
+  "node_id": "55088255-25b7-44c5-bc56-eb98eff26aae",
+  "node_type": "entity_appeared",
+  "content": "fabric1 (fabric) appeared at frame 0, position (433.8, 262.5)",
+  "tau": [
+    0,
+    83
+  ],
+  "metadata": {
+    "entity_tag": "fabric1",
+    "label": "fabric",
+    "frame_start": 0,
+    "frame_end": 0,
+    "position": [
+      433.7845,
+      262.5165
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

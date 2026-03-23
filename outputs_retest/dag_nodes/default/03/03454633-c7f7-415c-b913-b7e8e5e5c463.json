@@ -1,0 +1,27 @@
+{
+  "node_id": "03454633-c7f7-415c-b913-b7e8e5e5c463",
+  "node_type": "entity_state",
+  "content": "shoe1 is a shoe with attributes [white sneaker with black sole: white sneaker with black sole] at position (14.4, 432.5)",
+  "tau": [
+    0,
+    44
+  ],
+  "metadata": {
+    "entity_tag": "shoe1",
+    "label": "shoe",
+    "attributes": {
+      "white sneaker with black sole": "white sneaker with black sole"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      8.115,
+      425.448,
+      20.743,
+      439.49
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,27 @@
+{
+  "node_id": "336f02de-9bd6-4b37-822e-93e2ba514c83",
+  "node_type": "entity_state",
+  "content": "jersey3 is a jersey with attributes [yellow basketball jersey with number 00: yellow basketball jersey with number 00] at position (17.2, 361.2)",
+  "tau": [
+    0,
+    42
+  ],
+  "metadata": {
+    "entity_tag": "jersey3",
+    "label": "jersey",
+    "attributes": {
+      "yellow basketball jersey with number 00": "yellow basketball jersey with number 00"
+    },
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      0.979,
+      335.578,
+      33.462,
+      386.905
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

@@ -1,0 +1,25 @@
+{
+  "node_id": "176f1e0b-82e6-438e-a530-092671b70c72",
+  "node_type": "entity_state",
+  "content": "shoes5 is a shoes at position (694.4, 326.8)",
+  "tau": [
+    0,
+    86
+  ],
+  "metadata": {
+    "entity_tag": "shoes5",
+    "label": "shoes",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [],
+    "frame_start": 0,
+    "latest_bbox": [
+      688.567,
+      320.648,
+      700.204,
+      332.898
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

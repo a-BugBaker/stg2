@@ -1,0 +1,22 @@
+{
+  "node_id": "f8db30f4-527e-4768-bf8e-0aec0456a450",
+  "node_type": "entity_disappeared",
+  "content": "advertisement3 disappeared at frame 15, last position (779.0, 113.0)",
+  "tau": [
+    15,
+    76
+  ],
+  "metadata": {
+    "entity_tag": "advertisement3",
+    "frame_start": 15,
+    "frame_end": 15,
+    "last_position": [
+      779.02,
+      112.95500000000001
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "042d57b7-3221-480a-87b6-c91972b5bd4f"
+  ]
+}

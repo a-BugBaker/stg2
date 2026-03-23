@@ -1,0 +1,22 @@
+{
+  "node_id": "5162f96c-7eca-42ff-bff3-f7a804b9e537",
+  "node_type": "relation",
+  "content": "basketball hoop basketball hoop attached to backboard backboard",
+  "tau": [
+    5,
+    14
+  ],
+  "metadata": {
+    "subject_tag": "basketball hoop",
+    "object_tag": "backboard",
+    "predicate": "basketball hoop basketball hoop attached to backboard backboard",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "619796e2-ee51-4aab-b269-6c48844c0b63",
+    "1e269ffd-aabb-4942-a4a3-9b0a2cd54458"
+  ]
+}

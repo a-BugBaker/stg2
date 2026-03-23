@@ -1,0 +1,21 @@
+{
+  "node_id": "596a8c11-4bf8-46f1-bb6e-ae6a25327af1",
+  "node_type": "relation",
+  "content": "door1 door1 under ceiling ceiling",
+  "tau": [
+    10,
+    9
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "ceiling",
+    "predicate": "door1 door1 under ceiling ceiling",
+    "frame_start": 10,
+    "frame_end": 10,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "d717183f-da67-4e6d-999a-291e5cf77751"
+  ]
+}

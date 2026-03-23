@@ -1,0 +1,34 @@
+{
+  "node_id": "b4960067-5883-4dab-9d3d-e0ba113898d0",
+  "node_type": "entity_state",
+  "content": "player2 is a player at position (14.9, 379.9)",
+  "tau": [
+    0,
+    14
+  ],
+  "metadata": {
+    "entity_tag": "player2",
+    "label": "player",
+    "attributes": {},
+    "layer_id": 1,
+    "layer_mapping": [
+      {
+        "idx": 42,
+        "tag": "shorts4"
+      },
+      {
+        "idx": 54,
+        "tag": "shoes6"
+      }
+    ],
+    "frame_start": 0,
+    "latest_bbox": [
+      0.083,
+      320.784,
+      29.745,
+      439.009
+    ]
+  },
+  "is_tombstone": false,
+  "parent_ids": []
+}

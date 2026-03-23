@@ -1,0 +1,21 @@
+{
+  "node_id": "d2f632e7-45fb-4765-93f8-ada800ec4d5c",
+  "node_type": "relation",
+  "content": "door1 poster2 beside door poster2",
+  "tau": [
+    5,
+    18
+  ],
+  "metadata": {
+    "subject_tag": "door1",
+    "object_tag": "poster2",
+    "predicate": "door1 poster2 beside door poster2",
+    "frame_start": 5,
+    "frame_end": 5,
+    "is_continuous_start": true
+  },
+  "is_tombstone": false,
+  "parent_ids": [
+    "932de13c-8214-4e2e-a74e-9acbd24740c4"
+  ]
+}
