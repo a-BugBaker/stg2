@@ -184,6 +184,7 @@ class DAGManager:
             node_id=node.node_id,
             node_type=node_type.value,
             tau=tau.to_tuple(),
+            sample_id=self._current_sample_id,
             content=node.content,
             metadata=node.metadata,
             is_tombstone=node.is_tombstone,
@@ -218,6 +219,7 @@ class DAGManager:
             node_id=node.node_id,
             node_type=node.event_type.value,
             tau=node.tau.to_tuple(),
+            sample_id=self._current_sample_id,
             content=node.content,
             metadata=node.metadata,
             is_tombstone=node.is_tombstone,
@@ -287,11 +289,16 @@ class DAGManager:
             node_id=node.node_id,
             node_type=node.event_type.value,
             tau=node.tau.to_tuple(),
+            sample_id=self._current_sample_id,
             content=node.content,
             metadata=node.metadata,
             is_tombstone=node.is_tombstone,
         )
         return node
+
+    def clear_sample_graph(self, sample_id: str) -> None:
+        """清理指定 sample 在图索引层的节点与边。"""
+        self.graph_store.clear_sample(sample_id)
     
     def delete_node(self, node_id: str) -> bool:
         """软删除节点（标记为tombstone）。
@@ -622,7 +629,7 @@ class DAGManager:
         """
         sid = sample_id or self._current_sample_id
         nodes = []
-        for node_id in self.graph_store.get_all_node_ids():
+        for node_id in self.graph_store.get_all_node_ids(sid):
             node = self.meta_store.load_node(sid, node_id)
             if node and not node.is_tombstone:
                 nodes.append(node)

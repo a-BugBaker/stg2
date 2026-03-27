@@ -963,7 +963,8 @@ class DAGEventGenerator:
         self.dag_manager.graph_store.create_node(
             node_id=node.node_id,
             node_type=EventType.PERIODIC_DESCRIPTION.value,
-            tau=tau.to_tuple()
+            tau=tau.to_tuple(),
+            sample_id=self.dag_manager._current_sample_id,
         )
         for parent_id in node.parent_ids:
             self.dag_manager.graph_store.create_edge(parent_id, node.node_id)

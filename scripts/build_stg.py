@@ -54,6 +54,11 @@ def main() -> None:
         action="store_false",
         help="Store only graph index fields in Neo4j nodes (production-lean mode).",
     )
+    parser.add_argument(
+        "--clear_neo4j_sample_before_build",
+        action="store_true",
+        help="Clear Neo4j DAGNode data for the same sample_id before build.",
+    )
     parser.set_defaults(neo4j_store_content=True)
     args = parser.parse_args()
 
@@ -70,6 +75,7 @@ def main() -> None:
         config.embedding.dim = args.embedding_dim
     config.dag.allow_memory_fallback = args.allow_neo4j_fallback
     config.dag.neo4j_store_content = args.neo4j_store_content
+    config.dag.clear_sample_before_build = args.clear_neo4j_sample_before_build
     config.dag.enabled = True
     config.dag.enable_entity_state = True
     config.dag.enable_entity_appeared = True

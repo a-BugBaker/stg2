@@ -97,6 +97,7 @@ class Neo4jGraphStore:
         node_id: str,
         node_type: str,
         tau: tuple,
+        sample_id: str = "default",
         content: Optional[str] = None,
         metadata: Optional[Dict[str, Any]] = None,
         is_tombstone: bool = False,
@@ -113,6 +114,7 @@ class Neo4jGraphStore:
                 "type": node_type,
                 "tau_frame": tau[0],
                 "tau_seq": tau[1],
+                "sample_id": sample_id,
             }
             if self._store_content:
                 self._memory_nodes[node_id]["content"] = content or ""
@@ -132,6 +134,7 @@ class Neo4jGraphStore:
                     SET n.type = $node_type,
                         n.tau_frame = $tau_frame,
                         n.tau_seq = $tau_seq,
+                        n.sample_id = $sample_id,
                         n.content = $content,
                         n.metadata_json = $metadata_json,
                         n.is_tombstone = $is_tombstone
@@ -140,6 +143,7 @@ class Neo4jGraphStore:
                     node_type=node_type,
                     tau_frame=tau[0],
                     tau_seq=tau[1],
+                    sample_id=sample_id,
                     content=content or "",
                     metadata_json=json.dumps(metadata or {}, ensure_ascii=False),
                     is_tombstone=bool(is_tombstone),
@@ -148,12 +152,16 @@ class Neo4jGraphStore:
                 session.run(
                     """
                     MERGE (n:DAGNode {node_id: $node_id})
-                    SET n.type = $node_type, n.tau_frame = $tau_frame, n.tau_seq = $tau_seq
+                    SET n.type = $node_type,
+                        n.tau_frame = $tau_frame,
+                        n.tau_seq = $tau_seq,
+                        n.sample_id = $sample_id
                     """,
                     node_id=node_id,
                     node_type=node_type,
                     tau_frame=tau[0],
                     tau_seq=tau[1],
+                    sample_id=sample_id,
                 )
     
     def create_edge(self, parent_id: str, child_id: str) -> None:
@@ -362,14 +370,54 @@ class Neo4jGraphStore:
             record = result.single()
             return record["exists"] if record else False
     
-    def get_all_node_ids(self) -> List[str]:
+    def get_all_node_ids(self, sample_id: Optional[str] = None) -> List[str]:
         """获取所有节点ID。"""
         if self._fallback_mode:
-            return list(self._memory_nodes.keys())
+            if not sample_id:
+                return list(self._memory_nodes.keys())
+            return [
+                node_id
+                for node_id, node in self._memory_nodes.items()
+                if str(node.get("sample_id", "default")) == sample_id
+            ]
         
         with self._driver.session() as session:
-            result = session.run("MATCH (n:DAGNode) RETURN n.node_id AS node_id")
+            if sample_id:
+                result = session.run(
+                    "MATCH (n:DAGNode {sample_id: $sample_id}) RETURN n.node_id AS node_id",
+                    sample_id=sample_id,
+                )
+            else:
+                result = session.run("MATCH (n:DAGNode) RETURN n.node_id AS node_id")
             return [record["node_id"] for record in result]
+
+    def clear_sample(self, sample_id: str) -> None:
+        """清除某个 sample 的图数据。"""
+        if self._fallback_mode:
+            target_nodes = {
+                node_id
+                for node_id, node in self._memory_nodes.items()
+                if str(node.get("sample_id", "default")) == sample_id
+            }
+            if not target_nodes:
+                return
+
+            for node_id in target_nodes:
+                self._memory_nodes.pop(node_id, None)
+                self._memory_edges.pop(node_id, None)
+                self._memory_children.pop(node_id, None)
+
+            for child_id, parents in self._memory_edges.items():
+                parents.difference_update(target_nodes)
+            for parent_id, children in self._memory_children.items():
+                children.difference_update(target_nodes)
+            return
+
+        with self._driver.session() as session:
+            session.run(
+                "MATCH (n:DAGNode {sample_id: $sample_id}) DETACH DELETE n",
+                sample_id=sample_id,
+            )
     
     def clear(self) -> None:
         """清除所有数据。"""

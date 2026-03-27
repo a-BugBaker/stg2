@@ -152,6 +152,8 @@ class STGraphMemory:
         # 2) 如配置要求，先清空该 sample 的既有存储，避免新旧数据混杂。
         if self.config.clear_existing_sample:
             self.store.clear_sample(sample_id)
+        if self.dag_manager and self.config.dag.clear_sample_before_build:
+            self.dag_manager.clear_sample_graph(sample_id)
         # 3) 重置内存态组件（跟踪器与缓冲区）。
         self.reset_build_state()
         if self.dag_manager:

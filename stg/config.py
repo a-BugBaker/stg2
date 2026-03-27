@@ -183,6 +183,7 @@ class DAGConfig:
     neo4j_user: str = "neo4j"
     neo4j_password: str = "password"
     neo4j_store_content: bool = True
+    clear_sample_before_build: bool = False
     allow_memory_fallback: bool = True
     
     # 节点元数据存储目录（相对于output_dir）
