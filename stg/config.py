@@ -69,7 +69,7 @@ class EntityMatchingConfig:
         attribute_removal_debounce: 属性移除去抖动帧数，连续 N 帧未出现才确认移除
     """
 
-    detection_score_threshold: float = 0.35
+    detection_score_threshold: float = 0.0
     iou_weight: float = 0.50
     combined_threshold: float = 0.40
     label_threshold: float = 0.35
@@ -194,6 +194,7 @@ class DAGConfig:
     enable_entity_appeared: bool = True
     enable_entity_moved: bool = True
     enable_relation: bool = True
+    enable_layer_map: bool = True
     enable_attribute_changed: bool = True
     enable_interaction: bool = True        # 缓冲区级
     enable_occlusion: bool = True          # 缓冲区级

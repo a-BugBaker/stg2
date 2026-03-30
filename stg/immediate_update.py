@@ -42,6 +42,7 @@ from .utils import (
     filter_objects_by_score,
     normalize_attributes,
     normalize_relations,
+    normalize_tag,
 )
 from .vector_store import VectorStore
 
@@ -316,7 +317,15 @@ class ImmediateUpdater:
                 self._write_event(sample_id, self.event_generator.gen_entity_appeared(record, frame_index))
                 self._write_entity_state(sample_id, record, frame_index)
                 # DAG: 创建实体状态节点和出现事件
-                self._dag_process_new_entity(record, frame_index, filtered_objects)
+                self._dag_process_new_entity(record, frame_index)
+            # DAG: 首帧也要处理关系事件（单帧构建时关系节点依赖这里产生）
+            for record in associations.new_entities:
+                curr_obj = record.last_object
+                self._dag_process_relations(
+                    frame_index,
+                    record.tag,
+                    curr_obj.get("relations", []),
+                )
             return self.tracker.current_frame_observations(frame_index)
 
         # 4) 对已匹配实体，根据位移/关系/属性变化生成即时事件。
@@ -418,8 +427,17 @@ class ImmediateUpdater:
             self._write_event(sample_id, self.event_generator.gen_entity_appeared(record, frame_index))
             self._write_entity_state(sample_id, record, frame_index)
             # DAG: 创建实体状态节点和出现事件
+            self._dag_process_new_entity(record, frame_index)
+
+        # DAG: 二次遍历新实体关系，确保关系两端的 entity_state 都已创建。
+        for record in associations.new_entities:
             curr_obj = record.last_object
-            self._dag_process_new_entity(record, frame_index, [curr_obj])
+            # DAG: 新实体在出现帧也应产生关系节点
+            self._dag_process_relations(
+                frame_index,
+                record.tag,
+                curr_obj.get("relations", []),
+            )
 
         # 6) 消失实体写 disappeared 事件。
         for snapshot in associations.disappeared_entities:
@@ -439,7 +457,6 @@ class ImmediateUpdater:
         self,
         record: Any,
         frame_index: int,
-        objects: Sequence[Dict[str, Any]]
     ) -> None:
         """DAG: 处理新实体出现。"""
         if not self.dag_event_generator:
@@ -449,34 +466,33 @@ class ImmediateUpdater:
         bbox = tuple(obj["bbox"])
         attributes = {attr: attr for attr in normalize_attributes(obj.get("attributes", []))}
         
+        # 先创建 appeared，再创建 entity_state，确保 τ_seq(appeared) < τ_seq(state)
+        appeared_node = self.dag_event_generator.create_appeared_event(
+            entity_tag=record.tag,
+            frame_idx=frame_index,
+            label=record.label,
+            bbox=bbox
+        )
+
         # 创建实体状态节点
-        self.dag_event_generator.create_or_update_entity_state(
+        state_node, _ = self.dag_event_generator.create_or_update_entity_state(
             entity_tag=record.tag,
             frame_idx=frame_index,
             label=record.label,
             attributes=attributes,
             bbox=bbox,
             layer_id=obj.get("layer_id"),
-            layer_mapping=obj.get("layer_mapping")
+            layer_mapping=obj.get("layer_mappings", obj.get("layer_mapping"))
         )
-        
-        # 创建出现事件
-        self.dag_event_generator.create_appeared_event(
-            entity_tag=record.tag,
-            frame_idx=frame_index,
-            label=record.label,
-            bbox=bbox
-        )
+
+        # appeared -> entity_state 因果边
+        if appeared_node and state_node:
+            self.dag_manager.graph_store.create_edge(appeared_node.node_id, state_node.node_id)
         
         # 处理layer_mapping
-        layer_mapping = obj.get("layer_mapping")
+        layer_mapping = obj.get("layer_mappings", obj.get("layer_mapping"))
         if layer_mapping:
-            # 数据中常见格式是 list[{'tag': child}]，当前实体作为父节点。
-            if isinstance(layer_mapping, list):
-                normalized = [{"parent_tag": record.tag, **(item if isinstance(item, dict) else {"tag": item})} for item in layer_mapping]
-                self.dag_event_generator.process_layer_mapping(normalized, frame_index)
-            else:
-                self.dag_event_generator.process_layer_mapping(layer_mapping, frame_index)
+            self.dag_event_generator.process_layer_mapping(layer_mapping, frame_index)
     
     def _dag_update_entity_state(
         self,
@@ -498,8 +514,12 @@ class ImmediateUpdater:
             attributes=attributes,
             bbox=bbox,
             layer_id=curr_obj.get("layer_id"),
-            layer_mapping=curr_obj.get("layer_mapping")
+            layer_mapping=curr_obj.get("layer_mappings", curr_obj.get("layer_mapping"))
         )
+
+        layer_mapping = curr_obj.get("layer_mappings", curr_obj.get("layer_mapping"))
+        if layer_mapping:
+            self.dag_event_generator.process_layer_mapping(layer_mapping, frame_index)
     
     def _dag_process_movement(
         self,
@@ -527,6 +547,8 @@ class ImmediateUpdater:
         if not self.dag_event_generator:
             return
 
+        normalized_subject_tag = normalize_tag(subject_tag)
+
         normalized_relations: List[Dict[str, Any]] = []
         for rel in relations:
             rel_name = rel.get("predicate") or rel.get("name") or rel.get("relation")
@@ -535,12 +557,14 @@ class ImmediateUpdater:
                 continue
             if not object_tag:
                 object_tag = "unknown"
-            predicate = f"{subject_tag} {str(rel_name)} {str(object_tag)}"
+            normalized_object_tag = normalize_tag(object_tag)
+            # 输入关系文本往往已包含主客体，避免二次拼接造成内容重复。
+            predicate = str(rel_name)
             normalized_relations.append(
                 {
-                    "subject_tag": str(subject_tag),
+                    "subject_tag": str(normalized_subject_tag),
                     "predicate": predicate,
-                    "object_tag": str(object_tag),
+                    "object_tag": str(normalized_object_tag),
                 }
             )
 

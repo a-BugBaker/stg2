@@ -39,6 +39,7 @@ class EventType(Enum):
     ENTITY_APPEARED = "entity_appeared"
     ENTITY_MOVED = "entity_moved"
     RELATION = "relation"
+    LAYER_MAP = "layer_map"
     ATTRIBUTE_CHANGED = "attribute_changed"
     INTERACTION = "interaction"
     OCCLUSION = "occlusion"

@@ -124,22 +124,15 @@ def _coerce_relations(obj: Dict[str, Any], *, frame_index: int, object_index: in
         for rel in obj.get("subject_relations", []) or []:
             raw_relations.append(
                 {
-                    "name": rel.get("name", rel.get("predicate", "")),
-                    "object": rel.get("object", rel.get("object_tag", rel.get("target", "unknown"))),
+                    "name": rel.get("predicate", rel.get("name", "")),
+                    "object": rel.get("object_tag", rel.get("object", rel.get("target", "unknown"))),
                 }
             )
         for rel in obj.get("object_relations", []) or []:
             raw_relations.append(
                 {
-                    "name": rel.get("name", rel.get("predicate", "")),
-                    "object": rel.get("object", rel.get("subject_tag", rel.get("source", "unknown"))),
-                }
-            )
-        for rel in obj.get("layer_mapping", []) or []:
-            raw_relations.append(
-                {
-                    "name": rel.get("name", "contains"),
-                    "object": rel.get("object", rel.get("tag", rel.get("target", "unknown"))),
+                    "name": rel.get("predicate", rel.get("name", "")),
+                    "object": rel.get("subject_tag", rel.get("object", rel.get("source", "unknown"))),
                 }
             )
 
@@ -163,12 +156,54 @@ def _coerce_relations(obj: Dict[str, Any], *, frame_index: int, object_index: in
     return normalized
 
 
+def _extract_layer_mappings(obj: Dict[str, Any]) -> List[Dict[str, str]]:
+    """抽取并规范化 layer_mapping，不并入 relations。"""
+    parent_tag = normalize_tag(obj.get("tag", obj.get("name", "")))
+    raw = obj.get("layer_mapping", []) or []
+    mappings: List[Dict[str, str]] = []
+    seen = set()
+
+    if isinstance(raw, dict):
+        for child, parent in raw.items():
+            child_tag = normalize_tag(child)
+            resolved_parent = normalize_tag(parent if isinstance(parent, str) and parent.strip() else parent_tag)
+            if not child_tag or not resolved_parent:
+                continue
+            key = (resolved_parent, child_tag)
+            if key in seen:
+                continue
+            seen.add(key)
+            mappings.append({"parent_tag": resolved_parent, "child_tag": child_tag})
+        return mappings
+
+    if isinstance(raw, Sequence) and not isinstance(raw, (str, bytes)):
+        for item in raw:
+            if isinstance(item, dict):
+                child = item.get("tag") or item.get("child") or item.get("object_tag") or item.get("target")
+                parent = item.get("parent") or item.get("parent_tag") or parent_tag
+            else:
+                child = item
+                parent = parent_tag
+
+            child_tag = normalize_tag(child)
+            resolved_parent = normalize_tag(parent)
+            if not child_tag or not resolved_parent:
+                continue
+            key = (resolved_parent, child_tag)
+            if key in seen:
+                continue
+            seen.add(key)
+            mappings.append({"parent_tag": resolved_parent, "child_tag": child_tag})
+
+    return mappings
+
+
 def _normalize_object(obj: Any, *, frame_index: int, object_index: int) -> Dict[str, Any]:
     # 1) 对象结构与必填字段校验。
     if not isinstance(obj, dict):
         raise _error("each object must be a JSON object", frame_index=frame_index, object_index=object_index)
 
-    raw_tag = obj.get("tag", obj.get("name", obj.get("id")))
+    raw_tag = obj.get("tag", obj.get("name"))
     raw_label = obj.get("label", obj.get("category"))
     raw_bbox = obj.get("bbox", obj.get("box"))
 
@@ -207,6 +242,7 @@ def _normalize_object(obj: Any, *, frame_index: int, object_index: int) -> Dict[
     normalized["score"] = score_value
     normalized["attributes"] = normalize_attributes(obj.get("attributes", []))
     normalized["relations"] = _coerce_relations(obj, frame_index=frame_index, object_index=object_index)
+    normalized["layer_mappings"] = _extract_layer_mappings(obj)
     return normalized
 
 

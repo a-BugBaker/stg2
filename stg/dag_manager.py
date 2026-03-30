@@ -24,6 +24,7 @@ import numpy as np
 from .config import STGConfig
 from .dag_core import DAGNode, EventType, LogicalClock, LogicalClockManager
 from .dag_storage import JSONMetaStore, Neo4jGraphStore
+from .utils import normalize_tag
 
 logger = logging.getLogger(__name__)
 
@@ -392,15 +393,16 @@ class DAGManager:
         Returns:
             (节点, 是否新创建)
         """
-        if entity_tag in self._entity_state_nodes:
-            node_id = self._entity_state_nodes[entity_tag]
+        normalized_tag = normalize_tag(entity_tag)
+        if normalized_tag in self._entity_state_nodes:
+            node_id = self._entity_state_nodes[normalized_tag]
             node = self.get_node(node_id)
             if node and not node.is_tombstone:
                 return node, False
         
         # 创建新的实体状态节点
         meta = metadata or {}
-        meta["entity_tag"] = entity_tag
+        meta["entity_tag"] = normalized_tag
         meta["frame_start"] = frame_idx
         
         node = self.insert_node(
@@ -411,7 +413,7 @@ class DAGManager:
             metadata=meta
         )
         
-        self._entity_state_nodes[entity_tag] = node.node_id
+        self._entity_state_nodes[normalized_tag] = node.node_id
         return node, True
     
     def update_entity_state_trajectory(
@@ -428,10 +430,11 @@ class DAGManager:
         Returns:
             更新后的节点，不存在则返回None
         """
-        if entity_tag not in self._entity_state_nodes:
+        normalized_tag = normalize_tag(entity_tag)
+        if normalized_tag not in self._entity_state_nodes:
             return None
         
-        node_id = self._entity_state_nodes[entity_tag]
+        node_id = self._entity_state_nodes[normalized_tag]
         return self.update_node_content(node_id, new_trajectory_content)
     
     def get_entity_state_node_id(self, entity_tag: str) -> Optional[str]:
@@ -443,7 +446,24 @@ class DAGManager:
         Returns:
             节点ID，不存在则返回None
         """
-        return self._entity_state_nodes.get(entity_tag)
+        normalized_tag = normalize_tag(entity_tag)
+        node_id = self._entity_state_nodes.get(normalized_tag)
+        if node_id:
+            return node_id
+
+        # 兼容历史数据：允许空格/下划线差异命中同一实体。
+        alt_tag = normalized_tag.replace("_", " ")
+        if alt_tag != normalized_tag:
+            node_id = self._entity_state_nodes.get(alt_tag)
+            if node_id:
+                return node_id
+        alt_tag = normalized_tag.replace(" ", "_")
+        if alt_tag != normalized_tag:
+            node_id = self._entity_state_nodes.get(alt_tag)
+            if node_id:
+                return node_id
+
+        return None
     
     # ==================== 事件链管理 ====================
     

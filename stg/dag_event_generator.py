@@ -142,7 +142,17 @@ class DAGEventGenerator:
         parts = [f"{entity_tag} is a {label}"]
         
         if attributes:
-            attr_strs = [f"{k}: {v}" for k, v in attributes.items()]
+            attr_strs: List[str] = []
+            for k, v in attributes.items():
+                key = str(k).strip()
+                value = str(v).strip()
+                if not key:
+                    continue
+                # 对于 {"x": "x"} 这种归一化后的属性，只展示一次，避免重复。
+                if not value or key == value:
+                    attr_strs.append(key)
+                else:
+                    attr_strs.append(f"{key}: {value}")
             parts.append(f"with attributes [{', '.join(attr_strs)}]")
         
         # 计算中心位置
@@ -524,11 +534,17 @@ class DAGEventGenerator:
         if object_state_id:
             parent_ids.append(object_state_id)
         
-        # 检查是否是同一对实体的后续关系事件
-        pair_key = f"relation:{subject_tag}:{object_tag}"
+        # 同一帧关系之间不连边；仅跨帧同实体对且关系发生变化时连边。
+        pair_key = f"relation_pair:{min(subject_tag, object_tag)}:{max(subject_tag, object_tag)}"
         last_relation_id = self.dag_manager.get_last_event_node_id(pair_key)
         if last_relation_id:
-            parent_ids.append(last_relation_id)
+            last_node = self.dag_manager.get_node(last_relation_id)
+            if last_node is not None:
+                prev_frame = int(last_node.tau.frame_idx)
+                prev_predicate = str(last_node.metadata.get("predicate", "")).strip()
+                curr_predicate = str(predicate).strip()
+                if prev_frame < frame_idx and prev_predicate != curr_predicate:
+                    parent_ids.append(last_relation_id)
         
         # 元数据
         metadata = {
@@ -560,7 +576,7 @@ class DAGEventGenerator:
             "predicate": predicate
         }
         
-        # 更新事件链
+        # 更新事件链（按实体对，不区分方向）
         self.dag_manager.update_event_chain(pair_key, node.node_id)
         
         logger.debug(f"Created relation event: {predicate}")
@@ -1004,7 +1020,44 @@ class DAGEventGenerator:
 
         for parent_tag, child_tag in pairs:
             if parent_tag and child_tag:
-                self.dag_manager.process_layer_mapping(parent_tag, child_tag, frame_idx)
+                self.create_layer_map_event(parent_tag, child_tag, frame_idx)
+
+    def create_layer_map_event(
+        self,
+        parent_tag: str,
+        child_tag: str,
+        frame_idx: int
+    ) -> Optional[DAGNode]:
+        """创建 layer_map 事件节点，父边为两端实体状态节点。"""
+        if not getattr(self.config.dag, "enable_layer_map", True):
+            return None
+
+        parent_state_id = self.dag_manager.get_entity_state_node_id(parent_tag)
+        child_state_id = self.dag_manager.get_entity_state_node_id(child_tag)
+
+        parent_ids: List[str] = []
+        if parent_state_id:
+            parent_ids.append(parent_state_id)
+        if child_state_id:
+            parent_ids.append(child_state_id)
+
+        content = f"{parent_tag} contains {child_tag}"
+        metadata = {
+            "parent_tag": parent_tag,
+            "child_tag": child_tag,
+            "predicate": "contains",
+            "frame_start": frame_idx,
+            "frame_end": frame_idx,
+        }
+
+        node = self.dag_manager.insert_node(
+            node_type=EventType.LAYER_MAP,
+            content=content,
+            frame_idx=frame_idx,
+            parent_ids=parent_ids,
+            metadata=metadata,
+        )
+        return node
     
     # ==================== 帧级处理入口 ====================
     

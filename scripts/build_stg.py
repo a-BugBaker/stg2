@@ -38,6 +38,12 @@ def main() -> None:
         help="Embedding dimension override. 0 means auto by backend/model.",
     )
     parser.add_argument(
+        "--detection_score_threshold",
+        type=float,
+        default=None,
+        help="Override detection score threshold used by entity matching/filtering.",
+    )
+    parser.add_argument(
         "--allow_neo4j_fallback",
         action="store_true",
         help="Allow in-memory DAG graph fallback when Neo4j is unavailable.",
@@ -73,6 +79,8 @@ def main() -> None:
             config.embedding.dim = 384
     elif args.embedding_dim > 0:
         config.embedding.dim = args.embedding_dim
+    if args.detection_score_threshold is not None:
+        config.matching.detection_score_threshold = float(args.detection_score_threshold)
     config.dag.allow_memory_fallback = args.allow_neo4j_fallback
     config.dag.neo4j_store_content = args.neo4j_store_content
     config.dag.clear_sample_before_build = args.clear_neo4j_sample_before_build
@@ -81,6 +89,7 @@ def main() -> None:
     config.dag.enable_entity_appeared = True
     config.dag.enable_entity_moved = True
     config.dag.enable_relation = True
+    config.dag.enable_layer_map = True
     config.dag.enable_attribute_changed = True
     config.dag.enable_interaction = True
     config.dag.enable_occlusion = True
