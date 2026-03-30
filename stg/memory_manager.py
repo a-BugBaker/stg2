@@ -62,8 +62,9 @@ class STGraphMemory:
         """初始化 STG 主控组件并装配各子模块。"""
         self.config = config
         self.embedder = EmbeddingManager(config.embedding)
+        self.matching_embedder = EmbeddingManager(config.matching_embedding)
         self.store = VectorStore(config.store_path, dim=config.embedding.dim)
-        self.tracker = EntityTracker(config.matching, self.embedder)
+        self.tracker = EntityTracker(config.matching, self.matching_embedder)
         self.event_generator = EventGenerator()
         self.motion_analyzer = MotionAnalyzer(config.trajectory, config.motion)
         self.query_parser = QueryParser()
@@ -171,6 +172,19 @@ class STGraphMemory:
         # 5) 处理最后不足一个 buffer 的残留观测，并持久化向量存储。
         self.buffer_updater.flush(sample_id)
         self.store.save_sample(sample_id)
+
+        if self.config.debug.export_match_debug:
+            match_debug_path = self._sample_output_dir(sample_id) / self.config.debug.match_debug_filename
+            match_debug_records = self.immediate_updater.consume_match_debug_records()
+            dump_json(
+                match_debug_path,
+                {
+                    "sample_id": sample_id,
+                    "num_match_records": len(match_debug_records),
+                    "records": match_debug_records,
+                },
+            )
+            logger.info("Exported match debug records to %s", match_debug_path)
         
         # 5.5) 如果启用DAG，保存DAG状态并构建闭包检索索引
         if self.dag_manager:

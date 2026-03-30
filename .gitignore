@@ -3,3 +3,7 @@ data/
 design/
 telemem-main/
 docs/
+test/
+.vscode/
+.pytest_cache/
+.conda/

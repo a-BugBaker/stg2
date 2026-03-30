@@ -30,7 +30,7 @@ from collections import defaultdict
 from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, TYPE_CHECKING
 
 from .config import STGConfig
-from .entity_tracker import EntityTracker
+from .entity_tracker import EntityTracker, FrameAssociationResult
 from .event_generator import EventGenerator
 from .utils import (
     EmbeddingManager,
@@ -227,6 +227,7 @@ class ImmediateUpdater:
         # DAG组件（可选）
         self.dag_manager: Optional["DAGManager"] = None
         self.dag_event_generator: Optional["DAGEventGenerator"] = None
+        self._match_debug_records: List[Dict[str, Any]] = []
     
     def set_dag_components(
         self,
@@ -240,6 +241,48 @@ class ImmediateUpdater:
     def reset(self) -> None:
         """重置即时更新器状态（包括去抖动器）。"""
         self.debouncer.reset()
+        self._match_debug_records.clear()
+
+    def consume_match_debug_records(self) -> List[Dict[str, Any]]:
+        """读取并清空当前累计的匹配调试记录。"""
+        records = list(self._match_debug_records)
+        self._match_debug_records.clear()
+        return records
+
+    def _collect_match_debug(self, frame_index: int, associations: FrameAssociationResult) -> None:
+        """收集跨帧匹配调试信息（仅 matched）。"""
+        if not getattr(self.config.debug, "export_match_debug", False):
+            return
+
+        for match in associations.matched:
+            prev_obj = match.prev_snapshot.get("last_object", {})
+            prev_frame_index = int(match.prev_snapshot.get("last_frame", frame_index - 1))
+            curr_obj = match.curr_object or {}
+            self._match_debug_records.append(
+                {
+                    "entity_id": match.entity_id,
+                    "tag": str(match.prev_snapshot.get("tag", curr_obj.get("tag", ""))),
+                    "score": float(match.score),
+                    "iou": float(match.iou),
+                    "label_similarity": float(match.label_similarity),
+                    "frames": [
+                        {
+                            "frame_index": prev_frame_index,
+                            "idx": prev_obj.get("idx"),
+                            "label": prev_obj.get("label", match.prev_snapshot.get("label")),
+                            "attributes": prev_obj.get("attributes", []),
+                            "bbox": prev_obj.get("bbox", []),
+                        },
+                        {
+                            "frame_index": frame_index,
+                            "idx": curr_obj.get("idx"),
+                            "label": curr_obj.get("label", match.prev_snapshot.get("label")),
+                            "attributes": curr_obj.get("attributes", []),
+                            "bbox": curr_obj.get("bbox", []),
+                        },
+                    ],
+                }
+            )
 
     def _write_event(self, sample_id: str, event: Dict[str, Any]) -> None:
         """将事件摘要向量化并写入 events 分区。"""
@@ -305,6 +348,7 @@ class ImmediateUpdater:
         filtered_objects = filter_objects_by_score(objects, threshold=self.config.matching.detection_score_threshold)
         # 2) 执行跨帧关联，得到 matched/new/disappeared 三类结果。
         associations = self.tracker.process_frame(filtered_objects, frame_index)
+        self._collect_match_debug(frame_index, associations)
 
         # 3) 首帧特殊处理：生成场景初始化事件 + 新实体出现与状态记忆。
         if associations.is_first_frame:

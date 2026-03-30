@@ -1,3 +1,0 @@
-# Baseline RAG package
-
-

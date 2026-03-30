@@ -1,382 +1,104 @@
 # STG Reference v2
 
-`stg_reference_v2` 是一个可运行的 **STG（Spatio-Temporal Graph Memory，时空图记忆）** 原型系统，面向长视频、memory-first 的问答场景。
+中文 | [English](README.md)
 
-这个系统不是端到端视频模型，也不会训练新的神经网络。它的职责是：
+STG Reference v2 是一个可运行的时空图记忆（Spatio-Temporal Graph Memory, STG）原型，面向长视频的 memory-first 问答流程。
 
-1. 以逐帧 scene graph JSON 作为输入，
-2. 在离线阶段构建持久化的实体记忆和事件记忆，
-3. 导出结构化的 STG graph 和 entity registry，
-4. 在在线阶段检索结构化 evidence，用于下游 grounded QA，
-5. 在需要时把这些 evidence 传给任意 OpenAI-compatible LLM。
+这个项目重点不是端到端视频模型训练，而是可落地的记忆系统：
 
-当前实现的目标是：
+- 输入：逐帧 scene graph JSON。
+- 构建：持久化实体记忆、事件记忆和 DAG 状态。
+- 检索：返回结构化证据包，供下游推理使用。
+- 输出：可机器读取、可调试、可分析的产物文件。
 
-- 可在 CPU 上运行，
-- 模块化清晰，
-- 对缺失的重依赖具备较强的降级能力，
-- 适合作为算法系统原型，而不只是一个 demo 脚本。
+## 项目核心内容
 
-## 系统概览
+真正的核心价值集中在 [stg](stg) 目录：
 
-系统主要包含三条链路。
+- [stg/memory_manager.py](stg/memory_manager.py)：STGraphMemory 总控编排。
+- [stg/schema.py](stg/schema.py)：scene graph 严格校验与归一化。
+- [stg/entity_tracker.py](stg/entity_tracker.py)：IoU + 标签相似度 + 匈牙利匹配的跨帧跟踪。
+- [stg/dag_manager.py](stg/dag_manager.py)：DAG 节点/边管理与传递规约。
+- [stg/closure_retrieval.py](stg/closure_retrieval.py)：从种子节点到祖先闭包的因果检索。
+- [stg/vector_store.py](stg/vector_store.py)：支持可选 FAISS 的持久化向量分区存储。
+- [stg/config.py](stg/config.py)：embedding、匹配、缓冲、检索、DAG 的模块化配置体系。
 
-### 1. Build
+## 端到端流程
 
-从 scene graph 离线构建 memory：
+### 1. Build（离线构建）
 
-- scene graph 校验与归一化，
-- 跨帧实体关联，
-- 基于 `active / inactive / disappeared` 的生命周期管理，
-- 即时事件生成，
-- buffer 级摘要与交互事件生成，
-- 对事件记忆和实体状态记忆做向量化并存储，
-- 导出 `entity_registry.json` 和 `stg_graph.json`。
+- 归一化原始 scene graph 输入。
+- 进行跨帧实体关联，并维护生命周期：active / inactive / disappeared。
+- 生成即时事件与缓冲区事件。
+- 将事件/实体状态写入向量分区。
+- 持久化导出注册表、图结构和 DAG 状态。
 
-### 2. Query
+### 2. Retrieve（在线检索）
 
-结构化 evidence 检索：
+- 将自然语言问题解析为结构化查询提示。
+- 在启用 DAG 时走闭包检索路径。
+- 输出稳定、结构化的 evidence bundle，便于 QA/LLM 使用。
 
-- query 归一化，
-- subquery 分解，
-- entity / relation / temporal 提示词抽取，
-- 在事件记忆和实体记忆分区上做 dense retrieval，
-- symbolic / heuristic rerank，
-- 输出稳定的 evidence bundle，而不是只输出平铺文本。
+## 项目亮点
 
-### 3. LLM QA
+- 因果记忆图：采用 DAG 表达事件依赖，并通过传递规约保持最小因果骨架。
+- 闭包检索：不仅返回最相似节点，还补齐必要历史祖先，减少上下文断裂。
+- 稳健降级：缺少 sentence-transformers 或 FAISS 时可退化到轻量本地方案。
+- 产物可观测：每次构建都会导出可检查文件，便于定位问题和复现实验。
+- 架构可消融：通过配置开关可按模块做实验和能力对比。
 
-基于证据的答案生成：
-
-- 将 evidence bundle 转换成适合 LLM 使用的 JSON evidence，
-- 构建带 memory ID 的 grounded prompt，
-- 要求模型输出 JSON，并引用使用到的事件/实体 memory ID，
-- 允许模型明确返回 `insufficient evidence`。
-
-## 目录结构
+## 仓库结构
 
 ```text
 stg_reference_v2/
-├── README.md
-├── requirements.txt
-├── data/
-│   └── toy_scene_graphs.json
-├── experiments/
-│   └── EXPERIMENT_PLAN.md
-├── scripts/
-│   ├── build_stg.py
-│   ├── query_stg.py
-│   ├── llm_qa.py
-│   └── demo_minimal.py
-└── stg/
-    ├── __init__.py
-    ├── config.py
-    ├── utils.py
-    ├── schema.py
-    ├── entity_tracker.py
-    ├── event_generator.py
-    ├── motion_analyzer.py
-    ├── immediate_update.py
-    ├── buffer_update.py
-    ├── vector_store.py
-    ├── query_parser.py
-    ├── evidence_formatter.py
-    ├── llm_adapter.py
-    └── memory_manager.py
+├── stg/                    # 核心记忆引擎
+├── scripts/                # 构建/演示/测试辅助脚本
+├── data/                   # 示例 scene-graph 输入
+├── outputs/                # 构建产物输出目录
+├── test/                   # 端到端与模块测试
+├── docs/                   # 设计说明与测试文档
+└── telemem-main/           # 集成的 TeleMem 相关代码
 ```
 
-## 安装
+## 快速开始
+
+安装依赖：
 
 ```bash
-cd stg_reference_v2
 pip install -r requirements.txt
 ```
 
-系统支持平滑降级：
-
-- `sentence-transformers` 不可用时 -> 使用本地确定性的 `hashing` embedding
-- `faiss` 不可用时 -> 使用基于 NumPy 的内积检索
-
-如果你想保证完全本地可运行，建议使用 `--embedding_backend hashing`。
-
-## 输入 scene graph 契约
-
-build 阶段接受两种输入形式：
-
-- 顶层为 `{"frames": [...]}` 的 JSON 对象，
-- 或直接是 frame list `[...]`。
-
-每个归一化后的 frame 至少需要包含：
-
-- `frame_index`
-- `image_path`（可选）
-- `objects`
-
-每个 object 至少需要包含：
-
-- `tag`
-- `label`
-- `bbox` 或 `box`
-
-可选字段：
-
-- `score`
-- `attributes`
-- `relations`
-
-归一化规则：
-
-- `label`、`tag`、relation name 和 attribute 会被统一到稳定的文本形式
-- 如果存在 `subject_relations`、`object_relations` 和 `layer_mapping`，会被合并进 `relations`
-- 如果 schema 非法，会抛出清晰的校验错误，而不是静默失败
-
-### 最小输入示例
-
-```json
-{
-  "frames": [
-    {
-      "frame_index": 0,
-      "image_path": "frame_0000.jpg",
-      "objects": [
-        {
-          "tag": "player_1",
-          "label": "person",
-          "bbox": [20, 120, 70, 220],
-          "score": 0.98,
-          "attributes": ["standing"],
-          "relations": [
-            {"name": "near", "object": "basketball_1"}
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-## 事件与记忆类型
-
-### 事件类型
-
-当前系统会生成以下事件类型：
-
-- `initial_scene`
-- `entity_appeared`
-- `entity_disappeared`
-- `entity_moved`
-- `relation_changed`
-- `attribute_changed`
-- `trajectory_summary`
-- `interaction`
-
-每条事件记忆都包含结构化 metadata，至少包括：
-
-- `memory_id`
-- `memory_type="event"`
-- `event_type`
-- `frame_start`
-- `frame_end`
-- `entities`
-- `entity_tags`
-- `entity_labels`
-- `summary`
-- `confidence`
-- `source`
-- `details`
-
-### Entity-state memory
-
-每条实体状态记忆至少包含：
-
-- `memory_id`
-- `memory_type="entity_state"`
-- `entity_id`
-- `tag`
-- `label`
-- `frame_index`
-- `frame_start`
-- `frame_end`
-- `bbox`
-- `attributes`
-- `relations`
-- `total_displacement`
-- `description`
-- `confidence`
-- `status`
-
-## Tracking 语义
-
-实体追踪保留了当前的 `IoU + label similarity + Hungarian` 主体结构，并补充了更完整的生命周期管理，以支撑真正的 memory 构建。
-
-实体状态含义如下：
-
-- `active`：当前帧匹配成功
-- `inactive`：当前暂时未匹配，但仍处于 `miss_tolerance` 允许范围内
-- `disappeared`：连续未匹配时间超过 `miss_tolerance`
-
-如果某个实体短暂漏检后，又在允许的 miss 窗口内重新匹配成功，它会被重新激活，而不是被当成一个新实体。
-
-## 最小端到端 demo
+用样例 scene graph 构建 STG 记忆：
 
 ```bash
-cd stg_reference_v2
-PYTHONPATH=. python scripts/demo_minimal.py
+python scripts/build_stg.py \
+  --scene_graph_path data/less_move_2frames.json \
+  --sample_id less_move_2frames_debug \
+  --output_dir outputs \
+  --embedding_backend sentence_transformers \
+  --embedding_model sentence-transformers/all-MiniLM-L6-v2 \
+  --neo4j_store_content \
+  --clear_neo4j_sample_before_build \
+  --export_match_debug
 ```
 
-这个 demo 会：
-
-- 从 `data/toy_scene_graphs.json` 构建 STG memory，
-- 打印 build 统计信息，
-- 跑几个示例 query，
-- 打印 retrieval pipeline 返回的 evidence 文本。
-
-## 构建 STG memory
+或者直接运行最小演示：
 
 ```bash
-cd stg_reference_v2
-PYTHONPATH=. python scripts/build_stg.py \
-  --scene_graph_path data/toy_scene_graphs.json \
-  --sample_id toy_video \
-  --output_dir ./outputs \
-  --embedding_backend hashing
+python scripts/demo_minimal.py
 ```
 
-预期输出：
+## 主要输出文件
 
-- `outputs/toy_video/entity_registry.json`
-- `outputs/toy_video/stg_graph.json`
-- `outputs/store/toy_video/events.*`
-- `outputs/store/toy_video/entities.*`
+构建完成后，核心产物位于 outputs/sample_id 下：
 
-`build_stg.py` 会打印如下摘要信息：
+- entity_registry.json：实体状态与生命周期历史。
+- stg_graph.json：用于分析的图结构导出。
+- dag_state.json：DAG 运行态序列化结果。
+- debug_entity_matches.json：可选的跨帧匹配调试记录。
+- outputs/store/sample_id/：事件与实体记忆向量分区文件。
 
-- `num_frames`
-- `num_entities`
-- `num_event_memories`
-- `num_entity_memories`
-- `num_graph_nodes`
-- `num_graph_edges`
-
-## 查询结构化 evidence
-
-```bash
-cd stg_reference_v2
-PYTHONPATH=. python scripts/query_stg.py \
-  --sample_id toy_video \
-  --query "What happened to the basketball?" \
-  --output_dir ./outputs \
-  --embedding_backend hashing \
-  --json
-```
-
-如果不加 `--json`，脚本会输出紧凑的人类可读 evidence 视图。
-
-如果加上 `--json`，它会返回结构化 evidence bundle，包含：
-
-- `query`
-- `normalized_query`
-- `subqueries`
-- `query_hints`
-- `events`
-- `entities`
-- `summary_stats`
-- `evidence_text`
-- `evidence_json`
-
-当前 retrieval pipeline 组合了：
-
-- query 归一化，
-- subquery 分解，
-- 在事件和实体两个 memory partition 上做 dense retrieval，
-- 基于 entity / relation / temporal hints 的 query-aware rerank，
-- 稳定的 evidence formatting。
-
-## Grounded LLM QA
-
-```bash
-cd stg_reference_v2
-PYTHONPATH=. python scripts/llm_qa.py \
-  --sample_id toy_video \
-  --query "What happened to the basketball?" \
-  --output_dir ./outputs \
-  --embedding_backend hashing \
-  --api_base "https://api.openai.com/v1" \
-  --api_key "YOUR_KEY" \
-  --model "gpt-4o-mini"
-```
-
-如果只想在本地检查 evidence 和 prompt，而不真正调用 API：
-
-```bash
-cd stg_reference_v2
-PYTHONPATH=. python scripts/llm_qa.py \
-  --sample_id toy_video \
-  --query "What happened to the basketball?" \
-  --output_dir ./outputs \
-  --embedding_backend hashing \
-  --dry_run
-```
-
-这个 grounded QA 脚本会：
-
-- 检索结构化 evidence，
-- 把 evidence 格式化成适合 LLM 使用的形式，
-- 构建 grounded prompt，
-- 要求模型输出如下 schema 的 JSON：
-
-```json
-{
-  "answer": "string",
-  "sufficient_evidence": true,
-  "used_event_ids": ["memory_id_1"],
-  "used_entity_ids": ["memory_id_2"],
-  "short_rationale": "string"
-}
-```
-
-如果证据不足，模型可以明确返回 `sufficient_evidence=false`。
-
-## 输出产物
-
-### `entity_registry.json`
-
-持久化导出的实体级状态文件。每条实体记录包含：
-
-- `entity_id`
-- `tag`
-- `label`
-- `first_frame`
-- `last_frame`
-- `first_bbox`
-- `last_bbox`
-- `trajectory`
-- `attributes_history`
-- `relations_history`
-- `status_history`
-- `state`
-- `missed_frames`
-
-### `stg_graph.json`
-
-面向后续分析的图结构导出。当前包含：
-
-- entity nodes
-- event nodes
-- `event_to_entity_association` edges
-- `temporal_entity_chain` edges
-- `temporal_adjacency` edges
-
-### `outputs/store/<sample_id>/`
-
-向量存储相关产物，包含：
-
-- `events`
-- `entities`
-
-具体文件形式取决于后端，可能包括 `.npy`、`.json` 和 `.index`。
-
-## 代码调用方式
+## 代码调用示例
 
 ```python
 from stg import STGConfig, STGraphMemory
@@ -385,38 +107,17 @@ config = STGConfig(output_dir="./outputs")
 config.embedding.backend = "hashing"
 
 stg = STGraphMemory(config)
+stg.build("data/less_move_2frames.json", sample_id="demo_sample")
 
-stg.build("data/toy_scene_graphs.json", sample_id="toy_video")
-bundle = stg.retrieve_evidence("What happened to the basketball?", sample_id="toy_video")
+bundle = stg.retrieve_evidence(
+    query="What happened around man3?",
+    sample_id="demo_sample",
+)
+
 llm_evidence = stg.format_evidence_for_llm(bundle)
-prompts = stg.build_grounded_prompt("What happened to the basketball?", llm_evidence)
+prompt_parts = stg.build_grounded_prompt("What happened around man3?", llm_evidence)
 ```
 
-## 实现要点
+## 当前定位
 
-- 这个系统是 memory framework，不是训练流水线。
-- retrieval threshold 和 tracking threshold 被有意分开设计。
-- query 结果不再只是平铺文本，而是结构化 evidence bundle。
-- LLM QA 基于 evidence JSON 做 grounding，而不是直接喂一段拼接的 debug 文本。
-- graph export 是可分析的图结构，而不只是事件摘要列表。
-
-## 当前限制
-
-现在它已经是一个完整的系统原型，但仍然是研究型原型。
-
-已知限制：
-
-- entity association 仍然是启发式的，还没有 appearance-aware 能力
-- relation 语义质量依赖上游 scene graph 质量
-- retrieval rerank 目前是 symbolic / heuristic，而不是学习式 reranker
-- buffer 级摘要逻辑刻意保持轻量
-- 这个包里不包含 benchmark / evaluation / experiment pipeline
-- 按设计也不包含训练代码
-
-## 推荐使用流程
-
-1. 先确认你的 scene graph JSON 满足文档中的输入契约。
-2. 运行 `build_stg.py` 为每个 sample 构建 memory。
-3. 调试 tracking 或 event logic 时，优先检查 `entity_registry.json` 和 `stg_graph.json`。
-4. 用 `query_stg.py --json` 查看结构化 evidence 的质量。
-5. 在接入真实 LLM API 前，先用 `llm_qa.py --dry_run` 检查 prompt 和证据组织是否合理。
+该仓库目前是一个偏研究工程化的高可读原型，强调可解释、可扩展、可调试的记忆检索流程。

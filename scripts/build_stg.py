@@ -11,6 +11,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from stg import STGConfig, STGraphMemory
+from stg.config import EmbeddingConfig
 
 
 def main() -> None:
@@ -36,6 +37,23 @@ def main() -> None:
         type=int,
         default=0,
         help="Embedding dimension override. 0 means auto by backend/model.",
+    )
+    parser.add_argument(
+        "--matching_embedding_backend",
+        default=None,
+        choices=["auto", "sentence_transformers", "hashing"],
+        help="Optional embedding backend for entity matching only. Defaults to --embedding_backend.",
+    )
+    parser.add_argument(
+        "--matching_embedding_model",
+        default=None,
+        help="Optional sentence-transformers model for entity matching only.",
+    )
+    parser.add_argument(
+        "--matching_embedding_dim",
+        type=int,
+        default=0,
+        help="Optional embedding dim for entity matching only. 0 means follow matching backend/model.",
     )
     parser.add_argument(
         "--detection_score_threshold",
@@ -65,6 +83,16 @@ def main() -> None:
         action="store_true",
         help="Clear Neo4j DAGNode data for the same sample_id before build.",
     )
+    parser.add_argument(
+        "--export_match_debug",
+        action="store_true",
+        help="Export matched-entity cross-frame debug records to JSON.",
+    )
+    parser.add_argument(
+        "--match_debug_filename",
+        default="debug_entity_matches.json",
+        help="Filename for matched-entity debug JSON under outputs/<sample_id>/.",
+    )
     parser.set_defaults(neo4j_store_content=True)
     args = parser.parse_args()
 
@@ -79,6 +107,24 @@ def main() -> None:
             config.embedding.dim = 384
     elif args.embedding_dim > 0:
         config.embedding.dim = args.embedding_dim
+
+    # 匹配专用嵌入配置（可选，不传则回退主 embedding 配置）。
+    matching_backend = args.matching_embedding_backend or config.embedding.backend
+    matching_model = args.matching_embedding_model or config.embedding.model_name
+    matching_dim = args.matching_embedding_dim if args.matching_embedding_dim > 0 else config.embedding.dim
+    if args.matching_embedding_dim <= 0 and matching_backend == "sentence_transformers":
+        if "all-minilm-l6-v2" in str(matching_model).lower():
+            matching_dim = 384
+    config.matching_embedding = EmbeddingConfig(
+        backend=matching_backend,
+        model_name=matching_model,
+        dim=matching_dim,
+        normalize=config.embedding.normalize,
+        batch_size=config.embedding.batch_size,
+        device=config.embedding.device,
+        random_seed=config.embedding.random_seed,
+    )
+
     if args.detection_score_threshold is not None:
         config.matching.detection_score_threshold = float(args.detection_score_threshold)
     config.dag.allow_memory_fallback = args.allow_neo4j_fallback
@@ -95,6 +141,8 @@ def main() -> None:
     config.dag.enable_occlusion = True
     config.dag.enable_entity_disappeared = True
     config.dag.enable_periodic_description = True
+    config.debug.export_match_debug = args.export_match_debug
+    config.debug.match_debug_filename = args.match_debug_filename
     stg = STGraphMemory(config)
     # 3) 执行构建流程并获取统计信息。
     stats = stg.build(scene_graph_path=args.scene_graph_path, sample_id=args.sample_id)

@@ -70,7 +70,7 @@ class EntityMatchingConfig:
     """
 
     detection_score_threshold: float = 0.0
-    iou_weight: float = 0.50
+    iou_weight: float = 0.60
     combined_threshold: float = 0.40
     label_threshold: float = 0.35
     min_iou_threshold: float = 0.01
@@ -153,6 +153,14 @@ class SearchConfig:
 
 
 @dataclass
+class DebugConfig:
+    """调试导出配置。"""
+
+    export_match_debug: bool = False
+    match_debug_filename: str = "debug_entity_matches.json"
+
+
+@dataclass
 class DAGConfig:
     """DAG（有向无环图）相关配置。
     
@@ -229,17 +237,30 @@ class STGConfig:
     store_dir: Optional[str] = None
     clear_existing_sample: bool = True
     embedding: EmbeddingConfig = field(default_factory=EmbeddingConfig)
+    matching_embedding: Optional[EmbeddingConfig] = None
     matching: EntityMatchingConfig = field(default_factory=EntityMatchingConfig)
     trajectory: TrajectoryConfig = field(default_factory=TrajectoryConfig)
     buffer: BufferConfig = field(default_factory=BufferConfig)
     motion: MotionConfig = field(default_factory=MotionConfig)
     search: SearchConfig = field(default_factory=SearchConfig)
     dag: DAGConfig = field(default_factory=DAGConfig)
+    debug: DebugConfig = field(default_factory=DebugConfig)
 
     def __post_init__(self) -> None:
         # 未显式指定 store_dir 时，默认放到 output_dir/store。
         if self.store_dir is None:
             self.store_dir = str(Path(self.output_dir) / "store")
+        # 未显式指定匹配嵌入配置时，默认与检索嵌入配置保持一致。
+        if self.matching_embedding is None:
+            self.matching_embedding = EmbeddingConfig(
+                backend=self.embedding.backend,
+                model_name=self.embedding.model_name,
+                dim=self.embedding.dim,
+                normalize=self.embedding.normalize,
+                batch_size=self.embedding.batch_size,
+                device=self.embedding.device,
+                random_seed=self.embedding.random_seed,
+            )
 
     @property
     def output_path(self) -> Path:
